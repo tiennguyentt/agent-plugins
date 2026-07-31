@@ -17,6 +17,14 @@ For detect requests, make sure the response names each pattern found with a quot
 9. Does the edit keep useful edge and preserve structure unless the structure was hurting the piece?
 10. Are genuinely tangled sentences fixed while clear spoken cadence, fragments, and changes in pace remain intact?
 
+## Sentence and paragraph length
+
+1. Was `prose-metrics.py` actually run on the edited draft, with its numbers reported?
+2. Is the median sentence 20 words or fewer and the 90th percentile 40 or fewer?
+3. Is every sentence 45 words or fewer, exempting quotes, code, table cells, headings, and one-line definitions?
+4. Is every paragraph 4 sentences or fewer and 100 words or fewer?
+5. Does the draft still vary its sentence length, rather than trading long sentences for a run of short ones?
+
 ## Words to cut
 
 1. Are banned words, filler phrases, often-empty adverbs, and inflated claims removed unless quoted as examples?

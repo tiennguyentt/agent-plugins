@@ -19,7 +19,7 @@
     {
       "name": "agent-builder",
       "source": "./plugins/agent-plugins/agent-builder",
-      "version": "2.2.0",
+      "version": "2.3.0",
       "description": "[tien-os] Create, evaluate, and package independent one-agent-with-licensed-skills plugins."
     }
   ],

@@ -42,6 +42,39 @@ If the goal is unclear, ask what the reader should think, feel, or do after read
 - **Preserve useful edge and character.** Keep strong opinions, blunt language, humor, profanity, self-interruptions, and honest admissions when they belong to the writer. Don't replace them with safer or more professional wording.
 - **Keep structure unless it's hurting the piece.** Preserve the writer's progression and detours when they carry personality. If you reorganize, say why in the What changed section.
 
+## Sentence and paragraph length
+
+The rules above say "split sentences when they are hard to follow." That is a judgement call, and
+judgement calls drift. These are the numbers.
+
+- **Median sentence: 20 words or fewer. 90th percentile: 40 or fewer.**
+- **No sentence over 45 words.** This one is hard. Split it or cut it.
+- **Paragraph: 4 sentences or fewer, and 100 words or fewer.**
+- **One sentence carries one claim.** Two or more clauses chained with *and*, *but*, *which*, a
+  semicolon, or a dash usually means two sentences wearing one coat.
+
+Exempt: quoted material, code, table cells, headings, an enumerated list of terms, and a defined
+term's one-line definition.
+
+**The cap is on the long tail, not a push toward short.** Brevity comes from dropping detail, never
+from fragmenting sentences. A page of eight-word sentences fails *Dramatic fragmentation* and
+*Robotic rhythm* below, and it fails harder than a long sentence does. Vary the length on purpose.
+
+Measure instead of guessing:
+
+```
+python3 references/prose-metrics.py FILE
+```
+
+It reports median, p90, max, every sentence over 45 words, and every fat paragraph, for `.md`,
+`.html`, and plain text. Exit 1 when a hard limit breaks. It counts words and nothing else, so a
+draft can pass every number here and still read like a machine wrote it. The rest of this skill is
+what catches that.
+
+*The numbers came from measuring tien-os on 2026-07-31, not from a style guide.* This skill scored
+median 13 and p90 23, and it reads fine. `CLAUDE.md` scored median 24 and p90 53. The two files Tiên
+opens most often were the two worst.
+
 ## Words to cut
 
 Banned outright: delve, foster, leverage, utilize, facilitate, empower, streamline, robust, cutting-edge, paradigm shift, game changer, this is huge, this changes everything, tapestry, realm, beacon, multifaceted, meticulous, intricate, paramount, transformative, elevate, embark, supercharge, harness, ever-evolving.
@@ -92,5 +125,6 @@ Often-empty phrases: it's worth noting, it's important to note, at the end of th
 2. Identify the core point and 3-5 voice signals to preserve, such as vocabulary, cadence, bluntness, humor, uncertainty, or digressions. Keep this note internal. If you cannot identify the core point, ask the user.
 3. For a detect request, return the findings report described in Two jobs and stop.
 4. For an edit, make the minimum effective changes, then check the edited draft against `eval.md` yourself.
-5. If any check fails, fix the draft and run the checks again.
-6. Output the full edited draft and a short **What changed** section.
+5. Run `references/prose-metrics.py` on the edited draft and report the numbers. A length rule you did not measure is a length rule you did not apply.
+6. If any check fails, fix the draft and run the checks again.
+7. Output the full edited draft and a short **What changed** section.

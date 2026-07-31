@@ -18,9 +18,17 @@ this repo and outside git. A wipe of the host would have left that rule pointing
   *"Install this skill globally"* describes the upstream install route and does not apply here,
   because the skill now ships inside this package.
 
-Only the `description:` line in `SKILL.md` was modified, to carry the `[tien-os] ` prefix every
-installed skill in this package uses so it is identifiable in the selector. The procedure itself is
-unchanged.
+**What tien-os changed, and when.** MIT permits modification; this list exists so a reader can tell
+the upstream author's work from Tiên's.
+
+1. **2026-07-30 — the `description:` line in `SKILL.md`**, to carry the `[tien-os] ` prefix every
+   installed skill in this package uses so it is identifiable in the selector.
+2. **2026-07-31 — a "Sentence and paragraph length" section in `SKILL.md`**, five matching checks in
+   `references/eval.md`, and `references/prose-metrics.py`. Tiên asked for a length standard after
+   reading drafts whose sentences ran long. The numbers were set by measuring this repo, not
+   imported from upstream. The script is Tiên's work, MIT under the repository `LICENSE`.
+
+Every other rule, word list and pattern in `SKILL.md` is the upstream author's, unchanged.
 
 **The upstream notice, verbatim** (fetched from
 `https://raw.githubusercontent.com/petergyang/no-ai-slop/main/LICENSE` on 2026-07-31 — MIT requires
