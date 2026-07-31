@@ -1,0 +1,28 @@
+{
+  "name": "agent-builder",
+  "version": "2.2.0",
+  "description": "[tien-os] Creates, evaluates, and packages confirmed capabilities as one-agent-with-licensed-skills plugins.",
+  "author": {
+    "name": "Tien Nguyen"
+  },
+  "license": "MIT",
+  "keywords": [
+    "personal-os",
+    "capability-builder",
+    "workflow"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "agent-builder",
+    "shortDescription": "[tien-os] Build capabilities from confirmed specs.",
+    "longDescription": "A dual-host agent plugin for creating, evaluating, and packaging narrow, auditable capabilities from confirmed tien-os specifications.",
+    "developerName": "Tien Nguyen",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Create a capability from its confirmed spec."
+    ]
+  }
+}

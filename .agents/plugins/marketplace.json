@@ -29,6 +29,19 @@
       },
       "category": "Productivity",
       "version": "1.0.0"
+    },
+    {
+      "name": "agent-builder",
+      "version": "2.2.0",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-plugins/agent-builder"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }
