@@ -1,0 +1,20 @@
+{
+  "name": "tien-os-marketplace",
+  "owner": {
+    "name": "Tien Nguyen"
+  },
+  "plugins": [
+    {
+      "name": "unknown-remover",
+      "source": "./plugins/agent-plugins/unknown-remover",
+      "description": "[tien-os] Classify the unknown, choose the artifact form, and write one chain document at a time.",
+      "version": "1.1.0"
+    },
+    {
+      "name": "eval-writer",
+      "source": "./plugins/agent-plugins/eval-writer",
+      "description": "[tien-os] Defines measurable success criteria and designs evaluations for any LLM-based task, product, feature, or piece of logic.",
+      "version": "1.0.0"
+    }
+  ]
+}
