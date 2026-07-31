@@ -16,5 +16,6 @@
       "description": "[tien-os] Defines measurable success criteria and designs evaluations for any LLM-based task, product, feature, or piece of logic.",
       "version": "1.0.0"
     }
-  ]
+  ],
+  "description": "Two standalone agent plugins for Claude Code and Codex: unknown-remover (planning by unknown-removal) and eval-writer (success criteria and evaluations)."
 }
