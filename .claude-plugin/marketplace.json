@@ -23,5 +23,5 @@
       "description": "[tien-os] Create, evaluate, and package independent one-agent-with-licensed-skills plugins."
     }
   ],
-  "description": "Two standalone agent plugins for Claude Code and Codex: unknown-remover (planning by unknown-removal) and eval-writer (success criteria and evaluations)."
+  "description": "Three agent plugins for Claude Code and Codex: unknown-remover (planning by unknown-removal), eval-writer (success criteria and evaluations), and agent-builder (creates, evaluates, and packages capabilities)."
 }
