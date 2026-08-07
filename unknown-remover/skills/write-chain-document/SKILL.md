@@ -344,7 +344,7 @@ is kept for the documents already written in it — **it is not what you reach f
 
 | Theme | Where | When |
 |---|---|---|
-| `glass` — v2, default | `interaction-plane/themes/glass.css` | every new document. Copy its `:root` block (and the four `@media` blocks under it) inline, and set `data-theme="glass"` on `<html>` |
+| `glass` — v2, default | `${CLAUDE_PLUGIN_ROOT}/skills/write-chain-document/references/glass.css` — **bundled, so it works with no workspace present**; identical to `interaction-plane/themes/glass.css` inside tien-os | every new document. Copy its `:root` block (and the four `@media` blocks under it) inline, and set `data-theme="glass"` on `<html>` |
 | `thariq` — v1, legacy | `interaction-plane/DESIGN.md` §§1–7 | only when Tiên names it. Documents already on it are not converted |
 
 **The attribute is the theme's declaration, and since 2026-08-03 it selects nothing** — the contrast checker was

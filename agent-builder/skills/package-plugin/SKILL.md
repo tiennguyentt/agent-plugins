@@ -159,6 +159,15 @@ mirror silently went stale the first time, within an hour, when this very file c
 Then `claude plugin validate` the marketplace and each plugin at its new path. The script
 never runs git. **A push to this repo is public: Tiên's alone.**
 
+**One release, one commit, version first.** The mirror is tagged with repo-level semver
+(`v1.0.0` … `v2.0.0`), and its commit subject leads with that version:
+`v2.0.0 — Agent Plugins 1.0.0, flat layout, new repo name`. GitHub prints the last commit
+touching each file beside it, so a narrative subject fills that column with prose that says
+nothing about what changed — Tiên rejected exactly that view on 2026-08-07. Squash a
+release into one commit, put the per-plugin version moves in the body as a table, mark a
+changed install command or layout `BREAKING`, then tag. One commit touching everything also
+makes the file listing legible in one read.
+
 ## What you never do
 
 - Never add a filler skill to satisfy a folder count.

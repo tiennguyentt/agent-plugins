@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "eval-writer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "[tien-os] Defines measurable success criteria and designs evaluations for any LLM-based task, product, feature, or piece of logic.",
   "author": {
     "name": "Tien Nguyen",

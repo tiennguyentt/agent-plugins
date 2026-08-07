@@ -93,6 +93,22 @@ This template is only for the reference architecture used by
 Do not merge several recurring jobs into one large `SKILL.md` merely because one
 agent uses them. A skill remains independently routable, testable, and reusable.
 
+### Boundaries against the plugins that already exist
+
+Before writing any description, read the other installed plugins' skill and agent
+descriptions and answer:
+
+- **Which existing skill could also plausibly answer this plugin's requests?**
+- **What single distinction separates them?**
+- **Where is that distinction written — in both descriptions?**
+
+A cross-plugin collision is silent: nothing errors, two skills simply both look right and
+the router picks one. Audited 2026-08-07, twelve skills across four plugins held exactly
+**one** cross-plugin reference in total, so four pairs collided unrouted. Every new plugin
+adds a boundary to every existing one; `control-plane/templates/skill-spec.md` carries the
+rule for the description field itself. This is convention, not a check — no automated rule
+can tell a real distinction from a forced one.
+
 ## 3. Control-plane and installed trees
 
 Include only components the spec licenses; do not create empty placeholder

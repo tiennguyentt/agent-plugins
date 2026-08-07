@@ -36,8 +36,14 @@ and points at exactly what to do next.
 
 If the request names a file — a spec, an existing eval, a piece of code — open it before reasoning
 about it: `ls <path>` first, and say so and stop if it is missing. If the subject is a tien-os
-capability, you will need `control-plane/templates/skill-spec.md` and
-`control-plane/templates/agent-spec.md` in step 2 below; confirm both resolve before you get there.
+capability, you will need `skill-spec.md` and `agent-spec.md` in step 2 below.
+
+**Both travel with this plugin.** Read them from
+`${CLAUDE_PLUGIN_ROOT}/skills/write-success-criteria/references/forms/` — byte-identical copies of
+`control-plane/templates/`, kept honest by a drift check (`evaluation-plane/checks/check.py`
+check 15) that runs inside the workspace that produces this plugin, not inside the plugin. Inside
+the tien-os workspace, `control-plane/templates/` is the same file and either path is correct.
+Nothing here requires the workspace to be present.
 
 ## What you produce
 

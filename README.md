@@ -54,7 +54,7 @@ It never pushes without asking. Every time.
 
 *Skills:* `write-scenarios` · `implement-behavior` · `gate-commit`
 
-### unknown-remover `1.2.0`
+### unknown-remover `1.3.0`
 
 **For when you don't know where to start.** It names which kind of unknown you're actually
 holding, picks the document that retires it, and writes exactly one — never a stack of
@@ -64,7 +64,7 @@ good looks like.
 *Skills:* `classify-unknown` · `choose-artifact-form` · `discover-anatomy` ·
 `write-chain-document`
 
-### eval-writer `1.1.0`
+### eval-writer `1.2.0`
 
 **"Is this LLM feature good?" — answered properly.** Turns a vague sense of quality into
 measurable criteria, an evaluation design, real test cases, and a recommendation on how to
@@ -73,7 +73,7 @@ invent a number — it hands you a discovery kit and says so.
 
 *Skills:* `write-success-criteria`
 
-### agent-builder `2.4.0`
+### agent-builder `2.5.0`
 
 **Capabilities that stay governed.** Checks whether your request needs an agent at all —
 most don't — then writes the specs, the skill files, and an evaluation skeleton. It builds
@@ -83,16 +83,15 @@ drafts and never grants itself autonomy.
 
 ---
 
-## Before you install
+## Works in your repo, not just ours
 
-**`behavior-implementer` works in any repository.** It carries every rule it applies and
-detects your project's own test runner, linters, and coverage tools rather than assuming
-them.
+**All four run anywhere.** Each carries the files it needs — the spec forms, the theme, the
+31 worked examples — inside the package. Nothing asks you to clone a workspace first.
 
-**The other three read files from the TienOS workspace** — templates, design tokens,
-evaluation routes. They install anywhere, but outside that workspace they will stop and
-name the file they're missing instead of guessing at it. If you want them fully portable,
-that's a fair thing to open an issue about.
+`agent-builder` and `unknown-remover` will *also* pick up a TienOS checkout's templates and
+records if they happen to find one, and quietly skip them if they don't. What deliberately does
+not ship is TienOS's own law and evaluation routes: those are the rules of one workspace, and
+handing you someone else's rules would be worse than shipping nothing.
 
 ## What TienOS believes, and what these inherit
 
@@ -128,10 +127,39 @@ instead of a badge, here is where each one honestly stands.
 | `eval-writer` | 17 test cases written; none run yet. |
 | `behavior-implementer` | The newest. Used daily; its own test cases aren't written yet. |
 
+That table is the product working. These plugins refuse to report a check they didn't run —
+and the rule doesn't get suspended for their own README. If you'd rather have a green badge
+than a true one, this isn't the toolkit for you.
+
 **Both hosts.** All four ship a Claude Code manifest and a Codex manifest, and read the same
 skill files, so a procedure behaves the same on either. On Codex we've installed and used
 `unknown-remover` so far; the other three are packaged and catalogued but not yet put
 through a Codex session.
+
+## Fork it — it's all just Markdown
+
+No build step, no SDK, nothing to compile. A plugin is a folder of text: `SKILL.md` is the
+procedure the agent follows, `rubric.md` is the standard a separate reviewer grades it
+against. You can read every rule these apply in about ten minutes, and change any of them
+with a text editor.
+
+Worth forking for:
+
+- **Your definition of done.** `behavior-implementer/skills/gate-commit/SKILL.md` is the
+  commit gate. Move the coverage target, add your linter, delete a check you don't run.
+- **Your house style.** `unknown-remover` writes from a five-document chain and ships 31
+  worked examples. Swap in your own and it writes like your team does.
+- **Your review bar.** Every `rubric.md` is a file, not a prompt buried in code — which is
+  exactly what makes a cheaper, faster model viable as the reviewer.
+
+```
+git clone https://github.com/tiennguyentt/agent-plugins
+/plugin marketplace add /full/path/to/agent-plugins
+```
+
+A marketplace can be added from a directory, so your fork installs exactly the way this repo
+does — no republishing, no waiting on us to merge. That's not a theory: it's how these are
+loaded while they're being built.
 
 ## What's in here
 
@@ -184,6 +212,16 @@ Apache-2.0, from the [Agent Plugins project](https://github.com/agentplugins/age
 
 ## Where these come from
 
-TienOS is built and used daily as a private workspace. These four plugins are published
-from it, and changes flow one way — from there to here. This repository is the consumer
-surface: plugins and their licenses, no workspace state, no internal run records.
+TienOS is a private workspace where agent teams plan, build and check their own work with
+every step visible. These four plugins are the part of it that stands on its own, and
+**this repository is where they are maintained** — edits land here directly. What stays
+behind is workspace state and internal run records, nothing you'd want in your repo anyway.
+
+## Found something wrong?
+
+[Open an issue.](https://github.com/tiennguyentt/agent-plugins/issues) The most useful ones
+name the file and quote what it told you to do — these are procedures, so a bad instruction
+is a reproducible bug, not a matter of taste.
+
+Pull requests are welcome on any of the four. If you fork one and bend it to your team, that
+counts as it working; if you send the change back, everyone else gets it too.

@@ -3,10 +3,12 @@
 One independent agent plugin in the `tien-os` marketplace:
 
 ```text
-Distribution mode: repo-bound
+Distribution mode: dual
+Standalone entry: `write-success-criteria` runs on any LLM-based task, product or feature using its two bundled forms; no workspace required
 Portable core: `skills/`
 Portable entry skill: `write-success-criteria`
-Runtime dependencies: `control-plane/templates/skill-spec.md` §7, `control-plane/templates/agent-spec.md` §10
+Bundled equivalents: `control-plane/templates/skill-spec.md` -> `skills/write-success-criteria/references/forms/skill-spec.md`, `control-plane/templates/agent-spec.md` -> `skills/write-success-criteria/references/forms/agent-spec.md`
+Workspace-mode extras: `evaluation-plane/`
 Codex project agent: not licensed
 ```
 
@@ -40,9 +42,11 @@ when the manifests, the entry skill, or the routes drift apart.
 **What is not measured says so.** The golden set holds 17 cases and **none of them has run** —
 recorded as a skeleton, never reported as a pass.
 
-**Repo-bound, and it says so rather than pretending.** The declaration above names the two
-`control-plane/templates/` sections the skill reads when its subject is a tien-os capability.
-It installs anywhere; it stops with an explicit message when a named dependency is missing.
+**Dual, and the common case needs nothing.** Designing an evaluation for any LLM-based task,
+product or feature requires no workspace at all. The two `control-plane/templates/` sections the
+skill reads when its subject is specifically a tien-os capability now travel with it, bundled at
+`skills/write-success-criteria/references/forms/` and compared to their source on every check run
+(check 15). This block said "repo-bound" until 2026-08-07, when those two files were vendored.
 
 ## Package format
 

@@ -1,0 +1,380 @@
+/*
+  tien-os · glass theme · token layer
+  Source of authority: archive-v1/artifact-plane/workspace/pre-implementation/2026-07-30-spec-glass-theme.html
+  (confirmed 2026-08-01). Every value below traces to a section of that spec, cited in comments
+  as §N. This file is tokens only — §11 step 2's acceptance test: "Every token from §§4–7 as
+  custom properties, nothing else. the file has no selectors other than :root and the three §9
+  media blocks." A fourth media block (prefers-reduced-motion) is added beyond those three
+  because §7's drift constraint 3 requires the drift to die under it; it still uses only :root
+  custom-property redeclaration, no component selector.
+
+  This theme is a SIBLING, not the default. interaction-plane/DESIGN.md (thariq) stays default.
+  See interaction-plane/themes/README.md for how a document opts in, and for what this theme does
+  not own (document type, features, closing block — chain.md §4 governs those).
+
+  Naming scheme used throughout: --g-<group>-<name>[-<subproperty>]. Colour, radius and spacing
+  tokens carry no subproperty (one value each). Type-ladder tokens are
+  --g-type-<row>-size / -weight / -lh / -tracking, one quartet per §5 row.
+*/
+
+:root {
+
+  /* ---------------------------------------------------------------------
+     §4 — colour, 15 tokens. Source column from the spec's own table:
+     3 are "filled" (chosen to Apple's taste, no ingested counterpart) —
+     --g-primary-text, --g-keep, --g-callout. The other 12 are "ingested"
+     from the Apple design-token ingestion.
+
+     The spec disagrees with itself here and this file follows the table.
+     §4's opening line says "except the five marked filled"
+     (2026-07-30-spec-glass-theme.html:809), but the table below it marks
+     exactly three (:820, :823, :824). Counted 2026-08-01. Three is what
+     ships; the "five" is a stale count from the predecessor exploration
+     document, which had five slots with no ingested counterpart before
+     two of them were dropped.
+     --------------------------------------------------------------------- */
+  --g-ink:               #1d1d1f;  /* ingested — all body text and headings on light */
+  --g-ink-80:            #333333;  /* ingested — secondary text */
+  --g-ink-48:            #7a7a7a;  /* ingested — disabled text, legal fine print */
+  --g-on-dark:           #ffffff;  /* ingested — text on dark surfaces */
+  --g-muted-on-dark:     #cccccc;  /* ingested — secondary copy on dark */
+  --g-primary:           #0a7cff;  /* ingested — the single interactive colour.
+                                      CHANGED 2026-08-01 from #0066cc. Not a retune: the confirmed
+                                      spec carries TWO prototypes and the token file had taken the
+                                      blue from the older one. #0066cc is `.glass-proto`'s; the
+                                      normative `.glass-apple` block uses --a-blue:#0a7cff
+                                      (2026-07-30-spec-glass-theme.html:228) and tints its current
+                                      sidebar row rgba(10,124,255,.16) at :269. The decision log
+                                      had already flagged the divergence on 2026-08-01 without
+                                      resolving it; Tiên resolved it by looking at the result and
+                                      saying the colour looked outdated. #0066cc is Apple's 2015-era
+                                      web LINK blue, desaturated on purpose for body copy. #0a7cff
+                                      is the on-screen accent, which is what a Liquid Glass surface
+                                      actually carries.
+                                      NON-TEXT ON THIS THEME. Measured against the composited
+                                      backgrounds: 3.26:1 on an L4 card, 3.38:1 on the sidebar,
+                                      2.78:1 on the open page material — under even the 3:1
+                                      large-text floor on the last one. It is for dashes, fills,
+                                      borders, rings and tints. Text takes --g-primary-text. */
+  --g-primary-text:      #06448c;  /* filled — accent at body size, where #0a7cff is far too light.
+                                      Same derivation the exploration document used for the old
+                                      #004c99 ("Action Blue darkened", 2026-07-30-exploration-apple-
+                                      theme-tokens.html:563), re-run against the new base: #0a7cff
+                                      × 0.55. Apple ships no darker press hex of its own because its
+                                      press state is transform:scale(0.95), so this is a derivation,
+                                      not a find — same as before, same reason.
+                                      The multiplier is 0.55 and not the old 0.75 because the floor
+                                      is measured against the DARKEST composited point of --g-atmos,
+                                      not against a typical one. 0.70 (#0757b2) looked fine on a
+                                      sampled page pixel at 4.93:1 and still failed scripts/contrast.py
+                                      at 3.68:1 — the difference between a spot check and the check
+                                      that binds. 0.55 lands at 5.01:1 with headroom.
+                                      Consequence worth stating plainly: a token dark enough to be
+                                      body text on this wallpaper cannot also look vivid. The visible
+                                      colour on this theme comes from --g-primary on marks, fills and
+                                      tints; this token is for the text that has to stay readable. */
+  --g-primary-focus:     #0071e3;  /* ingested — focus ring only, never a fill */
+  --g-primary-on-dark:   #2997ff;  /* ingested — links on dark surfaces only */
+  --g-keep:              #248a3d;  /* filled — second semantic accent: keep, good, passing (§4 departure from Apple's one-accent rule) */
+
+  /* THIRD SEMANTIC ACCENT — attention / change / needs review. Added 2026-08-01 on Tiên's
+     instruction: "why no accent red? … update thêm accent, not sử dụng only blue."
+     I recommended against it and she overruled; recording both so the reasoning is not
+     lost and the decision is not re-argued. My argument was that Apple's law is one
+     accent and its red means destructive or error, never emphasis. Her position is that
+     a reading document is not an app: it needs to show at a glance what is settled and
+     what still wants a decision, and a page in a single hue cannot.
+     She is restoring something the glass conversion lost. thariq's --clay is literally
+     labelled "change / attention accent" (interaction-plane/DESIGN.md), and the retype
+     collapsed it onto --g-primary, which is the INTERACTIVE colour. One token was doing
+     two jobs: "you can click this" and "look at this". These three separate them again.
+     WHAT RED MEANS HERE, and it is not Apple's meaning: attention, change, unresolved,
+     needs review. It never means destructive, and nothing in a tien-os document deletes
+     anything. Pair with --g-keep, which is its opposite: settled, passing, done. */
+  --g-attn:              #ff3b30;  /* ingested — Apple systemRed, light. NON-TEXT: it measures
+                                      1.87:1 on this theme's worst-case background, so it is for
+                                      left borders, dashes, dot markers and rules only. */
+  --g-attn-fill:         #d70015;  /* ingested — Apple systemRed at increased contrast. The one
+                                      place saturated red is legible: a filled badge with
+                                      --g-on-dark text, which measures 5.38:1. */
+  --g-attn-text:         #8f1d17;  /* filled — red at body size, 4.71:1 on the worst-case
+                                      background. Derived the same way --g-primary-text is, by
+                                      darkening until the floor is cleared and no further; Apple
+                                      ships no darker red because its press state is a transform.
+                                      Nothing lighter works: #9a1f18 reaches only 4.30:1. */
+  --g-callout:           #e8e8ed;  /* filled — callout fill */
+  --g-hairline:          #e0e0e0;  /* ingested — 1px structural border */
+  --g-divider:           #f0f0f0;  /* ingested — internal rule */
+  --g-canvas:            #ffffff;  /* ingested — opaque card fill, and the reduced-transparency fallback */
+  --g-parchment:         #f5f5f7; /* ingested — opaque secondary surface */
+
+  /* §4 — the atmospheric background. Retuned 2026-07-31 to the document-model stops:
+     sky-blue/lavender dominant, pink a faint corner hint. Exact as §4 prints it. */
+  --g-atmos:
+    radial-gradient(circle at 10% 6%, rgba(255, 196, 222, 0.14), transparent 42%),
+    radial-gradient(circle at 80% 18%, rgba(150, 181, 255, 0.62), transparent 58%),
+    radial-gradient(circle at 50% 95%, rgba(196, 180, 255, 0.46), transparent 62%),
+    linear-gradient(165deg, #dfe6f4, #cfd9ee 55%, #dce0f4);  /* L0 — the page wallpaper, the surface every other rung composites over */
+  /* §4 bound, load-bearing per §8 rule 3: no --g-atmos stop may be darker than #cfd9ee.
+     A darker stop is a breaking change, not a restyle — it re-runs the §8 contrast check
+     (scripts/contrast.py, §11 step 5), because §8's 4.5:1 figure is computed against this
+     exact darkest stop. */
+
+  /* ---------------------------------------------------------------------
+     §5 — type, four stacks
+     --------------------------------------------------------------------- */
+  --g-display: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;  /* headings and any text above body size */
+  --g-text:    "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;  /* body copy, labels, controls — everything that is not a heading or code */
+  --g-serif:   "New York", ui-serif, Charter, "Iowan Old Style", Georgia, serif;  /* pull quotes and epigraphs; nothing structural */
+  --g-mono:    "SF Mono", ui-monospace, Menlo, monospace;  /* code, file paths and any value a reader might retype */
+  /* §5 open (c): "New York"/"SF Mono" lead the stacks even though Chrome cannot reach
+     the hidden system faces (measured 2026-07-30) — Safari may, and the stack documents
+     intent either way. Chrome falls back to Charter / Menlo. */
+
+  /* §5 — the 15-row type ladder. size/weight/line-height/tracking per row, named
+     --g-type-<row>-size|weight|lh|tracking. Body copy is 17px, not 16px; negative
+     tracking applies at 17px and above and never at 12px or below (§5). */
+  --g-type-hero-display-size: 56px;  /* the one line a page opens on, used at most once */      --g-type-hero-display-weight: 600;
+  --g-type-hero-display-lh: 1.07;        --g-type-hero-display-tracking: -0.28px;
+
+  --g-type-display-lg-size: 40px;  /* the page title */        --g-type-display-lg-weight: 600;
+  --g-type-display-lg-lh: 1.10;          --g-type-display-lg-tracking: 0px;
+
+  --g-type-display-md-size: 34px;  /* a major section title where a page needs one above h2 */        --g-type-display-md-weight: 600;
+  --g-type-display-md-lh: 1.47;          --g-type-display-md-tracking: -0.374px;
+
+  --g-type-lead-size: 28px;  /* a short standfirst under the title; not for a long paragraph */              --g-type-lead-weight: 400;
+  --g-type-lead-lh: 1.14;                --g-type-lead-tracking: 0.196px;
+
+  --g-type-lead-airy-size: 24px;  /* a pull quote or an epigraph — weight 300, so never a full paragraph */         --g-type-lead-airy-weight: 300;
+  --g-type-lead-airy-lh: 1.50;           --g-type-lead-airy-tracking: 0px;
+
+  --g-type-tagline-size: 21px;  /* section headings (h2) */           --g-type-tagline-weight: 600;
+  --g-type-tagline-lh: 1.19;             --g-type-tagline-tracking: 0.231px;
+
+  --g-type-body-strong-size: 17px;  /* a run-in bold lead inside a paragraph, and h3 */       --g-type-body-strong-weight: 600;
+  --g-type-body-strong-lh: 1.24;         --g-type-body-strong-tracking: -0.374px;
+
+  --g-type-body-size: 17px;  /* body copy — the default, 17px not 16px */              --g-type-body-weight: 400;
+  --g-type-body-lh: 1.47;                --g-type-body-tracking: -0.374px;
+
+  --g-type-dense-link-size: 17px;  /* a stacked list of links, where the wide leading is the list */        --g-type-dense-link-weight: 400;
+  --g-type-dense-link-lh: 2.41;          --g-type-dense-link-tracking: 0px;
+
+  --g-type-caption-size: 14px;  /* table cells, tags, captions, sidebar rows */           --g-type-caption-weight: 400;
+  --g-type-caption-lh: 1.43;             --g-type-caption-tracking: -0.224px;
+
+  --g-type-caption-strong-size: 14px;  /* eyebrows, block labels and section markers */    --g-type-caption-strong-weight: 600;
+  --g-type-caption-strong-lh: 1.29;      --g-type-caption-strong-tracking: -0.224px;
+
+  --g-type-button-large-size: 18px;  /* a primary call to action */      --g-type-button-large-weight: 300;
+  --g-type-button-large-lh: 1.00;        --g-type-button-large-tracking: 0px;
+
+  --g-type-button-utility-size: 14px;  /* ordinary buttons and toolbar controls */    --g-type-button-utility-weight: 400;
+  --g-type-button-utility-lh: 1.29;      --g-type-button-utility-tracking: -0.224px;
+
+  --g-type-fine-print-size: 12px;  /* legal fine print — opaque surfaces only, §8 rule 4 */        --g-type-fine-print-weight: 400;
+  --g-type-fine-print-lh: 1.0;           --g-type-fine-print-tracking: -0.12px;
+
+  --g-type-micro-legal-size: 10px;  /* the smallest permitted text — opaque surfaces only, §8 rule 4 */       --g-type-micro-legal-weight: 400;
+  --g-type-micro-legal-lh: 1.3;          --g-type-micro-legal-tracking: -0.08px;
+
+  /* ---------------------------------------------------------------------
+     §6 — shape and spacing, 8 + 8 tokens
+     --------------------------------------------------------------------- */
+  --g-r-none: 0px;      /* square — full-bleed edges only */
+  --g-r-xs:   5px;      /* inline code and other text-height fills */
+  --g-r-sm:   8px;      /* small controls: a toggle, an icon button */
+  --g-r-md:   11px;     /* nested tiles inside a card, and sidebar rows */
+  --g-r-lg:   18px;     /* a step or row block inside a card */
+  --g-r-xl:   22px;     /* cards and the sidebar — the common outer radius */
+  --g-r-xxl:  30px;     /* the largest container on a page */
+  --g-r-pill: 9999px;   /* tags, badges and search fields */
+  /* Concentricity (§6): a nested surface's radius is its parent's radius minus the gap
+     between them. --g-r-xxl (30px) is the panel; --g-r-xl (22px) is its first nested
+     child (sidebar, reading card) at an 8px inset — same rule the stat tile applies one
+     rung further in. Not a scale pick; picking a radius that ignores its parent's is
+     what draft 12 shipped by accident (hardcoded 30/22/16/14/12px with no token behind
+     any of them). */
+
+  --g-s-xxs:     4px;   /* gap inside a control, between an icon and its label */
+  --g-s-xs:      8px;   /* between a label and the thing it labels */
+  --g-s-sm:      12px;  /* between rows of one list */
+  --g-s-md:      17px;  /* padding inside a nested tile; between paragraphs */
+  --g-s-lg:      24px;  /* padding inside a card, and the gap between cards */
+  --g-s-xl:      32px;  /* page gutters, and the gap between sidebar and text */
+  --g-s-xxl:     48px;  /* the bottom of the page */
+  --g-s-section: 80px;  /* the beat between one section and the next */
+
+  /* ---------------------------------------------------------------------
+     §7 — the glass material: five-rung depth ladder, exactly as §7 prints it,
+     confirmed against the live .glass-apple prototype (--a-* custom properties,
+     same file, lines 217-229) — the numeric values match; see report for the
+     one place naming and values genuinely diverge (the accent blue).
+     --------------------------------------------------------------------- */
+  --g-window:         rgba(255, 255, 255, 0.40);   /* L1 the window, the one blurred surface */
+  --g-blur-window:    blur(34px) saturate(190%);  /* the only blur in the theme — the sidebar and the sections toggle */
+  --g-shadow-window:  0 18px 40px rgba(80, 90, 150, 0.22);  /* reserved for an element that floats over scrolling content; no document has one */
+  --g-glass-edge:     inset 0 1px 0 rgba(255, 255, 255, 0.75),
+                      inset 0 0 0 1px rgba(255, 255, 255, 0.28);  /* the inset highlight that gives a translucent surface its lit top edge */
+
+  --g-region:         rgba(255, 255, 255, 0.48);   /* L2 sidebar — tone shift, no blur of its own */
+  --g-search-pill:    rgba(255, 255, 255, 0.48);   /* L2 search pill, split out of --g-region per draft 11.
+                         Same numeric value as --g-region in both §7's printed block and the live
+                         .glass-apple CSS today (both read "sidebar, search pill" off one value) — the
+                         split so far is a named/conceptual one, not yet a different number. Kept as its
+                         own token so a future retune of the pill does not have to retune the sidebar. */
+  --g-control:        rgba(255, 255, 255, 0.48);   /* L3 toolbar controls, secondary button */
+  --g-control-active: rgba(255, 255, 255, 0.60);  /* a control under the pointer, or a segmented control selected */
+
+  /* L4 reading rung. Changed 2026-08-01 from rgba(255,255,255,0.94) on Tiên's click,
+     and the change is measured rather than tasted. She pointed at the spec's own
+     glass-cards prototype state and asked why the shipped cards were still white.
+     Measured off that prototype: its card renders rgb(236,244,255), only +16 per
+     channel above the page material, where the 94% card rendered rgb(253,253,255) at
+     +45 — which is what read as a slab. Body ink #1d1d1f on the dimmer card measures
+     15.19:1 against a 4.5:1 floor, versus 16.57:1 before, so the whole change costs
+     1.4 points of a ratio that had 12 to spare.
+
+     §8 originally held this rung near-opaque so text contrast could not drift with the
+     wallpaper. That caution predated the measurement. §4's bound — no --g-atmos stop
+     darker than #cfd9ee — means even a FULLY transparent reading rung still measures
+     12.36:1 on the worst-case composited background, so the floor is guaranteed by the
+     gradient bound, not by this rung's opacity. See spec draft 15. */
+  --g-read:           rgba(255, 255, 255, 0.62);  /* L4 — the reading rung, the only surface body text sits on */
+
+  /* Nested surfaces go LIGHTER here, not darker, and that is a correction. §6's rule
+     says "a nested surface is one step lighter or more opaque than its parent"; §10's
+     table said "a tonal step down". On a near-opaque parent those agree in effect, but
+     on a translucent one they do not, and darkening a nested tile on a glass card reads
+     as a hole rather than as a raised surface. Measured on the same prototype: the card
+     is rgb(236,244,255) and its stat tile rgb(249,251,255), +13 lighter — about 0.66
+     white over the card. §6 wins; §10's wording is corrected in draft 15. */
+  --g-read-nested:    rgba(255, 255, 255, 0.66);   /* L4 nested: stat tile, say line */
+
+  --g-drift-duration: 60s;  /* opt-in and unused: wallpaper drift, settled off 2026-08-01 */
+
+  /* §7 "applying the ladder to a document" — .page/.panel/.measure values, tokenized
+     per this file's mandate to carry no component selectors. */
+  --g-page-max: 1180px;   /* .page max-width */
+  --g-page-pad: 40px 0 120px;  /* .page padding */
+  --g-measure:  74ch;     /* .measure max-width — does not grow with the page */
+
+  /* §7 constraint 3: drift must die under prefers-reduced-motion. Defaults to the
+     keyframes name below; a consuming document names its animation from this token
+     (see the keyframes comment), so reduced motion is satisfied by token inheritance
+     alone, with no element selector in this file.
+
+     STATUS, 2026-08-01: drift is OPT-IN AND NOTHING OPTS IN. §7 makes it normative for
+     the theme and it stays here for that reason, but Tiên rejected wallpaper motion on
+     sight after three builds of it — the original ±2% translate (invisible), round blobs
+     (she named it exactly: "một đốm sáng di chuyển", a bright spot travelling), and four
+     sweeping wave bands with a caustic line, which reached seven times the original rate
+     of change and still looked wrong to her on the page. Each was measured on a real
+     compositor clock over CDP, not under Chrome's virtual time, which freezes compositor
+     animations and reported a false zero twice.
+     So: a document that wants drift supplies its own oversized fixed layer and reads these
+     two tokens. No tien-os document currently does. Do not add it back to one without
+     asking her — this is settled, not forgotten. */
+  --g-drift-name: g-drift;  /* opt-in and unused: names the drift keyframes so reduced motion can kill it */
+
+}
+
+/* §7 drift keyframes. Not a selector — a keyframes block has no selector list, so it does
+   not violate §11 step 2's "no selectors other than :root and the three §9 media blocks."
+   Included here, in the token file, because §7 states drift is normative for the theme, not
+   optional per-document decoration: "this lives in interaction-plane/themes/glass.css, written
+   once. A document imports the theme, so the marginal cost of drift per document is zero."
+   A consuming document supplies its own oversized, fixed/absolute wallpaper layer and applies
+   `animation: var(--g-drift-name, g-drift) var(--g-drift-duration) ease-in-out infinite alternate;`
+   — --g-drift-name lets the reduced-motion block below kill the animation via token alone. */
+@keyframes g-drift {
+  from { transform: translate3d(-2%, -1%, 0) scale(1.06); }
+  to   { transform: translate3d( 2%,  1%, 0) scale(1.06); }
+}
+
+
+/* ===========================================================================
+   §9 fallbacks. Three, all required, none optional. Re-declares TOKEN VALUES
+   only, not components, so any document that imports this file inherits the
+   fallback automatically. Values below match the live .glass-apple prototype's
+   @media blocks in the spec file (lines 322-360), renamed to this file's --g-*
+   scheme, except where noted.
+   =========================================================================== */
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --g-window:         #eef1f7;   /* opaque hex fill, was rgba(255,255,255,.40) */
+    --g-region:         #e6eaf3;
+    --g-search-pill:    #e6eaf3;
+    --g-control:        #e6eaf3;
+    --g-control-active: #dde3f0;
+    --g-read:           #ffffff;   /* NEWLY REQUIRED as of 2026-08-01. While --g-read was
+                                       94% it was near-opaque enough that this block could
+                                       leave it alone. At 62% it is genuinely translucent,
+                                       so a reader who has asked the system to reduce
+                                       transparency must still get an opaque reading rung —
+                                       that is the whole point of the media feature, and
+                                       omitting it here would have been the silent gap
+                                       draft 13 already had to close once for §9. */
+    --g-read-nested:    #f0f0f0;
+    --g-blur-window:    none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --g-window:         #ffffff;   /* opaque white/near-white */
+    --g-region:         #f0f0f0;
+    --g-search-pill:    #f0f0f0;
+    --g-control:        #f0f0f0;
+    --g-control-active: #e0e0e0;
+    --g-read:           #ffffff;
+    --g-read-nested:    #f0f0f0;
+    --g-ink-80:         #1d1d1f;   /* secondary ink collapses to full ink */
+    --g-ink-48:         #1d1d1f;   /* disabled/legal ink collapses to full ink */
+    --g-attn-text:      #7a1813;   /* darker still where the reader asked for more contrast */
+    --g-glass-edge:     inset 0 0 0 1.5px #1d1d1f;  /* real 1.5px solid border, not an inset highlight */
+    --g-blur-window:    none;
+  }
+}
+
+@media print {
+  :root {
+    --g-atmos:          #ffffff;   /* every surface opaque white; the gradient becomes plain white */
+    --g-window:         #ffffff;
+    --g-region:         #ffffff;
+    --g-search-pill:    #ffffff;
+    --g-control:        #ffffff;
+    --g-control-active: #ffffff;
+    --g-read:           #ffffff;
+    --g-read-nested:    #ffffff;
+    --g-ink:            #000000;   /* ink black, per §9's own words */
+    --g-ink-80:         #000000;
+    --g-attn:           #000000;   /* no colour on paper; the mark survives, the hue does not */
+    --g-attn-fill:      #000000;
+    --g-attn-text:      #000000;
+    --g-ink-48:         #000000;   /* Darker than the spec's own prototype, deliberately.
+                                       The live .glass-apple print block keeps tertiary ink at
+                                       #333 (2026-07-30-spec-glass-theme.html:349) while §9's
+                                       prose says "ink black". On paper there is no glass left
+                                       to sit on and nothing is gained by holding grey, so this
+                                       file follows the prose. Costs nothing, and it is the safe
+                                       direction if a printer's gamma is dark. */
+    --g-glass-edge:     none;
+    --g-shadow-window:  none;
+    --g-blur-window:    none;      /* explicit, not relied on: backdrop-filter in Chrome's
+                                       print path is unverified (§9), so this file states
+                                       none rather than trusting the browser to drop it. */
+    --g-drift-name:       none;    /* no gradient left to drift; belt-and-braces with the
+                                       reduced-motion block below */
+  }
+}
+
+/* Required beyond §9's three: §7 constraint 3 — drift must die under
+   prefers-reduced-motion. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --g-drift-name: none;
+  }
+}

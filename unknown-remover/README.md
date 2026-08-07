@@ -5,10 +5,12 @@ which unknown you are holding, picks the artifact form that retires it, and writ
 document at a time.
 
 ```text
-Distribution mode: repo-bound
+Distribution mode: dual
+Standalone entry: `write-chain-document` writes a planning document anywhere, styling it from the bundled `glass.css` and the 31 bundled worked examples
 Portable core: `skills/`
 Portable entry skill: `write-chain-document`
-Runtime dependencies: `control-plane/`, `artifact-plane/`, `evaluation-plane/`, `interaction-plane/`
+Bundled equivalents: `interaction-plane/themes/glass.css` -> `skills/write-chain-document/references/glass.css`
+Workspace-mode extras: `control-plane/`, `artifact-plane/`, `evaluation-plane/`
 Codex project agent: none
 ```
 
@@ -60,12 +62,17 @@ without the agent. Two carry a `rubric.md` read by an agent that did *not* write
 The packaging is checked by machine: `plugin.json` conforms to Agent Plugins 1.0.0, and a
 contract check fails the build when the manifests, the entry skill, or the routes drift apart.
 
-**Repo-bound, and it says so rather than pretending.** The method and the whole 31-example
-corpus ship inside the package — but `write-chain-document` also sends the writer to
-`interaction-plane/themes/glass.css` for the theme and `control-plane/DECISION-LOG.md` for the
-decision behind it, so it needs a `tien-os` checkout. It installs anywhere; it stops with an
-explicit message when a named dependency is missing. This block said "standalone" until
-2026-08-07, which was a claim the package could not keep.
+**Dual, and the gap that made it repo-bound is closed.** The method and the whole 31-example
+corpus always shipped inside the package. The one thing that did not was the theme:
+`write-chain-document` sent the writer to `interaction-plane/themes/glass.css`, which lived only
+in the workspace. That file is now bundled at `skills/write-chain-document/references/glass.css`
+and compared to its source on every check run (check 15), so a document written outside `tien-os`
+gets the same theme as one written inside it. Workspace records like
+`control-plane/DECISION-LOG.md` are still read when present and simply skipped when not — they
+are provenance, not inputs.
+
+The history is worth keeping: this block said "standalone", was corrected to "repo-bound" on
+2026-08-07 because the claim outran the package, and is now dual because the package caught up.
 
 ## Package format
 

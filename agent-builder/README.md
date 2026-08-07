@@ -2,10 +2,12 @@
 
 One independent agent plugin in the `tien-os` marketplace:
 
-Distribution mode: repo-bound
+Distribution mode: dual
+Standalone entry: `create-capability` walks for a `.git` root, finds no `policy-plane/GUARDRAILS.md`, and runs its refuse-and-scaffold path off the four bundled forms
 Portable core: `skills/`
 Portable entry skill: `create-capability`
-Runtime dependencies: `CLAUDE.md`, `control-plane/`, `artifact-plane/`, `policy-plane/`, `evaluation-plane/`, `graph-plane/`
+Bundled equivalents: `control-plane/templates/agent-spec.md` -> `skills/create-capability/references/forms/agent-spec.md`, `control-plane/templates/skill-spec.md` -> `skills/create-capability/references/forms/skill-spec.md`, `control-plane/templates/workflow-spec.md` -> `skills/create-capability/references/forms/workflow-spec.md`, `control-plane/templates/agent-plugin-spec.md` -> `skills/create-capability/references/forms/agent-plugin-spec.md`
+Workspace-mode extras: `CLAUDE.md`, `control-plane/`, `artifact-plane/`, `policy-plane/`, `evaluation-plane/`, `graph-plane/`
 Codex project agent: optional overlay
 
 The last three joined the list on 2026-08-07. They were always used — `policy-plane/GUARDRAILS.md`
@@ -50,11 +52,17 @@ produce the work. The packaging is checked by machine: `plugin.json` conforms to
 1.0.0, and a contract check fails the build when the manifests, the entry skill, or the routes
 drift apart.
 
-**Repo-bound, and it says so rather than pretending.** The declaration above lists six runtime
-dependencies inside a `tien-os` checkout — this plugin builds *that* workspace's capabilities,
-so it reads that workspace's templates, law, and evaluation routes. It installs anywhere; it
-stops with an explicit message when a named dependency is missing, instead of guessing. Making
-it standalone would mean inlining the templates it enforces, which is real work and is not done.
+**Dual, and it proves it rather than promising it.** `create-capability` walks for a `.git`
+root; if no `policy-plane/GUARDRAILS.md` is there, it runs standalone off the four spec forms
+bundled at `skills/create-capability/references/forms/` — byte-identical copies of
+`control-plane/templates/`, compared on every check run (check 15) so they cannot drift. Inside
+a `tien-os` checkout it switches to workspace mode and also reads that workspace's law, records
+and evaluation routes. Those deliberately do NOT travel: `policy-plane/GUARDRAILS.md` is the law
+of the workspace that ratifies it, and shipping a copy would be shipping someone else's rules.
+
+This paragraph said "repo-bound … making it standalone is real work and is not done" until
+2026-08-07. The standalone work had in fact been done on 2026-07-31, forms and all; the README
+was describing a plugin that no longer existed, and a launch slide inherited the error.
 
 ## Package format
 
