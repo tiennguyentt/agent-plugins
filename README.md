@@ -10,21 +10,20 @@ part of the private workspace it was developed in.
 
 ## Quickstart
 
-**Claude Code**
+Claude Code:
 
 ```
 /plugin marketplace add tiennguyentt/tien-os-marketplace
-/plugin install behavior-implementer@tien-os-marketplace
 ```
 
-**Codex**
+Codex:
 
 ```
 codex plugin marketplace add https://github.com/tiennguyentt/tien-os-marketplace
-codex plugin add behavior-implementer@tien-os-marketplace
 ```
 
-Swap in any plugin name from the catalog below.
+Then pick any plugin from `/plugin` (Claude Code) or install one directly:
+`/plugin install behavior-implementer@tien-os-marketplace`.
 
 ## Repository layout
 
