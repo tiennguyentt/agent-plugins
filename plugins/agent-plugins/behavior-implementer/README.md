@@ -62,6 +62,20 @@ Invoke on Codex: `$behavior-implementer:implement-behavior`.
 - The gate runs before every commit; its report is the commit license.
 - **Never push without asking first.** Every push needs its own fresh yes.
 
+## Optional files, decided per skill
+
+Per the house skill template, `rubric.md` and `<name>.workflow.js` are independent per-skill
+decisions:
+
+| Skill | `rubric.md` | `workflow.js` |
+|---|---|---|
+| `write-scenarios` | **yes** — scenario quality is judged; a separate verifier gets the standard as a file | N/A — no fan-out or staged orchestration |
+| `implement-behavior` | **yes** — loop discipline (red evidence, vacuous steps, weakened contracts) is judged by a non-maker | N/A — the loop is sequential by design |
+| `gate-commit` | N/A — its report is verified by re-running the named commands, a deterministic check | N/A — plain command runs, no orchestration |
+
+A rubric is read by an agent that did not produce the work; the skills point their verifier
+at it and never self-grade.
+
 ## Standalone by design
 
 The plugin reads only its own bundled files. It detects the target project's own tooling
