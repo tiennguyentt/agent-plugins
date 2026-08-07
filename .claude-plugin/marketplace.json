@@ -21,7 +21,13 @@
       "source": "./plugins/agent-plugins/agent-builder",
       "version": "2.3.0",
       "description": "[tien-os] Create, evaluate, and package independent one-agent-with-licensed-skills plugins."
+    },
+    {
+      "name": "behavior-implementer",
+      "source": "./plugins/agent-plugins/behavior-implementer",
+      "version": "1.0.0",
+      "description": "[tien-os] Implements features scenario-first: Given/When/Then scenarios seen failing, the three laws of TDD, and a measured quality gate before every commit."
     }
   ],
-  "description": "Three agent plugins for Claude Code and Codex: unknown-remover (planning by unknown-removal), eval-writer (success criteria and evaluations), and agent-builder (creates, evaluates, and packages capabilities)."
+  "description": "Four agent plugins for Claude Code and Codex: unknown-remover (planning by unknown-removal), eval-writer (success criteria and evaluations), agent-builder (creates, evaluates, and packages capabilities), and behavior-implementer (scenario-first BDD/TDD implementation)."
 }

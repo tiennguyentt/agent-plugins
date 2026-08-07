@@ -1,68 +1,120 @@
-# tien-os-marketplace
+# tien-os marketplace
 
-Three installable agent plugins for Claude Code and Codex, published from the private
-`tien-os` workspace. This repository is the clean consumer surface: plugins and their
-licences only — no workspace, no personal state.
+**Agent plugins for [Claude Code](https://claude.com/claude-code) and Codex — plan
+rigorously, define success before building, build capabilities that stay governed, and
+implement code test-first.**
 
-**v1.2.0 · Claude-verified.** `unknown-remover` has run all twelve of its evaluation
-cases on Claude Code (2026-07-31) and passed. `agent-builder` has 8 of its 12 cases
-run and passing (2026-07-26, before it gained standalone mode); none has re-run since.
-`eval-writer` is licensed and installed but has never been invoked — its 17 golden
-cases have not run. No completed Codex invocation exists for any of the three; the
-Codex manifests are present and untested in a live host. Installed is not proven.
+Four plugins, each a single specialist agent with its own skills. Every plugin is
+**standalone**: it reads only its own bundled files, works in any repository, and needs no
+part of the private workspace it was developed in.
 
-## Install
+## Quickstart
 
-Claude Code:
+**Claude Code**
 
 ```
 /plugin marketplace add tiennguyentt/tien-os-marketplace
-/plugin install unknown-remover@tien-os-marketplace
-/plugin install eval-writer@tien-os-marketplace
-/plugin install agent-builder@tien-os-marketplace
+/plugin install behavior-implementer@tien-os-marketplace
 ```
 
-Codex:
+**Codex**
 
 ```
 codex plugin marketplace add https://github.com/tiennguyentt/tien-os-marketplace
-codex plugin add unknown-remover@tien-os-marketplace
+codex plugin add behavior-implementer@tien-os-marketplace
 ```
 
-## The plugins
+Swap in any plugin name from the catalog below.
 
-| Plugin | Job | Invoke |
+## Catalog
+
+| Plugin | One job | Entry point |
 |---|---|---|
-| `unknown-remover` 1.1.0 | Classifies what you don't know, picks the artifact form that retires it, and writes one planning document at a time from a five-document chain | `/unknown-remover:classify-unknown`, `:choose-artifact-form`, `:write-chain-document`, `:discover-anatomy` |
-| `eval-writer` 1.0.0 | Defines measurable success criteria and designs evaluations for any LLM task; refuses to invent targets nothing has measured | `/eval-writer:write-success-criteria` |
-| `agent-builder` 2.3.0 | Creates, evaluates, and packages confirmed capabilities as one-agent-with-licensed-skills plugins | `/agent-builder:create-capability`, `:evaluate-capability`, `:package-plugin` |
+| [`unknown-remover`](plugins/agent-plugins/unknown-remover) `1.1.0` | Plan by removing unknowns — one document at a time | `/unknown-remover:classify-unknown` |
+| [`eval-writer`](plugins/agent-plugins/eval-writer) `1.0.0` | Define measurable success criteria before you build | `/eval-writer:write-success-criteria` |
+| [`agent-builder`](plugins/agent-plugins/agent-builder) `2.3.0` | Build new agent capabilities, spec-first and eval-gated | `/agent-builder:create-capability` |
+| [`behavior-implementer`](plugins/agent-plugins/behavior-implementer) `1.0.0` | Implement features scenario-first with BDD/TDD discipline | `/behavior-implementer:implement-behavior` |
 
-`unknown-remover` and `eval-writer` are genuinely standalone: each reads only its own
-bundled files. `agent-builder` used to refuse to run outside the `tien-os` workspace;
-it joined this marketplace once it gained a standalone mode — vendored spec forms and
-its own `Confirmed:`-gate script, detected at the start of every invocation. See its own
-`README.md` for what each of the two modes does and does not grant.
+Together they cover a build cycle: **plan** (unknown-remover) → **define success**
+(eval-writer) → **assemble the capability** (agent-builder) → **implement the code**
+(behavior-implementer). Each also stands alone.
 
-## Licensing
+### unknown-remover — planning by unknown-removal
 
-The repository `LICENSE` (MIT, © 2026 Tien Nguyen) covers Tiên's work. Third-party
-material is declared per plugin and travels with every copy:
+Classifies what you don't know into four quadrants, picks the artifact form that retires
+that unknown, and writes exactly one planning document at a time from a five-document
+chain — never two, never out of order.
 
-- `plugins/agent-plugins/unknown-remover/NOTICE.md` — the bundled method corpus:
-  Thariq's method (credited; published openly at
-  <https://thariqs.github.io/html-effectiveness/unknowns/>, whose repository is
-  Apache-2.0) and the Apache-2.0 exemplar corpus with its own `LICENSE` file.
-- `plugins/agent-plugins/eval-writer/NOTICE.md` — one reproduced Anthropic
-  documentation page, declared in full.
-- `plugins/agent-plugins/agent-builder/skills/no-ai-slop/NOTICE.md` — the
-  `no-ai-slop` editing skill, written by Peter G Yang and published under the
-  MIT licence at <https://github.com/petergyang/no-ai-slop>; not Tiên's work
-  and not covered by the repository `LICENSE`.
+*Skills:* `classify-unknown` · `choose-artifact-form` · `discover-anatomy` ·
+`write-chain-document`
+
+### eval-writer — success criteria before code
+
+Turns "how do I know if this works?" into SMART criteria, an evaluation design, example
+test cases, and a grading-method recommendation. When nobody has a basis for a target yet,
+it refuses to invent numbers and issues a discovery kit instead.
+
+*Skills:* `write-success-criteria`
+
+### agent-builder — capabilities that stay governed
+
+Creates, evaluates, and packages one-agent-with-licensed-skills plugins. Runs an
+architecture check (simplest adequate mechanism first — most requests don't need an agent),
+writes the spec set, and refuses to build anything a signed spec hasn't licensed. Outside
+its home workspace it runs in standalone mode with vendored spec forms and its own
+confirmation gate.
+
+*Skills:* `create-capability` · `evaluate-capability` · `package-plugin` · `no-ai-slop`
+
+### behavior-implementer — code, test-first
+
+Implements features behavior-first: natural-language Given/When/Then scenarios written
+before any code, every scenario seen failing before it may pass, the three laws of TDD
+during implementation, and a measured coverage/lint/complexity gate before every commit.
+It never pushes without asking.
+
+*Skills:* `write-scenarios` · `implement-behavior` · `gate-commit`
+
+## Design principles
+
+- **One agent, one job.** Every plugin is a specialist; none is a general-purpose helper.
+- **Standalone by construction.** A plugin reads only its own bundled files and detects the
+  host project's tooling instead of assuming any.
+- **Evidence over self-report.** Skills report what a command actually printed; a check
+  that was not run is reported `NOT RUN`, never guessed.
+- **Nothing irreversible without a human.** No plugin pushes, publishes, signs off, or
+  grants autonomy on its own.
+- **Dual-host.** Each plugin ships both a Claude Code manifest (`.claude-plugin/`) and a
+  Codex manifest (`.codex-plugin/`); the procedures live in shared skill files both hosts
+  read.
+
+## Verification status
+
+Reported per plugin, honestly — installed is not proven.
+
+| Plugin | Evaluation evidence |
+|---|---|
+| `unknown-remover` | 12/12 cases passing on Claude Code (2026-07-31) |
+| `eval-writer` | licensed and installed; its 17 golden cases have not been run |
+| `agent-builder` | 8/12 cases passing (2026-07-26, before standalone mode); not re-run since |
+| `behavior-implementer` | new — no evaluation cases run yet |
+| all four on Codex | manifests present; no completed live Codex invocation recorded |
+
+## License
+
+The repository [LICENSE](LICENSE) (MIT, © 2026 Tien Nguyen) covers Tiên's work.
+Third-party material is declared per plugin and travels with every copy:
+
+- `unknown-remover/NOTICE.md` — Thariq's method (credited; published openly, repository
+  Apache-2.0) and the Apache-2.0 exemplar corpus with its own `LICENSE`.
+- `eval-writer/NOTICE.md` — one reproduced Anthropic documentation page, declared in full.
+- `agent-builder/skills/no-ai-slop/NOTICE.md` — the `no-ai-slop` editing skill by
+  [Peter G Yang](https://github.com/petergyang/no-ai-slop), MIT; not Tiên's work.
 
 Do not remove the NOTICE files when redistributing.
 
 ## Provenance
 
-The source of truth is the private `tien-os` workspace; changes flow one way, from
-there to here. This export contains no evaluation evidence — the run records and
-grading files live with the workspace.
+These plugins are developed in a private workspace (`tien-os`) and published here; changes
+flow one way, from there to here. This repository is the clean consumer surface — plugins
+and their licenses only, no workspace state and no evaluation run records.
