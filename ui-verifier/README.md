@@ -14,7 +14,7 @@ Distribution mode: dual
 Portable core: `skills/`
 Portable entry skill: `test-ui`
 Standalone entry: runs test-ui and snapshot-ui-state entirely from the vendored references/ax-dump.swift, ax-actions.swift, and window-shot.swift plus the steps written into each SKILL.md — no workspace file is required for either skill's core procedure.
-Workspace-mode extras: `evaluation-plane/checks/test-ax-snapshot.py` (a tien-os workspace's own world runner that automates snapshot-ui-state's fixture loop across many fixtures at once; snapshot-ui-state uses it when the path exists in the current repo and falls back to its own manual loop otherwise), and — outside any repo-owned plane, so not a dependency of this plugin's own runtime text — the tien-os-app repo's own workspace wrapper scripts (e2e-eye.sh, eye-prep.sh, test-gate.sh, check-module-boundaries.sh) that call the same three tools this plugin vendors
+Workspace-mode extras: `engine/checks/test-ax-snapshot.py` (a tien-os workspace's own world runner that automates snapshot-ui-state's fixture loop across many fixtures at once; snapshot-ui-state uses it when the path exists in the current repo and falls back to its own manual loop otherwise), and — outside any repo-owned plane, so not a dependency of this plugin's own runtime text — the tien-os-app repo's own workspace wrapper scripts (e2e-eye.sh, eye-prep.sh, test-gate.sh, check-module-boundaries.sh) that call the same three tools this plugin vendors
 Codex project agent: none
 ```
 
@@ -163,7 +163,7 @@ vision-review step at the file and never grades its own screenshot.
 Both skills read only their own vendored tools and the target app's own state. The dual
 distribution mode above is honest about the one place this plugin is *aware* of a tien-os
 workspace without depending on it: `snapshot-ui-state` will use
-`evaluation-plane/checks/test-ax-snapshot.py` to automate its fixture loop when that file is
+`engine/checks/test-ax-snapshot.py` to automate its fixture loop when that file is
 present, and runs its own manual loop identically well when it is not.
 
 ## Honest limits

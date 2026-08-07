@@ -4,7 +4,7 @@
 > evaluations"*, supplied by Tiên on 2026-07-31. Reproduced here with the prose intact and the
 > multi-language code samples reduced to Python only — the source page repeats each of six eval
 > recipes across Python, TypeScript, C#, Go, Java, PHP and Ruby. Nothing else was cut, reworded, or
-> added. This is reference material, never binding: `policy-plane/GUARDRAILS.md` §9 rule 3.
+> added. This is reference material, never binding: `CORE/GUARDRAILS.md` §9 rule 3.
 
 Define measurable success criteria for your LLM application and build evaluations to test it, from
 exact match checks to LLM-based grading.

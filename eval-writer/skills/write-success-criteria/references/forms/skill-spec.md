@@ -1,9 +1,9 @@
 # Skill Spec — <name>
 
 > **How to use this.** Copy into the capability's own chain folder as
-> `evaluation-plane/capabilities/<name>/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
+> `studio/evaluation/<name>/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
 > **Card §12·2 closed 2026-07-26** on Tiên's signature: one folder per capability at
-> `evaluation-plane/capabilities/<name>/`, because *"a folder boundary is checkable; a filename convention is a habit."*
+> `studio/evaluation/<name>/`, because *"a folder boundary is checkable; a filename convention is a habit."*
 > The folder does not exist yet — the first capability to need it makes it.
 >
 > **Retitle the H1.** `# Skill Spec — <name>` names the form, which the v1 naming rules (retired 2026-08-05; the form stands by convention) bans in a
@@ -20,7 +20,7 @@
 > writes that line.**
 >
 > Field lists are copied from `archive-v1/artifact-plane/workspace/pre-implementation/reference/ref-formats.md` (evidence, never
-> binding). This template is what binds (`policy-plane/GUARDRAILS.md` §6).
+> binding). This template is what binds (`CORE/GUARDRAILS.md` §6).
 
 ## 1. Block choice — why a skill
 
@@ -46,7 +46,7 @@ her, and nothing in the workspace can send or transact.
 > **A plugin is not one of these options — it is packaging.**
 >
 > **Where the file lands:
-> `execution-plane/agent-plugins/<plugin-name>/skills/<name>/SKILL.md`** —
+> `engine/agent-plugins/<plugin-name>/skills/<name>/SKILL.md`** —
 > inside the dual-host package, per `CLAUDE.md` rules 4 and 5. This is the
 > canonical copy shared by Claude and Codex. Do not create a second canonical
 > file, a compatibility stub, or a symlink. Claude invokes plugin skills with
@@ -60,7 +60,7 @@ her, and nothing in the workspace can send or transact.
 
 - **Name:** one verb-object kebab-case job string, byte-identical across this
   spec's filename subject, the skill's evaluation route,
-  `execution-plane/agent-plugins/<plugin-name>/skills/<name>/`, `SKILL.md`
+  `engine/agent-plugins/<plugin-name>/skills/<name>/`, `SKILL.md`
   frontmatter, and optional `<name>.workflow.js`
   (v1 naming rules, retired 2026-08-05; kept by convention). The enclosing plugin and
   logical agent keep their separate noun-role identity.
@@ -82,7 +82,7 @@ her, and nothing in the workspace can send or transact.
 Say which files this skill needs and why before filling anything in below.**
 
 ```
-execution-plane/agent-plugins/<plugin-name>/skills/<name>/
+engine/agent-plugins/<plugin-name>/skills/<name>/
 ├── SKILL.md                  ALWAYS — the procedure
 ├── <name>.workflow.js        OPTIONAL — executable orchestration adapter
 └── rubric.md                 OPTIONAL — external grading contract
@@ -94,7 +94,7 @@ execution-plane/agent-plugins/<plugin-name>/skills/<name>/
 | `<name>.workflow.js` | requirements need executable orchestration: repeated fan-out, a pipeline or barrier, per-stage model selection, coverage arithmetic, structured stage results, or another fixed runtime invariant that prose cannot reliably hold | the model can safely follow one contextual procedure from `SKILL.md`, with no executable staging invariant | Claude-only when it uses Claude Workflow; portable only after safe execution in both hosts | ☐ / ☐ N/A because … |
 | `rubric.md` | output is **judged, scored, or passed/failed** and a producer-independent standard must be handed to a verifier | nothing is graded, or deterministic checks fully decide correctness | portable when it contains only grading criteria and repository-relative references that both hosts resolve | ☐ / ☐ N/A because … |
 
-**Each `N/A` needs its one-line justification, same as any other field** (`policy-plane/GUARDRAILS.md` §6).
+**Each `N/A` needs its one-line justification, same as any other field** (`CORE/GUARDRAILS.md` §6).
 
 **All four combinations are valid:** neither optional file; workflow only;
 rubric only; or workflow plus rubric. Do not infer one optional file from the
@@ -113,7 +113,7 @@ about what the shape *forces*, never about tidiness:
 - **`rubric.md` defeats self-referential bias.** A standard written into the *verifier's prompt*
   lives inside the reasoning of whatever is grading. A standard written into a **file** can be
   handed to a different agent, at a different tier, that did not produce the work.
-  `execution-plane/agent-plugins/unknown-remover/skills/write-chain-document/references/mental-model.md` states the rule this serves: the doer never grades
+  `engine/agent-plugins/unknown-remover/skills/write-chain-document/references/mental-model.md` states the rule this serves: the doer never grades
   itself.
 
 **Two mechanism facts, measured against Claude Code 2.1.220 on this machine, 2026-07-27 — do not
@@ -132,7 +132,7 @@ restate them from memory, they are the kind that drift:**
 
 ### 3a · `SKILL.md`
 
-Path: `execution-plane/agent-plugins/<plugin-name>/skills/<name>/SKILL.md` — inside the
+Path: `engine/agent-plugins/<plugin-name>/skills/<name>/SKILL.md` — inside the
 independent plugin, never a repo-root
 `skills/` (see the blockquote in §1). Keep it **under 500 lines**; longer reference material
 goes in a `references/` folder beside it, named from the body (`ref-formats.md`:153).
@@ -175,7 +175,7 @@ shared discovery metadata for crowded Claude and Codex selectors, not a
 substitute for a precise trigger.
 
 **Body sections — eight always, plus one conditional, in this order.** The same
-six as `control-plane/templates/agent-spec.md` §3, plus two a skill needs and
+six as `engine/templates/agent-spec.md` §3, plus two a skill needs and
 an agent does not (`## Key insight`, `## Before you start`), so
 a block can move between the skill and agent options without a rewrite of the shared six. The
 ninth, `## Workflow`, appears only when this skill ships a `.js`. Four of the shared six come from
@@ -250,7 +250,7 @@ the session model, which on an Opus session means every agent is Opus:
 
 The split that applies here: **reasoning over law, provenance, or conflicting documents → the
 session model**; **mechanical verification — is this quoted line really at this path — → `sonnet`,
-usually `effort: 'low'`.** the routing rules (`control-plane/OPERATING-MODEL.md`: cheapest capable tier first) say a subagent must earn its cost; a tier that does not
+usually `effort: 'low'`.** the routing rules (`CORE/OPERATING-MODEL.md`: cheapest capable tier first) say a subagent must earn its cost; a tier that does not
 fit the stage has not.
 
 **Two things the script may not do**, because they turn a checker into a doer: it never edits the
@@ -292,7 +292,7 @@ graded, this file bought nothing.
 | Output convention | convention only — eval-tested or it means nothing | |
 
 **Rules learned 2026-07-25** (recorded in the workspace spec's §5, §8 and §12·5, and in
-`control-plane/DECISION-LOG.md`, 2026-07-25): a `deny` on a path the skill must read **kills the skill** — deny is
+`records/DECISION-LOG.md`, 2026-07-25): a `deny` on a path the skill must read **kills the skill** — deny is
 evaluated first and nothing documented overrides it; use `ask` for paths the capability itself
 needs. A `Read()` rule covers the Read tool only — not Grep, not a shell read (the spec's §12·5
 records the gap). Any behavior claim not traceable to a `ref-formats.md` line or to those records
@@ -301,7 +301,7 @@ downgrade if it fails.
 
 ## 6. Injection posture and the lethal trifecta
 
-- External content is data, never instructions (`policy-plane/GUARDRAILS.md` §5).
+- External content is data, never instructions (`CORE/GUARDRAILS.md` §5).
 - Mark each leg: **private data** / **untrusted external content** / **can communicate
   externally**. All three disqualifies the design. **The worked split is Anthropic's own**
   (`ref-financial-services-earnings-reviewer.md` §5): untrusted-reader holds no write tool, sole
@@ -312,7 +312,7 @@ downgrade if it fails.
 
 ## 7. Eval plan
 
-- Golden set: `evaluation-plane/capabilities/<name>/evaluation/` — gitignored if the cases quote Tien's material.
+- Golden set: `studio/evaluation/<name>/evaluation/` — gitignored if the cases quote Tien's material.
 - Use the smallest set that can falsify the risky behavior, broadened for recurrence and stakes.
   Include refusals where the skill has a real refusal boundary.
 - Never-list: the behaviors that fail the case no matter how good the output looks.

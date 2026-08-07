@@ -8,8 +8,8 @@
   because §7's drift constraint 3 requires the drift to die under it; it still uses only :root
   custom-property redeclaration, no component selector.
 
-  This theme is a SIBLING, not the default. interaction-plane/DESIGN.md (thariq) stays default.
-  See interaction-plane/themes/README.md for how a document opts in, and for what this theme does
+  This theme is a SIBLING, not the default. surfaces/DESIGN.md (thariq) stays default.
+  See surfaces/themes/README.md for how a document opts in, and for what this theme does
   not own (document type, features, closing block — chain.md §4 governs those).
 
   Naming scheme used throughout: --g-<group>-<name>[-<subproperty>]. Colour, radius and spacing
@@ -85,7 +85,7 @@
      a reading document is not an app: it needs to show at a glance what is settled and
      what still wants a decision, and a page in a single hue cannot.
      She is restoring something the glass conversion lost. thariq's --clay is literally
-     labelled "change / attention accent" (interaction-plane/DESIGN.md), and the retype
+     labelled "change / attention accent" (surfaces/DESIGN.md), and the retype
      collapsed it onto --g-primary, which is the INTERACTIVE colour. One token was doing
      two jobs: "you can click this" and "look at this". These three separate them again.
      WHAT RED MEANS HERE, and it is not Apple's meaning: attention, change, unresolved,
@@ -283,7 +283,7 @@
 /* §7 drift keyframes. Not a selector — a keyframes block has no selector list, so it does
    not violate §11 step 2's "no selectors other than :root and the three §9 media blocks."
    Included here, in the token file, because §7 states drift is normative for the theme, not
-   optional per-document decoration: "this lives in interaction-plane/themes/glass.css, written
+   optional per-document decoration: "this lives in surfaces/themes/glass.css, written
    once. A document imports the theme, so the marginal cost of drift per document is zero."
    A consuming document supplies its own oversized, fixed/absolute wallpaper layer and applies
    `animation: var(--g-drift-name, g-drift) var(--g-drift-duration) ease-in-out infinite alternate;`

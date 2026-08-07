@@ -49,7 +49,7 @@ not use for capability design or output-quality review.
 One physical package:
 
 ```text
-execution-plane/agent-plugins/<agent-plugin>/
+engine/agent-plugins/<agent-plugin>/
 ├── plugin.json                          portable — Agent Plugins 1.0.0
 ├── .claude-plugin/plugin.json
 ├── .codex-plugin/plugin.json
@@ -88,7 +88,7 @@ empty optional file, which this skill forbids.
 ## How you work
 
 1. Read the confirmed composition and
-   `control-plane/templates/agent-plugin-spec.md` — §5 owns the three-manifest
+   `engine/templates/agent-plugin-spec.md` — §5 owns the three-manifest
    contract, including the portable one.
 2. Use one noun-role identity for the agent plugin across its folder, both
    manifests, marketplace rows, Claude adapter, component-catalog row, and any
@@ -101,8 +101,8 @@ empty optional file, which this skill forbids.
    Claude `/plugin:skill`; Codex `$plugin:skill`.
 6. Validate all three manifests, all routes, repo-owned dependencies, optional
    files, and absence of symlinks or dead paths. Run
-   `python3 evaluation-plane/checks/test-plugin-contract.py`; check 10b in
-   `evaluation-plane/checks/check.py` is the same contract against the real tree.
+   `python3 engine/checks/test-plugin-contract.py`; check 10b in
+   `engine/checks/check.py` is the same contract against the real tree.
 7. Update installed local packages through each host's supported CLI. Remove
    the superseded installed namespace only after the replacement resolves.
 8. Start fresh sessions and invoke every packaged skill with a safe,
@@ -112,7 +112,7 @@ empty optional file, which this skill forbids.
 
 `tiennguyentt/agent-plugins` (local clone `~/projects/agent-plugins`) is the public
 consumer surface. Changes flow one way — canonical is
-`execution-plane/agent-plugins/<name>/`, the mirror is a copy and never a source.
+`engine/agent-plugins/<name>/`, the mirror is a copy and never a source.
 
 **Its layout is flat, and the four plugins are peers:**
 
@@ -146,8 +146,8 @@ stays: two of four plugins have never had an evaluation case run, and that is st
 **The export is a script, not a copy by hand:**
 
 ```bash
-python3 execution-plane/export-agent-plugins.py --check   # report drift, write nothing
-python3 execution-plane/export-agent-plugins.py           # copy and regenerate catalogs
+python3 engine/export-agent-plugins.py --check   # report drift, write nothing
+python3 engine/export-agent-plugins.py           # copy and regenerate catalogs
 ```
 
 It copies every plugin fresh so deletions propagate, and regenerates both catalogs from each
@@ -184,9 +184,9 @@ versions, E2E results, and any remaining blocker. Do not dump full logs.
 ## What you read
 
 - the confirmed agent-plugin and skill specifications
-- `control-plane/templates/agent-plugin-spec.md`
-- `control-plane/templates/agent-spec.md`
-- `control-plane/templates/skill-spec.md`
+- `engine/templates/agent-plugin-spec.md`
+- `engine/templates/agent-spec.md`
+- `engine/templates/skill-spec.md`
 - `.claude-plugin/marketplace.json`
 - `.agents/plugins/marketplace.json`
 

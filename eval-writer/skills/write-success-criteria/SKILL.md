@@ -40,9 +40,9 @@ capability, you will need `skill-spec.md` and `agent-spec.md` in step 2 below.
 
 **Both travel with this plugin.** Read them from
 `${CLAUDE_PLUGIN_ROOT}/skills/write-success-criteria/references/forms/` — byte-identical copies of
-`control-plane/templates/`, kept honest by a drift check (`evaluation-plane/checks/check.py`
+`engine/templates/`, kept honest by a drift check (`engine/checks/check.py`
 check 15) that runs inside the workspace that produces this plugin, not inside the plugin. Inside
-the tien-os workspace, `control-plane/templates/` is the same file and either path is correct.
+the tien-os workspace, `engine/templates/` is the same file and either path is correct.
 Nothing here requires the workspace to be present.
 
 ## What you produce
@@ -79,7 +79,7 @@ worse than saying the basis does not exist yet.
   skill is built from calls the list non-exhaustive; treating it as closed is a mistake this skill
   exists to avoid.
 - **Which regime this is.** If the subject is a tien-os capability, open
-  `control-plane/templates/skill-spec.md` §7 and `control-plane/templates/agent-spec.md` §10 and use
+  `engine/templates/skill-spec.md` §7 and `engine/templates/agent-spec.md` §10 and use
   their 10–30-case, at-least-3-refusal minimum. If it is not, or those files will not resolve, say so
   and use the reference's own volume-over-quality guidance instead: real products in the reference run
   200 to 10,000 cases, which fits a product with real user traffic, not a tien-os capability with a
@@ -204,7 +204,7 @@ regardless of what it says.
 
 `references/ref-define-success-criteria-and-build-evaluations.md` — the source procedure this skill is
 built from; never binding on its own, this skill's corrections to it are law.
-`control-plane/templates/skill-spec.md` §7 and `control-plane/templates/agent-spec.md` §10 — only when
+`engine/templates/skill-spec.md` §7 and `engine/templates/agent-spec.md` §10 — only when
 the subject is a tien-os capability, for the 10–30-case regime.
 `rubric.md` — the standard a separate verifier grades this skill's output against; never read it as
 something to satisfy in your own head instead of on the page.

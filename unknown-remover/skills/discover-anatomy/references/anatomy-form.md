@@ -94,8 +94,8 @@ Distilled 2026-07-31 from five sources, none of them portable method:
   a personal OS, and the *"vocabulary, not domain map"* sibling label.
 - `archive-v1/artifact-plane/workspace/pre-implementation/2026-07-29-anatomy-how-tien-os-moves-work.html` — five
   parts of one workflow and the failure modes between them.
-- `policy-plane/GUARDRAILS.md` §6 — the eight research forms named in §4.
-- `control-plane/DECISION-LOG.md`, 2026-07-26 — the account of a `thariq-os-anatomy` skill that
+- `CORE/GUARDRAILS.md` §6 — the eight research forms named in §4.
+- `records/DECISION-LOG.md`, 2026-07-26 — the account of a `thariq-os-anatomy` skill that
   produced the three documents above and was restructured into the seven-section format at 199
   lines. **That file and its checksummed backup are both gone.** This distillation is informed by
   the record of its shape, not copied from it.

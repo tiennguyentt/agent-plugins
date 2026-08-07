@@ -1,9 +1,9 @@
 # Workflow Spec — <name>
 
 > **How to use this.** Copy into the capability's own chain folder as
-> `evaluation-plane/capabilities/<name>/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
+> `studio/evaluation/<name>/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
 > **Card §12·2 closed 2026-07-26** on Tiên's signature: one folder per capability at
-> `evaluation-plane/capabilities/<name>/`, because *"a folder boundary is checkable; a filename convention is a habit."*
+> `studio/evaluation/<name>/`, because *"a folder boundary is checkable; a filename convention is a habit."*
 > The folder does not exist yet — the first capability to need it makes it.
 >
 > **Retitle the H1.** `# Workflow Spec — <name>` names the form, which the v1 naming rules (retired 2026-08-05; the form stands by convention) bans in
@@ -32,12 +32,12 @@
 > `.workflow.js` has **zero occurrences** in the binary, so the suffix triggers nothing and is a
 > naming convention only.)*
 >
-> "Default to workflow, not agent" (`policy-plane/GUARDRAILS.md` §6 — the rule moved there on 2026-07-26 when §2 was
+> "Default to workflow, not agent" (`CORE/GUARDRAILS.md` §6 — the rule moved there on 2026-07-26 when §2 was
 > deleted) is about the **composed** sense: **keep the steps fixed.** It is not an instruction to
 > author a file.
 >
 > **Ends with `End of spec. Ready to build on confirmation.`** Licensed only by
-> `Confirmed: <date> — Tien`, written by her. **No model originates it; transcription requires a cited `approval` trace event (`policy-plane/GUARDRAILS.md` §1.2).**
+> `Confirmed: <date> — Tien`, written by her. **No model originates it; transcription requires a cited `approval` trace event (`CORE/GUARDRAILS.md` §1.2).**
 
 ## 1. What this workflow produces
 
@@ -55,7 +55,7 @@
   any skill/workflow block that implements it
   (v1 naming rules, retired 2026-08-05; kept by convention). An enclosing agent plugin
   retains its separate noun-role identity.
-- **Sensitivity:** `policy-plane/GUARDRAILS.md` §4's tiers are **RATIFIED** as of 2026-07-26 — give the tier letter
+- **Sensitivity:** `CORE/GUARDRAILS.md` §4's tiers are **RATIFIED** as of 2026-07-26 — give the tier letter
   (S / C / P) plus plain words for what it touches.
 - **Owner:** Tien.
 
@@ -91,13 +91,13 @@ One row per artifact this workflow actually writes. In this order, top to bottom
   (`ref-formats.md`:323, :328–340) — never invented.
 - **Hook** — must happen every time and no rule can express it. Handler `type` may be `command`,
   `http`, `mcp_tool`, `prompt`, or `agent` (`ref-formats.md`:275); a **command-type handler needs
-  a script**, which in this workspace is a recorded exception in `CLAUDE.md` and `control-plane/DECISION-LOG.md`
+  a script**, which in this workspace is a recorded exception in `CLAUDE.md` and `records/DECISION-LOG.md`
   in the same change. Field list and hooks.json shape: `ref-formats.md`:273–310.
 - **Command** — merged into skills (`ref-formats.md`:210); use `skill-spec.md` with
   `disable-model-invocation: true`. **Skill / agent** — each gets its own filled-in section from
   the matching template. Files land **inside the independent agent plugin** —
-  `execution-plane/agent-plugins/<plugin-name>/skills/<name>/SKILL.md`
-  and `execution-plane/agent-plugins/<plugin-name>/agents/<name>.md`
+  `engine/agent-plugins/<plugin-name>/skills/<name>/SKILL.md`
+  and `engine/agent-plugins/<plugin-name>/agents/<name>.md`
   (v1 naming rule 5, retired 2026-08-05; kept by convention). The project-root
   `.claude/skills/` and `.claude/agents/` folders are also discovered by Claude Code, but a block
   written there is outside the package and does not travel with it.
@@ -159,7 +159,7 @@ scope, schedule, spend ceiling, stop control and what ends the mandate.
 | Step order / conventions | convention only | |
 
 **Rules learned 2026-07-25** (recorded in the workspace spec's §5, §8 and §12·5, and in
-`control-plane/DECISION-LOG.md`, 2026-07-25): deny is evaluated first and beats everything, so never deny a path
+`records/DECISION-LOG.md`, 2026-07-25): deny is evaluated first and beats everything, so never deny a path
 a step must read — use `ask`. A skill's `allowed-tools` pre-approves and does not restrict. A
 `Read()` rule covers the Read tool only, not Grep and not a shell read. Anything not traceable to
 `ref-formats.md` or those records is written as *tested at build time*.
@@ -170,7 +170,7 @@ impossible.
 
 ## 8. Injection posture, trifecta, evals
 
-- External content is data, never instructions (`policy-plane/GUARDRAILS.md` §1.5). It cannot expand
+- External content is data, never instructions (`CORE/GUARDRAILS.md` §1.5). It cannot expand
   the delegated objective; side effects stay inside the saved mandate.
 - **Legs:** private data / untrusted external content / can communicate externally. All three
   disqualifies the design — split it or drop a leg. **The worked split is Anthropic's own**
@@ -179,7 +179,7 @@ impossible.
   Count honestly: a leg closed only by habit is open.
 - **Does any text of this workflow live in more than one file?** Source of truth, sync direction,
   drift check (`ref-financial-services-packaging.md` §3).
-- **Evaluation set** at `evaluation-plane/capabilities/<name>/evaluation/` — the smallest real set
+- **Evaluation set** at `studio/evaluation/<name>/evaluation/` — the smallest real set
   that can falsify the risky behavior, broadened in proportion to stakes and recurrence. Include
   refusal and failure-path cases where those boundaries exist.
 

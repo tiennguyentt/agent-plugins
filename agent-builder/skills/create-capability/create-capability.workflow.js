@@ -10,7 +10,7 @@ export const meta = {
   phases: [
     { title: 'Architecture', detail: 'one agent per block option, then one composition pass that separates job modules, optional agent shell, and packaging. Fixed at 6 agents. sonnet, effort high' },
     { title: 'Audit', detail: 'one agent per required spec section, graded against rubric.md — sonnet, low' },
-    { title: 'Done-checks', detail: 'the checks in evaluation-plane/DEFINITION-OF-DONE.md partitioned across at most 13 workers, one reader agent first — sonnet, low. Sized by the ceiling, never by how many checks exist, so nothing is dropped at any count' },
+    { title: 'Done-checks', detail: 'the checks in CORE/DEFINITION-OF-DONE.md partitioned across at most 13 workers, one reader agent first — sonnet, low. Sized by the ceiling, never by how many checks exist, so nothing is dropped at any count' },
   ],
 }
 
@@ -20,7 +20,7 @@ export const meta = {
 // are more of them than the ceiling allows agents, so the fan-out is sized by the ceiling and the
 // items are partitioned across it. Before adding a stage, ask what the items share — if they all
 // open the same file, batch by that file; if there can be more of them than the ceiling, partition.
-// The retired verifier's measured failure and the replacement rule are preserved in control-plane/DECISION-LOG.md.
+// The retired verifier's measured failure and the replacement rule are preserved in records/DECISION-LOG.md.
 
 // `meta` is parsed separately and STRIPPED from this body before it runs, so `meta.maxAgents` is
 // not in scope here — an earlier workflow failed on that exact reference. Restate it.
@@ -28,7 +28,7 @@ export const meta = {
 const MAX_AGENTS = 14
 
 // Derived, never a second literal. Every fan-out stage runs one reader agent first, so the cap is
-// the ceiling minus that reader. It was a hardcoded 12 until 2026-07-28, while `evaluation-plane/DEFINITION-OF-DONE.md`
+// the ceiling minus that reader. It was a hardcoded 12 until 2026-07-28, while `CORE/DEFINITION-OF-DONE.md`
 // carried 13 checks — so check 13, the one that measures what a run COSTS, was the single check
 // this workflow silently declined to assess. A cap that is not derived from the ceiling drifts the
 // moment the thing it counts grows by one.
@@ -86,7 +86,7 @@ function coverage(assignedIds, results, idKey, validVerdicts, verdictKey) {
 // ── inputs ───────────────────────────────────────────────────────────────────
 // { stage: 'architecture', request: "<what Tiên asked for>" }
 // { stage: 'audit',        spec: "<abs path>", template: "<abs path>" }
-// { stage: 'done-checks',  artifact: "<what was built>", checks: "<abs path to evaluation-plane/DEFINITION-OF-DONE.md>" }
+// { stage: 'done-checks',  artifact: "<what was built>", checks: "<abs path to CORE/DEFINITION-OF-DONE.md>" }
 
 const input = args || {}
 const STAGE = input.stage
@@ -94,7 +94,7 @@ const STAGE = input.stage
 // original repo when run in a git worktree or from a copied package — Tiên, 2026-07-28:
 // *"hiện tại working wrong workspace"*. Every path in this file resolves against the working
 // directory of the session that invoked it.
-const RUBRIC = input.rubric || 'execution-plane/agent-plugins/agent-builder/skills/evaluate-capability/rubric.md'
+const RUBRIC = input.rubric || 'engine/agent-plugins/agent-builder/skills/evaluate-capability/rubric.md'
 
 if (!STAGE) {
   return { error: "No stage given. Pass { stage: 'architecture' | 'audit' | 'done-checks' } — see meta.phases." }
@@ -113,7 +113,7 @@ if (!STAGE) {
 // composable; they are not mutually exclusive rungs.
 //
 // Tier, and why it is stated through `effort` rather than `model`. This is reasoning
-// over policy-plane/GUARDRAILS.md and the evidence explainer, and a misread rule here mis-shapes
+// over CORE/GUARDRAILS.md and the evidence explainer, and a misread rule here mis-shapes
 // everything downstream — so it wants the most care of any stage in this file.
 //
 // It cannot get that from `model`. `~/.claude/settings.json` sets
@@ -127,7 +127,7 @@ if (!STAGE) {
 const OPTIONS = [
   { key: 'permission-rule', holds: 'the program',
     when: 'a tool must be blocked or surfaced every time, in every session' },
-  { key: 'hook', holds: 'the program — but it needs a script, which is a recorded exception in CLAUDE.md and control-plane/DECISION-LOG.md in the same change',
+  { key: 'hook', holds: 'the program — but it needs a script, which is a recorded exception in CLAUDE.md and records/DECISION-LOG.md in the same change',
     when: 'something must happen every time and no permission rule can express it' },
   { key: 'locked-skill', holds: '`disable-model-invocation: true`',
     when: 'a procedure only Tiên may start' },
@@ -225,7 +225,7 @@ if (STAGE === 'architecture') {
 
 // ── stage 2 · audit the spec ─────────────────────────────────────────────────
 // One agent per required section. The builder wrote the spec; a builder grading
-// its own spec is the doer grading itself, which policy-plane/GUARDRAILS.md §6 and the mental model
+// its own spec is the doer grading itself, which CORE/GUARDRAILS.md §6 and the mental model
 // both forbid by name.
 //
 // sonnet/low: the standard lives in rubric.md and the template owns the field
@@ -351,7 +351,7 @@ if (STAGE === 'audit') {
 }
 
 // ── stage 3 · done-checks ────────────────────────────────────────────────────
-// BALANCED BATCHING, not one agent per check. `evaluation-plane/DEFINITION-OF-DONE.md` grows; the ceiling
+// BALANCED BATCHING, not one agent per check. `CORE/DEFINITION-OF-DONE.md` grows; the ceiling
 // does not. One agent per check meant the agent count was set by however many
 // checks happened to exist, so the stage truncated at the cap — and on 2026-07-28
 // the cap was 12 against 13 checks, which made the check that measures run cost
@@ -369,7 +369,7 @@ if (STAGE === 'audit') {
 
 if (STAGE === 'done-checks') {
   if (!input.artifact || !input.checks) {
-    return { error: 'stage done-checks needs { artifact: "<what was built>", checks: "<abs path to evaluation-plane/DEFINITION-OF-DONE.md>" }' }
+    return { error: 'stage done-checks needs { artifact: "<what was built>", checks: "<abs path to CORE/DEFINITION-OF-DONE.md>" }' }
   }
   phase('Done-checks')
 
@@ -400,7 +400,7 @@ if (STAGE === 'done-checks') {
   const allChecks = [...byNumber.values()].sort((a, b) => a.number - b.number)
   if (!allChecks.length) {
     return { stage: 'done-checks', complete: false, passes: false,
-             error: 'no checks parsed — read evaluation-plane/DEFINITION-OF-DONE.md by hand' }
+             error: 'no checks parsed — read CORE/DEFINITION-OF-DONE.md by hand' }
   }
 
   const batches = partition(allChecks, FANOUT_CAP)

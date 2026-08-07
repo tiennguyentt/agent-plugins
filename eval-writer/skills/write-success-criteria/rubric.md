@@ -13,8 +13,8 @@ criteria look plausible, not whether the eval design is long.
 ## Open the file first
 
 Open the output you are grading, `SKILL.md`'s full procedure (both the normal-mode steps and
-cold-start mode), and, when the subject is a tien-os capability, `control-plane/templates/skill-spec.md`
-§7 and `control-plane/templates/agent-spec.md` §10. All of them, every time. A verdict reached without
+cold-start mode), and, when the subject is a tien-os capability, `engine/templates/skill-spec.md`
+§7 and `engine/templates/agent-spec.md` §10. All of them, every time. A verdict reached without
 opening the actual output is void.
 
 ---
@@ -50,11 +50,11 @@ rest of it reads.** Do not average them away.
 | a test-set size proposed before the regime question is asked and answered | this rubric's own reason for existing, the first correction it enforces |
 | the eight common criteria treated as a closed list, with a real ninth criterion the subject needs left unnamed | `SKILL.md` Step 2, "non-exhaustive" |
 | `<grading_approach>` missing entirely from a normal-mode response | the reference's own most useful section, dropped |
-| LLM-based grading recommended with grader and generator as the same named model, with no stated reason | `control-plane/templates/skill-spec.md`:113, "the doer never grades itself," applied to the design being proposed |
+| LLM-based grading recommended with grader and generator as the same named model, with no stated reason | `engine/templates/skill-spec.md`:113, "the doer never grades itself," applied to the design being proposed |
 | **any numeric target, threshold, or percentage whose basis is not stated** — no benchmark, no prior measurement, no named expert judgment behind it | the reason cold-start mode exists. "I don't know yet, here is how to find out" is a correct and complete answer and never a failure; an invented number dressed as a measurement is |
 | normal mode used to produce SMART criteria when step 1's own reasoning shows no real basis existed | same rule, from the other direction: entering normal mode does not create a basis, it only hides the absence of one |
 | the eval-execution harness, scripts, or grading code offered as this skill's own deliverable | `SKILL.md`, *What you never do* |
-| Tier S material, exact finances, credentials, or medical records used as a worked example without being flagged | `policy-plane/GUARDRAILS.md` §3 |
+| Tier S material, exact finances, credentials, or medical records used as a worked example without being flagged | `CORE/GUARDRAILS.md` §3 |
 | the output grading itself: reasoning that treats its own criteria as already verified rather than handing them to this rubric | the mental model this rubric exists to enforce |
 
 ---

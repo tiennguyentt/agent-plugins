@@ -8,25 +8,25 @@
 > the H1 in plain English, and fill every field. Use `N/A — <reason>` where a
 > component is intentionally absent.
 >
-> **It goes in `artifact-plane/workspace/`, not `evaluation-plane/capabilities/<name>/`.**
-> `policy-plane/GUARDRAILS.md` §6 gives planning exactly two homes —
-> `artifact-plane/projects/<name>/` for a product and `artifact-plane/workspace/` for the
+> **It goes in `studio/workspace/`, not `studio/evaluation/<name>/`.**
+> `CORE/GUARDRAILS.md` §6 gives planning exactly two homes —
+> `studio/projects/<name>/` for a product and `studio/workspace/` for the
 > workspace — and a capability of this workspace is the second.
-> `evaluation-plane/capabilities/<name>/` holds retained evidence only: the
+> `studio/evaluation/<name>/` holds retained evidence only: the
 > `evaluation/` cases and run records, which is all
-> `evaluation-plane/capabilities/agent-builder/` has ever contained. This line said
-> `evaluation-plane/capabilities/` until Tiên moved a spec out of it on 2026-07-31.
+> `studio/evaluation/agent-builder/` has ever contained. This line said
+> `studio/evaluation/` until Tiên moved a spec out of it on 2026-07-31.
 >
 > **The spec ships as HTML, not Markdown.** This template is Markdown because
 > every file in `control-plane/` is; the document it produces is not.
-> the signature rule (`policy-plane/GUARDRAILS.md` §1.2) fixes the `Confirmed:` line inside a
+> the signature rule (`CORE/GUARDRAILS.md` §1.2) fixes the `Confirmed:` line inside a
 > `<pre>` and points at `archive-v1/artifact-plane/workspace/pre-implementation/2026-07-25-spec-tien-os.html:542`
 > as the specimen, so the law's own worked example of a spec is an HTML file.
 > Every confirmed spec on disk is one. This line said `.md` until 2026-07-31 and
 > produced one Markdown spec before it was caught
-> (`control-plane/DECISION-LOG.md`, same date). Open `interaction-plane/DESIGN.md`
+> (`records/DECISION-LOG.md`, same date). Open `surfaces/DESIGN.md`
 > and the exemplar at
-> `execution-plane/agent-plugins/unknown-remover/skills/write-chain-document/references/html-effectiveness-main/unknowns/08-implementation-plan.html`
+> `engine/agent-plugins/unknown-remover/skills/write-chain-document/references/html-effectiveness-main/unknowns/08-implementation-plan.html`
 > before writing it.
 >
 > A plugin is a packaging and composition boundary, not a second implementation
@@ -37,7 +37,7 @@
 >
 > The spec must end with `End of spec. Ready to build on confirmation.` A build
 > is licensed only when a later line reads `Confirmed: <date> — Tien`, written by
-> Tien. No model originates it; an agent may transcribe it only citing a valid `approval` trace event (`policy-plane/GUARDRAILS.md` §1.2).
+> Tien. No model originates it; an agent may transcribe it only citing a valid `approval` trace event (`CORE/GUARDRAILS.md` §1.2).
 >
 > **The closing block never renders a signable line.** Write what approving
 > means and what each alternative would change; do not put a copyable
@@ -47,7 +47,7 @@
 > inside a `<pre>` stays; that is the slot her click fills.
 >
 > Deliver the spec with the decision it needs from Tiên stated plainly. Do not raise an
-> `AskUserQuestion` merely as an approval gate; `policy-plane/GUARDRAILS.md` §3 delegation permits it only for genuine ambiguity.
+> `AskUserQuestion` merely as an approval gate; `CORE/GUARDRAILS.md` §3 delegation permits it only for genuine ambiguity.
 
 ## 1. Plugin outcome
 
@@ -61,7 +61,7 @@
 ## 2. Composition model
 
 This template is only for the reference architecture used by
-`execution-plane/agent-plugins/`:
+`engine/agent-plugins/`:
 
 - **Logical agent:** required, exactly one logical agent. Use a standalone
   skill instead when the job does not need dedicated context, delegation,
@@ -87,7 +87,7 @@ This template is only for the reference architecture used by
 
 | Logical agent | Runtime job | Claude packaged adapter | Codex project overlay | Shared skill | Portable entry? | Why this is a separate skill |
 |---|---|---|---|---|---|---|
-| `<noun-role>` | | `execution-plane/agent-plugins/<noun-role>/agents/<noun-role>.md` | `.codex/agents/<noun-role>.toml` — OPTIONAL project overlay | `<verb-object-a>` | yes | |
+| `<noun-role>` | | `engine/agent-plugins/<noun-role>/agents/<noun-role>.md` | `.codex/agents/<noun-role>.toml` — OPTIONAL project overlay | `<verb-object-a>` | yes | |
 | `<noun-role>` | | same Claude adapter | same optional overlay | `<verb-object-b>` — only when independently licensed | no | |
 
 Do not merge several recurring jobs into one large `SKILL.md` merely because one
@@ -105,7 +105,7 @@ descriptions and answer:
 A cross-plugin collision is silent: nothing errors, two skills simply both look right and
 the router picks one. Audited 2026-08-07, twelve skills across four plugins held exactly
 **one** cross-plugin reference in total, so four pairs collided unrouted. Every new plugin
-adds a boundary to every existing one; `control-plane/templates/skill-spec.md` carries the
+adds a boundary to every existing one; `engine/templates/skill-spec.md` carries the
 rule for the description field itself. This is convention, not a check — no automated rule
 can tell a real distinction from a forced one.
 
@@ -119,7 +119,7 @@ directories.
 ├── .codex/
 │   └── agents/
 │       └── <agent>.toml            OPTIONAL project overlay; not installed by plugin
-└── execution-plane/agent-plugins/<noun-role>/
+└── engine/agent-plugins/<noun-role>/
     ├── plugin.json                  REQUIRED — the portable Agent Plugins 1.0.0 manifest
     ├── .claude-plugin/
     │   └── plugin.json
@@ -156,7 +156,7 @@ Additional directories such as `hooks/`, `scripts/`, `commands/`, `references/`,
 or `assets/` exist only when the confirmed requirements need their documented
 runtime behavior. `evals/` and run records are development evidence unless the
 host's installable contract explicitly requires them; for `tien-os`, they stay
-under `evaluation-plane/capabilities/<name>/evaluation/`.
+under `studio/evaluation/<name>/evaluation/`.
 
 ## 4. Host contract
 
@@ -165,7 +165,7 @@ under `evaluation-plane/capabilities/<name>/evaluation/`.
 | Manifest | `.claude-plugin/plugin.json` | `.codex-plugin/plugin.json` |
 | Shared capability | discovers portable core in `skills/` | manifest exposes the same `./skills/` |
 | Explicit skill invocation | `/plugin:skill` | `$plugin:skill` |
-| Agent definition | packaged adapter at `execution-plane/agent-plugins/<plugin>/agents/<agent>.md` | no current installable plugin component |
+| Agent definition | packaged adapter at `engine/agent-plugins/<plugin>/agents/<agent>.md` | no current installable plugin component |
 | Optional custom-agent overlay | N/A | project configuration at `.codex/agents/<agent>.toml` |
 | Multi-skill orchestration | portable entry skill; agent frontmatter may preload several skills | portable entry skill; optional project overlay may route several skills |
 | Skill-local workflow JS | runs only through the documented Claude adapter that calls it | use the shared procedure and a Codex-native equivalent; do not assume the JS is portable |
@@ -208,7 +208,7 @@ that speaks neither `.claude-plugin` nor `.codex-plugin` can still read the pack
 > Agent Plugins project — spec <https://agent-plugins.org/specification>, repository
 > <https://github.com/agentplugins/agent-plugins-spec>. **Its specification text is licensed
 > CC-BY-4.0 and its schemas Apache-2.0**, so the sentences quoted below and in
-> `evaluation-plane/checks/check.py` carry an attribution requirement, not a courtesy. tien-os
+> `engine/checks/check.py` carry an attribution requirement, not a courtesy. tien-os
 > reached it through Google's announcement of the format,
 > <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>, which is
 > the source Tiên pointed at. tien-os conforms to the standard and vendors none of its files;
@@ -294,8 +294,8 @@ evidence that a skill is legitimate.
 
 | Skill | Confirmed skill spec | Evaluation route | Job | Portable entry? | `SKILL.md` | Workflow JS? Host? Why? | `rubric.md`? Why? | Standalone trigger |
 |---|---|---|---|---|---|---|---|---|
-| `<verb-object-a>` | | `evaluation-plane/capabilities/<plugin>/evaluation/<verb-object-a>/` | | yes | required | no — | no — | |
-| `<verb-object-b>` | | `evaluation-plane/capabilities/<plugin>/evaluation/<verb-object-b>/` | | no | required | yes / no — | yes / no — | |
+| `<verb-object-a>` | | `studio/evaluation/<plugin>/evaluation/<verb-object-a>/` | | yes | required | no — | no — | |
+| `<verb-object-b>` | | `studio/evaluation/<plugin>/evaluation/<verb-object-b>/` | | no | required | yes / no — | yes / no — | |
 
 ## 8. Runtime and safety
 
@@ -325,11 +325,11 @@ Every item needs an exact command and expected observable result:
 3. Codex lists the plugin and invokes the portable entry skill without reading
    `.codex/agents/<agent>.toml`.
 4. Exactly one packaged Claude agent exists at
-   `execution-plane/agent-plugins/<plugin>/agents/<agent>.md`. If an optional Codex
+   `engine/agent-plugins/<plugin>/agents/<agent>.md`. If an optional Codex
    project overlay exists, parse and probe it separately after the bare-plugin
    check.
 5. Every agent skill name or route resolves to exactly one
-   `execution-plane/agent-plugins/<plugin>/skills/<name>/SKILL.md`; the plugin has one
+   `engine/agent-plugins/<plugin>/skills/<name>/SKILL.md`; the plugin has one
    or more licensed skills, and each resolves to an explicit confirmed
    composition row or confirmed skill spec plus its own evaluation route.
    Every skill folder/frontmatter name is verb-object kebab-case and every
@@ -361,7 +361,7 @@ explicitly.
 
 Fill this only when the plugin ships to `tiennguyentt/agent-plugins`, the public consumer
 surface (local clone `~/projects/agent-plugins`). Changes flow one way; canonical is
-`execution-plane/agent-plugins/<name>/`.
+`engine/agent-plugins/<name>/`.
 
 - **Ships to the mirror:** yes / no —
 - **Runs with no `tien-os` checkout:** yes / no — this is the distribution mode from §4, and
@@ -382,7 +382,7 @@ Two rules that outlive any one plugin:
    they need. Never narrate a correction or a date. Keep honesty by writing requirements as
    prerequisites, never as confessions — and never drop the verification table.
 
-`execution-plane/agent-plugins/agent-builder/skills/package-plugin/SKILL.md` owns the export
+`engine/agent-plugins/agent-builder/skills/package-plugin/SKILL.md` owns the export
 procedure and its checklist. A push to the mirror is public and is Tiên's alone.
 
 ## 11. Done and retirement

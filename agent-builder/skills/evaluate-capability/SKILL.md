@@ -58,13 +58,13 @@ It is a review. Do not silently repair the target.
 
 ## How you work
 
-1. Read `control-plane/CURRENT-STATE.md`, the relevant
-   `policy-plane/GUARDRAILS.md` sections,
-   `control-plane/DECISION-LOG.md`, and
-   `evaluation-plane/DEFINITION-OF-DONE.md`.
+1. Read `state/CURRENT-STATE.md`, the relevant
+   `CORE/GUARDRAILS.md` sections,
+   `records/DECISION-LOG.md`, and
+   `CORE/DEFINITION-OF-DONE.md`.
 2. Resolve the capability's confirmed license, plugin files, evaluation cases,
    and retained run evidence — trace and run records under
-   `evaluation-plane/runs/` and `graph-plane/substrate/runs/`. (Until
+   `records/evals/` and `records/substrate/runs/`. (Until
    2026-08-05 this step also resolved a component-catalog row; that catalog
    went with the v1 teardown — check 7 records the retirement — and run
    evidence is the v2 replacement, per this file's 2026-08-07 correction.)
@@ -93,10 +93,10 @@ material claim. State what could not be judged and why.
 
 ## What you read
 
-- `control-plane/CURRENT-STATE.md`
-- `policy-plane/GUARDRAILS.md`
-- `control-plane/DECISION-LOG.md`
-- `evaluation-plane/DEFINITION-OF-DONE.md`
+- `state/CURRENT-STATE.md`
+- `CORE/GUARDRAILS.md`
+- `records/DECISION-LOG.md`
+- `CORE/DEFINITION-OF-DONE.md`
 - `rubric.md`
 - the target capability's confirmed spec, runtime package, and evaluation route
 
