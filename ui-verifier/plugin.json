@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ui-verifier",
+  "version": "1.0.0",
+  "description": "[tien-os] Tests a macOS app's UI hands-free: off-screen launch, Accessibility-tree gates, screenshot capture with vision review, and golden AX-tree snapshot regression — every number measured, nothing advertised it cannot deliver.",
+  "author": {
+    "name": "Tien Nguyen",
+    "email": "tiennguyentthao@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "personal-os",
+    "ui-testing",
+    "accessibility",
+    "macos",
+    "visual-regression"
+  ],
+  "extensions": {
+    "com.anthropic.claude-code": {
+      "manifest": "./.claude-plugin/plugin.json",
+      "agents": "./agents/"
+    },
+    "com.openai.codex": {
+      "manifest": "./.codex-plugin/plugin.json"
+    }
+  }
+}

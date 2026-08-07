@@ -27,7 +27,13 @@
       "source": "./unknown-remover",
       "version": "1.3.0",
       "description": "[tien-os] Classifies the unknown, picks the artifact form, and writes one planning document at a time from the five-document chain."
+    },
+    {
+      "name": "ui-verifier",
+      "source": "./ui-verifier",
+      "version": "1.0.0",
+      "description": "[tien-os] Tests a macOS app's UI hands-free: off-screen launch, Accessibility-tree gates, screenshot capture with vision review, and golden AX-tree snapshot regression — every number measured, nothing advertised it cannot deliver."
     }
   ],
-  "description": "Four agent plugins for Claude Code and Codex: unknown-remover (planning by unknown-removal), eval-writer (success criteria and evaluations), agent-builder (creates, evaluates, and packages capabilities), and behavior-implementer (scenario-first BDD/TDD implementation)."
+  "description": "Five agent plugins for Claude Code and Codex: unknown-remover (planning by unknown-removal), eval-writer (success criteria and evaluations), agent-builder (creates, evaluates, and packages capabilities), behavior-implementer (scenario-first BDD/TDD implementation), and ui-verifier (hands-free macOS UI testing via Accessibility)."
 }
