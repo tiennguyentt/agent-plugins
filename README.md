@@ -38,32 +38,42 @@ tien-os-marketplace/
 │   └── agent-plugins/
 │       ├── unknown-remover/            plan by removing unknowns
 │       ├── eval-writer/                success criteria before building
-│       ├── agent-builder/              build governed agent capabilities
-│       └── behavior-implementer/       scenario-first BDD/TDD coding
+│       ├── behavior-implementer/       scenario-first BDD/TDD coding
+│       └── agent-builder/              build governed agent capabilities
 │           ├── .claude-plugin/
 │           │   └── plugin.json         Claude Code manifest
 │           ├── .codex-plugin/
 │           │   └── plugin.json         Codex manifest
 │           ├── agents/
-│           │   └── behavior-implementer.md   Claude dispatch wrapper
+│           │   └── agent-builder.md    Claude dispatch wrapper
 │           ├── skills/
-│           │   ├── write-scenarios/    behavior → Given/When/Then
+│           │   ├── create-capability/  spec-gated capability builds
+│           │   │   ├── SKILL.md        the procedure — entry skill
+│           │   │   ├── create-capability.workflow.js   staged fan-out runner
+│           │   │   ├── scripts/
+│           │   │   │   └── check-confirmed.py    deterministic spec gate
+│           │   │   └── references/
+│           │   │       └── forms/      vendored spec templates
+│           │   ├── evaluate-capability/  grade against confirmed spec
 │           │   │   ├── SKILL.md        the procedure
 │           │   │   └── rubric.md       verifier's grading standard
-│           │   ├── implement-behavior/ red → green, three laws
-│           │   │   ├── SKILL.md        the procedure — entry skill
-│           │   │   └── rubric.md       verifier's grading standard
-│           │   └── gate-commit/        measure before commit
-│           │       └── SKILL.md        the procedure — deterministic, no rubric
+│           │   ├── package-plugin/     dual-host packaging contract
+│           │   │   └── SKILL.md        the procedure
+│           │   └── no-ai-slop/         de-slop prose editing
+│           │       ├── SKILL.md        the procedure
+│           │       ├── NOTICE.md       third-party licence
+│           │       └── references/     bundled method material
 │           └── README.md               what it does
 ├── LICENSE                             MIT, Tiên's work
 └── README.md                           this introduction
 ```
 
-Every plugin follows the anatomy shown expanded under `behavior-implementer`: one logical
-agent, one skill folder per job (`SKILL.md` always; `rubric.md` only where a separate
-verifier grades the output; a `<name>.workflow.js` only where a skill needs executable
-orchestration — none here does).
+Every plugin follows the anatomy shown expanded under `agent-builder`, the fullest
+specimen: one logical agent, one skill folder per job. `SKILL.md` is always there; the
+rest appears only where that skill earns it — `rubric.md` where a separate verifier grades
+the output, `<name>.workflow.js` where a skill needs executable orchestration, `scripts/`
+for deterministic checks, `references/` for bundled material, `NOTICE.md` where third-party
+work travels along.
 
 ## Catalog
 
