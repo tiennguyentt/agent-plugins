@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "unknown-remover",
+  "version": "1.2.0",
+  "description": "[tien-os] Classifies the unknown, picks the artifact form, and writes one planning document at a time from the five-document chain.",
+  "author": {
+    "name": "Tien Nguyen",
+    "email": "tiennguyentthao@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "planning",
+    "chain-documents",
+    "unknown-removal"
+  ],
+  "extensions": {
+    "com.anthropic.claude-code": {
+      "manifest": "./.claude-plugin/plugin.json",
+      "agents": "./agents/"
+    },
+    "com.openai.codex": {
+      "manifest": "./.codex-plugin/plugin.json"
+    }
+  }
+}

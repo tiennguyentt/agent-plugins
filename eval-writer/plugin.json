@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "eval-writer",
+  "version": "1.1.0",
+  "description": "[tien-os] Defines measurable success criteria and designs evaluations for any LLM-based task, product, feature, or piece of logic.",
+  "author": {
+    "name": "Tien Nguyen",
+    "email": "tiennguyentthao@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "personal-os",
+    "eval-design",
+    "success-criteria"
+  ],
+  "extensions": {
+    "com.anthropic.claude-code": {
+      "manifest": "./.claude-plugin/plugin.json",
+      "agents": "./agents/"
+    },
+    "com.openai.codex": {
+      "manifest": "./.codex-plugin/plugin.json"
+    }
+  }
+}

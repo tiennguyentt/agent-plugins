@@ -1,169 +1,189 @@
-# tien-os marketplace
+# Agent plugins — the working parts of TienOS
 
-**Agent plugins for [Claude Code](https://claude.com/claude-code) and Codex — plan
-rigorously, define success before building, build capabilities that stay governed, and
-implement code test-first.**
+**TienOS is an autonomous workspace: agent teams that plan, decide, build, and check
+their own work, with every step visible.** These four plugins are the part of it you can
+install today, in Claude Code or Codex, without the rest of the system.
 
-Four plugins, each a single specialist agent with its own skills. Every plugin is
-**standalone**: it reads only its own bundled files, works in any repository, and needs no
-part of the private workspace it was developed in.
+They cover the work that surrounds code and usually goes undone — figuring out what to
+build, deciding what "working" means, giving your agent a new capability, and writing code
+that earns its green.
+
+Each is a specialist with one job. They are peers: install one, install all four, in any
+order. None depends on another.
 
 ## Quickstart
 
-Claude Code:
+**Claude Code**
 
 ```
-/plugin marketplace add tiennguyentt/tien-os-marketplace
+/plugin marketplace add tiennguyentt/agent-plugins
+/plugin install behavior-implementer@agent-plugins
 ```
 
-Codex:
+**Codex**
 
 ```
-codex plugin marketplace add https://github.com/tiennguyentt/tien-os-marketplace
+codex plugin marketplace add https://github.com/tiennguyentt/agent-plugins
 ```
 
-Then pick any plugin from `/plugin` (Claude Code) or install one directly:
-`/plugin install behavior-implementer@tien-os-marketplace`.
+Or browse everything with `/plugin` and pick.
 
-## Repository layout
+## Which one do you need?
 
-```
-tien-os-marketplace/
-├── .claude-plugin/
-│   └── marketplace.json                Claude Code catalog
-├── .agents/
-│   └── plugins/
-│       └── marketplace.json            Codex catalog
-├── plugins/
-│   └── agent-plugins/
-│       ├── unknown-remover/            plan by removing unknowns
-│       ├── eval-writer/                success criteria before building
-│       ├── behavior-implementer/       scenario-first BDD/TDD coding
-│       └── agent-builder/              build governed agent capabilities
-│           ├── .claude-plugin/
-│           │   └── plugin.json         Claude Code manifest
-│           ├── .codex-plugin/
-│           │   └── plugin.json         Codex manifest
-│           ├── agents/
-│           │   └── agent-builder.md    Claude dispatch wrapper
-│           ├── skills/
-│           │   ├── create-capability/  spec-gated capability builds
-│           │   │   ├── SKILL.md        the procedure — entry skill
-│           │   │   ├── create-capability.workflow.js   staged fan-out runner
-│           │   │   ├── scripts/
-│           │   │   │   └── check-confirmed.py    deterministic spec gate
-│           │   │   └── references/
-│           │   │       └── forms/      vendored spec templates
-│           │   ├── evaluate-capability/  grade against confirmed spec
-│           │   │   ├── SKILL.md        the procedure
-│           │   │   └── rubric.md       verifier's grading standard
-│           │   ├── package-plugin/     dual-host packaging contract
-│           │   │   └── SKILL.md        the procedure
-│           │   └── no-ai-slop/         de-slop prose editing
-│           │       ├── SKILL.md        the procedure
-│           │       ├── NOTICE.md       third-party licence
-│           │       └── references/     bundled method material
-│           └── README.md               what it does
-├── LICENSE                             MIT, Tiên's work
-└── README.md                           this introduction
-```
-
-Every plugin follows the anatomy shown expanded under `agent-builder`, the fullest
-specimen: one logical agent, one skill folder per job. `SKILL.md` is always there; the
-rest appears only where that skill earns it — `rubric.md` where a separate verifier grades
-the output, `<name>.workflow.js` where a skill needs executable orchestration, `scripts/`
-for deterministic checks, `references/` for bundled material, `NOTICE.md` where third-party
-work travels along.
-
-## Catalog
-
-| Plugin | One job | Entry point |
+| If you're about to… | Use | Start with |
 |---|---|---|
-| [`unknown-remover`](plugins/agent-plugins/unknown-remover) `1.1.0` | Plan by removing unknowns — one document at a time | `/unknown-remover:classify-unknown` |
-| [`eval-writer`](plugins/agent-plugins/eval-writer) `1.0.0` | Define measurable success criteria before you build | `/eval-writer:write-success-criteria` |
-| [`agent-builder`](plugins/agent-plugins/agent-builder) `2.3.0` | Build new agent capabilities, spec-first and eval-gated | `/agent-builder:create-capability` |
-| [`behavior-implementer`](plugins/agent-plugins/behavior-implementer) `1.0.0` | Implement features scenario-first with BDD/TDD discipline | `/behavior-implementer:implement-behavior` |
+| Write code for a new feature | **behavior-implementer** | `/behavior-implementer:implement-behavior` |
+| Figure out what to build, or where to start | **unknown-remover** | `/unknown-remover:classify-unknown` |
+| Judge whether an AI feature actually works | **eval-writer** | `/eval-writer:write-success-criteria` |
+| Give your agent a new capability | **agent-builder** | `/agent-builder:create-capability` |
 
-Together they cover a build cycle: **plan** (unknown-remover) → **define success**
-(eval-writer) → **assemble the capability** (agent-builder) → **implement the code**
-(behavior-implementer). Each also stands alone.
+Used together they run a full cycle — plan, define success, build the capability, write the
+code. Each is useful on its own.
 
-### unknown-remover — planning by unknown-removal
+---
 
-Classifies what you don't know into four quadrants, picks the artifact form that retires
-that unknown, and writes exactly one planning document at a time from a five-document
-chain — never two, never out of order.
+### behavior-implementer `1.1.0`
+
+**Code that earns its green.** Describe a feature in plain language; get Given/When/Then
+scenarios back before a line is written. Every scenario is run and *seen to fail* first, so
+a passing test means something. Implementation follows the three laws of TDD. Before any
+commit, a gate measures your suite, coverage, linters, and complexity — and reports a check
+it couldn't run as `NOT RUN` rather than passing it.
+
+It never pushes without asking. Every time.
+
+*Skills:* `write-scenarios` · `implement-behavior` · `gate-commit`
+
+### unknown-remover `1.2.0`
+
+**For when you don't know where to start.** It names which kind of unknown you're actually
+holding, picks the document that retires it, and writes exactly one — never a stack of
+documents you didn't ask for, never one out of order. Ships with 31 worked examples of what
+good looks like.
 
 *Skills:* `classify-unknown` · `choose-artifact-form` · `discover-anatomy` ·
 `write-chain-document`
 
-### eval-writer — success criteria before code
+### eval-writer `1.1.0`
 
-Turns "how do I know if this works?" into SMART criteria, an evaluation design, example
-test cases, and a grading-method recommendation. When nobody has a basis for a target yet,
-it refuses to invent numbers and issues a discovery kit instead.
+**"Is this LLM feature good?" — answered properly.** Turns a vague sense of quality into
+measurable criteria, an evaluation design, real test cases, and a recommendation on how to
+grade them. If there's no benchmark or prior measurement to anchor a target, it will not
+invent a number — it hands you a discovery kit and says so.
 
 *Skills:* `write-success-criteria`
 
-### agent-builder — capabilities that stay governed
+### agent-builder `2.4.0`
 
-Creates, evaluates, and packages one-agent-with-licensed-skills plugins. Runs an
-architecture check (simplest adequate mechanism first — most requests don't need an agent),
-writes the spec set, and refuses to build anything a signed spec hasn't licensed. Outside
-its home workspace it runs in standalone mode with vendored spec forms and its own
-confirmation gate.
+**Capabilities that stay governed.** Checks whether your request needs an agent at all —
+most don't — then writes the specs, the skill files, and an evaluation skeleton. It builds
+drafts and never grants itself autonomy.
 
 *Skills:* `create-capability` · `evaluate-capability` · `package-plugin` · `no-ai-slop`
 
-### behavior-implementer — code, test-first
+---
 
-Implements features behavior-first: natural-language Given/When/Then scenarios written
-before any code, every scenario seen failing before it may pass, the three laws of TDD
-during implementation, and a measured coverage/lint/complexity gate before every commit.
-It never pushes without asking.
+## Before you install
 
-*Skills:* `write-scenarios` · `implement-behavior` · `gate-commit`
+**`behavior-implementer` works in any repository.** It carries every rule it applies and
+detects your project's own test runner, linters, and coverage tools rather than assuming
+them.
 
-## Design principles
+**The other three read files from the TienOS workspace** — templates, design tokens,
+evaluation routes. They install anywhere, but outside that workspace they will stop and
+name the file they're missing instead of guessing at it. If you want them fully portable,
+that's a fair thing to open an issue about.
 
-- **One agent, one job.** Every plugin is a specialist; none is a general-purpose helper.
-- **Standalone by construction.** A plugin reads only its own bundled files and detects the
-  host project's tooling instead of assuming any.
-- **Evidence over self-report.** Skills report what a command actually printed; a check
-  that was not run is reported `NOT RUN`, never guessed.
-- **Nothing irreversible without a human.** No plugin pushes, publishes, signs off, or
-  grants autonomy on its own.
-- **Dual-host.** Each plugin ships both a Claude Code manifest (`.claude-plugin/`) and a
-  Codex manifest (`.codex-plugin/`); the procedures live in shared skill files both hosts
-  read.
+## What TienOS believes, and what these inherit
 
-## Verification status
+The plugins are opinionated because the system is. These are the rules they enforce on
+themselves as much as on your work:
 
-Reported per plugin, honestly — installed is not proven.
+- **One agent, one job.** Every plugin is a specialist. None is a general-purpose helper,
+  and none quietly answers a question another one owns.
+- **Say what you need.** A plugin either carries its rules or names the file it can't find.
+  It never fills a gap with a guess.
+- **Evidence, not self-report.** Skills tell you what a command actually printed. A check
+  that didn't run says `NOT RUN`. A maker never grades its own work — that's what the
+  `rubric.md` beside a skill is for, and a different reviewer reads it.
+- **Nothing irreversible without you.** No plugin pushes, publishes, signs off, or grants
+  itself permission.
+- **Visible while it works.** You see the step, not just the result. Work that runs dark
+  doesn't count as working.
+- **Two hosts, one procedure.** Claude Code and Codex read the same skill files, so behavior
+  doesn't drift between them.
+- **Portable by standard.** Every package follows
+  [Agent Plugins 1.0.0](https://agent-plugins.org/specification), an open vendor-neutral
+  format, so a client that speaks neither host's manifest can still read them.
 
-| Plugin | Evaluation evidence |
+## How much of this is proven?
+
+These plugins ask you to report what a command actually printed. Same rule here — so
+instead of a badge, here is where each one honestly stands.
+
+| Plugin | Where it stands |
 |---|---|
-| `unknown-remover` | 12/12 cases passing on Claude Code (2026-07-31) |
-| `eval-writer` | licensed and installed; its 17 golden cases have not been run |
-| `agent-builder` | 8/12 cases passing (2026-07-26, before standalone mode); not re-run since |
-| `behavior-implementer` | new — no evaluation cases run yet |
-| all four on Codex | manifests present; no completed live Codex invocation recorded |
+| `unknown-remover` | Passes all 12 of its test scenarios. The most exercised of the four. |
+| `agent-builder` | Passed 8 of 12 at its last run, and hasn't been re-tested since. |
+| `eval-writer` | 17 test cases written; none run yet. |
+| `behavior-implementer` | The newest. Used daily; its own test cases aren't written yet. |
+
+**Both hosts.** All four ship a Claude Code manifest and a Codex manifest, and read the same
+skill files, so a procedure behaves the same on either. On Codex we've installed and used
+`unknown-remover` so far; the other three are packaged and catalogued but not yet put
+through a Codex session.
+
+## What's in here
+
+```
+agent-plugins/
+├── .claude-plugin/marketplace.json   Claude Code catalog
+├── .agents/plugins/marketplace.json  Codex catalog
+├── agent-builder/                    ┐
+├── behavior-implementer/             │ four plugins, peers,
+├── eval-writer/                      │ one directory each
+├── unknown-remover/                  ┘
+├── LICENSE
+└── README.md
+```
+
+Inside a plugin, the shape is always the same:
+
+```
+<plugin>/
+├── plugin.json                 portable manifest (Agent Plugins 1.0.0)
+├── .claude-plugin/plugin.json  Claude Code manifest
+├── .codex-plugin/plugin.json   Codex manifest
+├── README.md                   what it does and what it needs
+├── agents/<plugin>.md          the dispatch wrapper
+└── skills/<job>/
+    ├── SKILL.md                the procedure — always present
+    ├── rubric.md               where a separate reviewer grades the output
+    ├── <job>.workflow.js       where the job needs staged orchestration
+    ├── scripts/                deterministic checks
+    └── references/             bundled material the skill reads
+```
+
+Everything below `SKILL.md` appears only where that job earns it.
 
 ## License
 
-The repository [LICENSE](LICENSE) (MIT, © 2026 Tien Nguyen) covers Tiên's work.
-Third-party material is declared per plugin and travels with every copy:
+The repository [LICENSE](LICENSE) (MIT, © 2026 Tien Nguyen) covers Tiên's work. Third-party
+material is declared per plugin and travels with every copy — **please keep the `NOTICE.md`
+files when you redistribute**:
 
-- `unknown-remover/NOTICE.md` — Thariq's method (credited; published openly, repository
-  Apache-2.0) and the Apache-2.0 exemplar corpus with its own `LICENSE`.
-- `eval-writer/NOTICE.md` — one reproduced Anthropic documentation page, declared in full.
-- `agent-builder/skills/no-ai-slop/NOTICE.md` — the `no-ai-slop` editing skill by
+- [`unknown-remover/NOTICE.md`](unknown-remover/NOTICE.md) — Thariq's planning method
+  (credited; published openly, repository Apache-2.0) and the Apache-2.0 exemplar corpus.
+- [`eval-writer/NOTICE.md`](eval-writer/NOTICE.md) — one reproduced Anthropic documentation
+  page, declared in full.
+- [`agent-builder/NOTICE.md`](agent-builder/NOTICE.md) — the `no-ai-slop` editing skill by
   [Peter G Yang](https://github.com/petergyang/no-ai-slop), MIT; not Tiên's work.
 
-Do not remove the NOTICE files when redistributing.
+The Agent Plugins format is used under its own terms: specification text CC-BY-4.0, schemas
+Apache-2.0, from the [Agent Plugins project](https://github.com/agentplugins/agent-plugins-spec).
 
-## Provenance
+## Where these come from
 
-These plugins are developed in a private workspace (`tien-os`) and published here; changes
-flow one way, from there to here. This repository is the clean consumer surface — plugins
-and their licenses only, no workspace state and no evaluation run records.
+TienOS is built and used daily as a private workspace. These four plugins are published
+from it, and changes flow one way — from there to here. This repository is the consumer
+surface: plugins and their licenses, no workspace state, no internal run records.

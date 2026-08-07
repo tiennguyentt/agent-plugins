@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agent-builder",
+  "version": "2.4.0",
+  "description": "[tien-os] Creates, evaluates, and packages confirmed capabilities as one-agent-with-licensed-skills plugins.",
+  "author": {
+    "name": "Tien Nguyen",
+    "email": "tiennguyentthao@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "personal-os",
+    "capability-builder",
+    "workflow"
+  ],
+  "extensions": {
+    "com.anthropic.claude-code": {
+      "manifest": "./.claude-plugin/plugin.json",
+      "agents": "./agents/"
+    },
+    "com.openai.codex": {
+      "manifest": "./.codex-plugin/plugin.json"
+    }
+  }
+}

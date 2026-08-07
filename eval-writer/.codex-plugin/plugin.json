@@ -1,0 +1,28 @@
+{
+  "name": "eval-writer",
+  "version": "1.1.0",
+  "description": "[tien-os] Defines measurable success criteria and designs evaluations for any LLM-based task, product, feature, or piece of logic.",
+  "author": {
+    "name": "Tien Nguyen"
+  },
+  "license": "MIT",
+  "keywords": [
+    "personal-os",
+    "eval-design",
+    "success-criteria"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "eval-writer",
+    "shortDescription": "[tien-os] Define success criteria and design evaluations for any LLM task.",
+    "longDescription": "A dual-host agent plugin that defines measurable success criteria and designs the matching evaluation for any LLM-based task, product, feature, or piece of logic — not limited to tien-os capabilities.",
+    "developerName": "Tien Nguyen",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Define success criteria and design an evaluation for this."
+    ]
+  }
+}

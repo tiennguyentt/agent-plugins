@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "behavior-implementer",
+  "version": "1.1.0",
+  "description": "[tien-os] Implements features scenario-first: Given/When/Then scenarios seen failing, the three laws of TDD, and a measured quality gate before every commit.",
+  "author": {
+    "name": "Tien Nguyen",
+    "email": "tiennguyentthao@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "personal-os",
+    "bdd",
+    "tdd",
+    "test-first"
+  ],
+  "extensions": {
+    "com.anthropic.claude-code": {
+      "manifest": "./.claude-plugin/plugin.json",
+      "agents": "./agents/"
+    },
+    "com.openai.codex": {
+      "manifest": "./.codex-plugin/plugin.json"
+    }
+  }
+}
