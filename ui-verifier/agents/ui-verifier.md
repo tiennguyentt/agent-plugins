@@ -14,6 +14,8 @@ description: >
   just measure. It tests a running app's UI; grading a project's own code quality or test
   suite needs a different tool (in tien-os: behavior-implementer:gate-commit), and designing
   what should be measured before anything is built is eval-writer's job, not this one's.
+  Inside a behavior-implementer (BDD/TDD) loop, ui-verifier is runner B — the outside verifier
+  of a macOS app's UI; it never writes production code.
 model: inherit
 tools:
   - Read
