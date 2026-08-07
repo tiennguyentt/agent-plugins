@@ -30,26 +30,40 @@ Then pick any plugin from `/plugin` (Claude Code) or install one directly:
 ```
 tien-os-marketplace/
 ├── .claude-plugin/
-│   └── marketplace.json            Claude Code catalog
+│   └── marketplace.json                Claude Code catalog
 ├── .agents/
 │   └── plugins/
-│       └── marketplace.json        Codex catalog
+│       └── marketplace.json            Codex catalog
 ├── plugins/
 │   └── agent-plugins/
-│       ├── unknown-remover/        plan by removing unknowns
-│       ├── eval-writer/            success criteria before building
-│       ├── agent-builder/          build governed agent capabilities
-│       └── behavior-implementer/   scenario-first BDD/TDD coding
-│           ├── .claude-plugin/     Claude Code manifest
-│           ├── .codex-plugin/      Codex manifest
-│           ├── agents/             the dispatch wrapper
-│           ├── skills/             the portable procedures
-│           └── README.md           what it does
-├── LICENSE                         MIT, Tiên's work
-└── README.md                       this introduction
+│       ├── unknown-remover/            plan by removing unknowns
+│       ├── eval-writer/                success criteria before building
+│       ├── agent-builder/              build governed agent capabilities
+│       └── behavior-implementer/       scenario-first BDD/TDD coding
+│           ├── .claude-plugin/
+│           │   └── plugin.json         Claude Code manifest
+│           ├── .codex-plugin/
+│           │   └── plugin.json         Codex manifest
+│           ├── agents/
+│           │   └── behavior-implementer.md   Claude dispatch wrapper
+│           ├── skills/
+│           │   ├── write-scenarios/    behavior → Given/When/Then
+│           │   │   ├── SKILL.md        the procedure
+│           │   │   └── rubric.md       verifier's grading standard
+│           │   ├── implement-behavior/ red → green, three laws
+│           │   │   ├── SKILL.md        the procedure — entry skill
+│           │   │   └── rubric.md       verifier's grading standard
+│           │   └── gate-commit/        measure before commit
+│           │       └── SKILL.md        the procedure — deterministic, no rubric
+│           └── README.md               what it does
+├── LICENSE                             MIT, Tiên's work
+└── README.md                           this introduction
 ```
 
-Every plugin follows the same anatomy shown expanded under `behavior-implementer`.
+Every plugin follows the anatomy shown expanded under `behavior-implementer`: one logical
+agent, one skill folder per job (`SKILL.md` always; `rubric.md` only where a separate
+verifier grades the output; a `<name>.workflow.js` only where a skill needs executable
+orchestration — none here does).
 
 ## Catalog
 
