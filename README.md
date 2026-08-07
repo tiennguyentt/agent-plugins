@@ -26,6 +26,32 @@ codex plugin add behavior-implementer@tien-os-marketplace
 
 Swap in any plugin name from the catalog below.
 
+## Repository layout
+
+```
+tien-os-marketplace/
+├── .claude-plugin/
+│   └── marketplace.json            Claude Code catalog
+├── .agents/
+│   └── plugins/
+│       └── marketplace.json        Codex catalog
+├── plugins/
+│   └── agent-plugins/
+│       ├── unknown-remover/        plan by removing unknowns
+│       ├── eval-writer/            success criteria before building
+│       ├── agent-builder/          build governed agent capabilities
+│       └── behavior-implementer/   scenario-first BDD/TDD coding
+│           ├── .claude-plugin/     Claude Code manifest
+│           ├── .codex-plugin/      Codex manifest
+│           ├── agents/             the dispatch wrapper
+│           ├── skills/             the portable procedures
+│           └── README.md           what it does
+├── LICENSE                         MIT, Tiên's work
+└── README.md                       this introduction
+```
+
+Every plugin follows the same anatomy shown expanded under `behavior-implementer`.
+
 ## Catalog
 
 | Plugin | One job | Entry point |

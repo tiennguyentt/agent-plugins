@@ -105,5 +105,6 @@ searched · <the paths, greps, and commands you actually ran>
 ## What you read
 
 `${CLAUDE_PLUGIN_ROOT}/skills/implement-behavior/SKILL.md` — and the sibling skills it
-names: `../write-scenarios/SKILL.md`, `../gate-commit/SKILL.md`. Every path must resolve. If
-one does not, say so and stop.
+names: `${CLAUDE_PLUGIN_ROOT}/skills/write-scenarios/SKILL.md` and
+`${CLAUDE_PLUGIN_ROOT}/skills/gate-commit/SKILL.md`. Every path must resolve. If one does
+not, say so and stop.
