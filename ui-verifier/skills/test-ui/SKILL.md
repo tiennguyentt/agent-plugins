@@ -29,7 +29,10 @@ present-and-not-loading check green-lit a real run surface with zero usable card
 chrome (a header) is present whether or not the content under it rendered or can be clicked.
 The same wrong path repeats at the press layer — an element that *exposes* `AXPress` in its
 action list is not the same fact as an element that *performs* it; `AXUIElementPerformAction`
-can return `kAXErrorCannotComplete` (-25204) for an action the tree claims exists. **Only an
+can return `kAXErrorActionUnsupported` (-25204) for an action the tree claims exists — measured
+directly: `.accessibilityElement(children: .combine)` made `AXPress` *appear* in one element's
+action list, then fail with exactly this error when actually performed, "a WORSE false green
+than the unpressable row it replaced." **Only an
 action you actually attempted and watched succeed is a claim you get to make.** Everything
 else is inventory, not a contract.
 
