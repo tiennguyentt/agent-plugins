@@ -1,6 +1,6 @@
 {
   "name": "behavior-implementer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "[tien-os] Implements features scenario-first: Given/When/Then scenarios seen failing, the three laws of TDD, and a measured quality gate before every commit.",
   "author": {
     "name": "Tien Nguyen"

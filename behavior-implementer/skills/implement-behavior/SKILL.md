@@ -9,7 +9,9 @@ description: >
   (that is gate-commit) — this skill runs the loop between them. It writes application code:
   authoring an agent, skill, or plugin for the workspace itself is a different job (in tien-os:
   `agent-builder:create-capability`), and so is writing the plan before any code exists
-  (`unknown-remover:write-chain-document`).
+  (`unknown-remover:write-chain-document`). UI-visible behaviors are verified through the
+  ui-verifier plugin (runner B, a macOS-app test tool) — this plugin never grades its own UI
+  claims.
 ---
 
 # implement-behavior

@@ -7,7 +7,9 @@ description: >
   commit", "gate this", "chạy gate trước khi commit", "is this ready to commit?" — or
   whenever implement-behavior reaches its gate step. Never lets anything be pushed without
   asking. Do NOT use to fix what it finds (that is implement-behavior's loop) or to write
-  scenarios (that is write-scenarios).
+  scenarios (that is write-scenarios). UI-visible behaviors are verified through the
+  ui-verifier plugin (runner B, a macOS-app test tool) — this plugin never grades its own UI
+  claims.
 ---
 
 # gate-commit

@@ -21,11 +21,13 @@ This is one of four agent plugins in **tien-os**, a workspace OS where governed 
 the work end to end. It is published on its own because a part that only runs inside the repo
 that grew it is not a part — it is a dependency.
 
-**Built for a team, not for a demo.** Three skills, one job each, each independently invocable
-without the agent. Grading standards live in `rubric.md` files read by an agent that did *not*
-produce the work, because a maker's own "looks good" is not evidence. The packaging is checked
-by machine: `plugin.json` conforms to Agent Plugins 1.0.0, and a contract check fails the build
-when the manifests, the entry skill, or the routes drift apart.
+**Built for a team, not for a demo.** Five skills, one job each, each independently invocable
+without the agent — the BDD/TDD loop (`write-scenarios`, `implement-behavior`, `gate-commit`)
+plus two more seats the agent does not preload: the mutation seat (`strengthen-tests`) and the
+review seat (`review-changes`). Grading standards live in `rubric.md` files read by an agent
+that did *not* produce the work, because a maker's own "looks good" is not evidence. The
+packaging is checked by machine: `plugin.json` conforms to Agent Plugins 1.0.0, and a contract
+check fails the build when the manifests, the entry skill, or the routes drift apart.
 
 **What is not measured says so.** This plugin has a golden set of **zero cases run** — the
 evaluation routes exist and are marked NOT BUILT / NOT RUN, not quietly left blank. Nothing here
@@ -38,7 +40,7 @@ this is currently the only one where it is true.
 ## Package layout
 
 ```text
-execution-plane/agent-plugins/behavior-implementer/
+behavior-implementer/
 ├── plugin.json                  portable manifest — Agent Plugins 1.0.0
 ├── .claude-plugin/plugin.json   Claude Code adapter
 ├── .codex-plugin/plugin.json    Codex adapter
@@ -52,8 +54,14 @@ execution-plane/agent-plugins/behavior-implementer/
     ├── implement-behavior/      portable entry
     │   ├── SKILL.md
     │   └── rubric.md            loop discipline, judged by a non-maker
-    └── gate-commit/
-        └── SKILL.md
+    ├── gate-commit/
+    │   └── SKILL.md
+    ├── strengthen-tests/        the mutation seat — not preloaded by the agent
+    │   ├── SKILL.md
+    │   └── rubric.md            triage soundness, judged by a separate verifier
+    └── review-changes/          the review seat — not preloaded by the agent
+        ├── SKILL.md
+        └── rubric.md            review completeness, judged by a separate verifier
 ```
 
 ## Package format
@@ -86,6 +94,23 @@ gate-commit          suite · red-run evidence · coverage (line+branch,
 commit               push only after a fresh, explicit yes — every time
 ```
 
+## Two more seats, outside the loop
+
+`strengthen-tests` (the mutation seat) and `review-changes` (the review seat) are licensed
+skills in this plugin, invoked on their own — the agent does not preload either into every run
+of the loop above.
+
+- **`strengthen-tests`** takes a module and its green suite, runs mutation testing in a fresh
+  sandbox (never a prior run's cache — that is evidence, not a scratchpad), triages every
+  survivor into accepted-with-a-written-reason or a real hole, and drafts exact-match killing
+  tests for the real holes. Reports both the raw kill rate and the meaningful-subset rate, with
+  the population counted. Its killing tests are drafts — they never enter the real suite
+  without passing through a handoff review.
+- **`review-changes`** takes a diff and the scenario set it claims to satisfy, and reports every
+  finding at file:line — including low-confidence and low-severity ones — never the repair.
+  **The seat rule: the reviewer is never the maker of the diff.** If the same session or agent
+  wrote the diff, `review-changes` refuses and says so.
+
 ## Skills
 
 | Skill | Phase | Job |
@@ -93,9 +118,12 @@ commit               push only after a fresh, explicit yes — every time
 | `write-scenarios` | before code | Turn a behavior into Given/When/Then scenarios that stay ignorant of code structure and can each be seen to fail |
 | `implement-behavior` | during — **the entry skill** | Red first, thin glue (reuse the project's runner or write a small custom one), three laws of TDD, refactor on green |
 | `gate-commit` | before commit | Measure suite/coverage/lint/complexity against the current tree; every check pass, fail, or NOT RUN — never guessed |
+| `strengthen-tests` | on request — the mutation seat | Mutation-test a module in a fresh sandbox, triage every survivor, draft exact-match killing tests for real holes |
+| `review-changes` | on request — the review seat | Review a diff against the scenarios it claims to satisfy; every finding at file:line, never the repair; refuses to review its own maker's diff |
 
 Invoke on Claude Code: `/behavior-implementer:implement-behavior` (or `:write-scenarios`,
-`:gate-commit`), or dispatch the bundled `behavior-implementer` agent.
+`:gate-commit`, `:strengthen-tests`, `:review-changes`), or dispatch the bundled
+`behavior-implementer` agent.
 Invoke on Codex: `$behavior-implementer:implement-behavior`.
 
 ## The rules it holds, in one place
@@ -135,6 +163,8 @@ decisions:
 | `write-scenarios` | **yes** — scenario quality is judged; a separate verifier gets the standard as a file | N/A — no fan-out or staged orchestration |
 | `implement-behavior` | **yes** — loop discipline (red evidence, vacuous steps, weakened contracts) is judged by a non-maker | N/A — the loop is sequential by design |
 | `gate-commit` | N/A — its report is verified by re-running the named commands, a deterministic check | N/A — plain command runs, no orchestration |
+| `strengthen-tests` | **yes** — triage soundness (a survivor wrongly accepted, a weakened kill) is judged by a non-maker | N/A — one module, one sandbox, sequential triage; no fan-out, pipeline, or per-stage model tier the requirements call for |
+| `review-changes` | **yes** — review completeness (a missed hunk, a filtered finding, a prescribed repair, a seat violation) is judged by a non-maker | N/A — one diff read whole against one scenario set in a single pass; no fan-out the requirements call for |
 
 A rubric is read by an agent that did not produce the work; the skills point their verifier
 at it and never self-grade.
@@ -151,3 +181,9 @@ run a gate — a check whose tool is absent is reported **NOT RUN**, not skipped
   security, and performance are named as `not checked` in every gate report — reviewing
   those is a separate job for a reviewer that is not the implementer.
 - The agent's own green suite is evidence, not a verdict; pair it with independent review.
+- `strengthen-tests` only reports what the mutation instrument can generate for the target
+  language and module; a kill rate is a floor on the suite's strength, not a ceiling on its
+  correctness.
+- `review-changes` reports what is wrong, never the fix, and refuses outright if it cannot
+  confirm it is not grading its own diff — a review with no seat check behind it is not this
+  skill's output.

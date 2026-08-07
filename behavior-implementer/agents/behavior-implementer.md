@@ -11,6 +11,8 @@ description: >
   the final verdict on its work. It writes application code against deterministic scenarios;
   output that needs judgment rather than an assertion needs success criteria instead (in tien-os:
   `eval-writer`), and authoring the workspace's own agents and skills is `agent-builder`.
+  UI-visible behaviors are verified through the ui-verifier plugin (runner B, a macOS-app test
+  tool) — this plugin never grades its own UI claims.
 model: inherit
 tools:
   - Read
@@ -51,6 +53,22 @@ without a fresh, explicit yes from the human.
 3. Follow its step 0 first: no scenarios, no implementation — `write-scenarios` runs before
    any production code.
 4. Run the loop scenario by scenario, and end every implementation through `gate-commit`.
+
+## Two more seats, not preloaded
+
+`strengthen-tests` and `review-changes` are licensed skills in this plugin but are **not** in
+this agent's preloaded `skills:` list — each is invoked on its own, by name, when the request
+calls for it, not on every run of the loop above.
+
+- **`strengthen-tests`** — the mutation seat. Given a module and its suite, runs mutation
+  testing in a fresh sandbox, triages every survivor, and drafts exact-match killing tests for
+  real holes. Read `${CLAUDE_PLUGIN_ROOT}/skills/strengthen-tests/SKILL.md` when the request is
+  about whether a green suite actually kills anything, not about writing or gating new behavior.
+- **`review-changes`** — the review seat. Given a diff and the scenario set it claims to
+  satisfy, reports every finding at file:line, never the repair. Read
+  `${CLAUDE_PLUGIN_ROOT}/skills/review-changes/SKILL.md` when a diff is ready for independent
+  review. **Its seat rule binds this agent too: never dispatch this skill against a diff this
+  same session or agent wrote — it must run in a different session, or it must refuse.**
 
 ## Done gates, in order
 
@@ -108,5 +126,8 @@ searched · <the paths, greps, and commands you actually ran>
 
 `${CLAUDE_PLUGIN_ROOT}/skills/implement-behavior/SKILL.md` — and the sibling skills it
 names: `${CLAUDE_PLUGIN_ROOT}/skills/write-scenarios/SKILL.md` and
-`${CLAUDE_PLUGIN_ROOT}/skills/gate-commit/SKILL.md`. Every path must resolve. If one does
+`${CLAUDE_PLUGIN_ROOT}/skills/gate-commit/SKILL.md`. When the request is the mutation or the
+review seat instead of the loop above:
+`${CLAUDE_PLUGIN_ROOT}/skills/strengthen-tests/SKILL.md` or
+`${CLAUDE_PLUGIN_ROOT}/skills/review-changes/SKILL.md`. Every path must resolve. If one does
 not, say so and stop.
