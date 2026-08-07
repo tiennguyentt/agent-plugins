@@ -1,7 +1,8 @@
 ---
 name: snapshot-ui-state
 description: >
-  [tien-os] Captures a golden Accessibility-tree snapshot per fixture world and diffs future
+  [tien-os] A macOS-app test tool: captures a golden Accessibility-tree snapshot of a running
+  macOS app per fixture world and diffs future
   captures against it byte-for-byte, normalized against wall-clock noise and SwiftUI's
   unordered siblings — a real UI regression, not just today's, shows as a diff instead of a
   guess. Use when the user asks to "add a UI snapshot test", "baseline this screen", "did the
