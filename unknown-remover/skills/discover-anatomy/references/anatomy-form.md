@@ -88,11 +88,11 @@ cites the other by filename.
 
 Distilled 2026-07-31 from five sources, none of them portable method:
 
-- `archive-v1/artifact-plane/workspace/pre-implementation/2026-07-24-anatomy-block-formats.html` — nine parts of
+- `attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-24-anatomy-block-formats.html` — nine parts of
   Claude Code, and §2's borrowed lede.
-- `archive-v1/artifact-plane/workspace/pre-implementation/2026-07-24-anatomy-personal-os.html` — the five parts of
+- `attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-24-anatomy-personal-os.html` — the five parts of
   a personal OS, and the *"vocabulary, not domain map"* sibling label.
-- `archive-v1/artifact-plane/workspace/pre-implementation/2026-07-29-anatomy-how-tien-os-moves-work.html` — five
+- `attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-29-anatomy-how-tien-os-moves-work.html` — five
   parts of one workflow and the failure modes between them.
 - `CORE/GUARDRAILS.md` §6 — the eight research forms named in §4.
 - `records/DECISION-LOG.md`, 2026-07-26 — the account of a `thariq-os-anatomy` skill that

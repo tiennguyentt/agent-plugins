@@ -4,7 +4,7 @@
 > agent plugin: exactly one logical agent composing one or more licensed
 > reusable skills.
 > Copy it to
-> `archive-v1/artifact-plane/workspace/pre-implementation/<YYYY-MM-DD>-spec-<name>.html`, retitle
+> `attic/archive-v1/artifact-plane/workspace/pre-implementation/<YYYY-MM-DD>-spec-<name>.html`, retitle
 > the H1 in plain English, and fill every field. Use `N/A — <reason>` where a
 > component is intentionally absent.
 >
@@ -20,7 +20,7 @@
 > **The spec ships as HTML, not Markdown.** This template is Markdown because
 > every file in `control-plane/` is; the document it produces is not.
 > the signature rule (`CORE/GUARDRAILS.md` §1.2) fixes the `Confirmed:` line inside a
-> `<pre>` and points at `archive-v1/artifact-plane/workspace/pre-implementation/2026-07-25-spec-tien-os.html:542`
+> `<pre>` and points at `attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-25-spec-tien-os.html:542`
 > as the specimen, so the law's own worked example of a spec is an HTML file.
 > Every confirmed spec on disk is one. This line said `.md` until 2026-07-31 and
 > produced one Markdown spec before it was caught

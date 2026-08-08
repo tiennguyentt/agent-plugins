@@ -339,7 +339,7 @@ Every path above must resolve. If one does not, say so and stop.
 
 **Every new HTML artifact in a `tien-os` checkout is `glass`.** Tiên's decision, 2026-08-01,
 recorded in `records/DECISION-LOG.md`; it supersedes the closed default in
-`archive-v1/artifact-plane/workspace/pre-implementation/2026-07-30-spec-glass-theme.html` §12(d). `thariq` is v1 and
+`attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-30-spec-glass-theme.html` §12(d). `thariq` is v1 and
 is kept for the documents already written in it — **it is not what you reach for.**
 
 | Theme | Where | When |
@@ -363,7 +363,7 @@ a relative `href` dies the moment the document moves:
 Copy it exactly — single quotes on the attribute, and `%23` for each `#`. `surfaces/themes/README.md`
 carries the readable source and what the mark is.
 
-**Open `archive-v1/artifact-plane/projects/tien-os-app/2026-08-01-tokens-glass-theme.html` before writing.** It is
+**Open `attic/archive-v1/artifact-plane/projects/tien-os-app/2026-08-01-tokens-glass-theme.html` before writing.** It is
 generated from the theme, so it is never stale: every token with its role, the type ladder rendered
 largest to smallest, and a comment-free block with a copy button — copying that block is the whole
 mechanism, and `glass.css` itself is 71% comment by character.
