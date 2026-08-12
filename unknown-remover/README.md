@@ -9,17 +9,24 @@ Distribution mode: dual
 Standalone entry: `write-chain-document` writes a planning document anywhere, styling it from the bundled `glass.css` and the 31 bundled worked examples
 Portable core: `skills/`
 Portable entry skill: `write-chain-document`
-Bundled equivalents: a retired tien-os document -> `skills/write-chain-document/references/glass.css`
-Workspace-mode extras: `control-plane/`, `artifact-plane/`, `evaluation-plane/`
+Bundled equivalents: none
+Workspace-mode extras: `CORE/`, `engine/`, `records/`, `studio/`
 Codex project agent: none
 ```
 
 This block read `Distribution mode: standalone` / `Runtime dependencies: none` until 2026-08-07.
 The **corpus** does ship inside the package, which is what that line was reaching for — but
-`skills/write-chain-document/SKILL.md` also sends the writer to a retired tien-os document
-for the theme, `records/DECISION-LOG.md` for the decision behind it, and
-`artifact-plane/` for where the document lands. A plugin that names repo-owned paths at runtime is
-repo-bound; the standalone claim was one the package could not keep outside a `tien-os` checkout.
+`skills/write-chain-document/SKILL.md` also sends the writer to `records/DECISION-LOG.md` for the
+decision behind a choice and to `studio/` for where the document lands. A plugin that names
+repo-owned paths at runtime is repo-bound; the standalone claim was one the package could not
+keep outside a `tien-os` checkout.
+
+Two corrections on 2026-08-12. `glass.css` moved from **Bundled equivalents** to plugin-owned:
+its tien-os source was deleted that day, and a "bundled equivalent" with no source is not a copy
+of anything — it is simply this plugin's file now, which is why it also left check 15's drift
+table. And the extras list still named `control-plane/`, `artifact-plane/`, `evaluation-plane/`,
+three directories renamed out of existence on 2026-08-07; a declaration that names nothing on
+disk cannot be checked, so it now names the epoch-2 rooms that actually exist.
 
 ```text
 engine/agent-plugins/unknown-remover/

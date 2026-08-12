@@ -14,7 +14,7 @@ Distribution mode: dual
 Portable core: `skills/`
 Portable entry skill: `test-ui`
 Standalone entry: runs test-ui and snapshot-ui-state entirely from the vendored references/ax-dump.swift, ax-actions.swift, and window-shot.swift plus the steps written into each SKILL.md — no workspace file is required for either skill's core procedure.
-Workspace-mode extras: `a retired tien-os gate` (a tien-os workspace's own world runner that automates snapshot-ui-state's fixture loop across many fixtures at once; snapshot-ui-state uses it when the path exists in the current repo and falls back to its own manual loop otherwise), and — outside any repo-owned plane, so not a dependency of this plugin's own runtime text — the a project repository repo's own workspace wrapper scripts (e2e-eye.sh, eye-prep.sh, test-gate.sh, check-module-boundaries.sh) that call the same three tools this plugin vendors
+Workspace-mode extras: `state/` (a tien-os workspace's own multi-fixture world runner, which automates snapshot-ui-state's fixture loop across many app states at once; the skill uses it when the path exists in the current repo and falls back to its own manual loop otherwise)
 Codex project agent: none
 ```
 
@@ -22,6 +22,13 @@ Standalone behavior is measured, not asserted: both skills' own procedures run t
 using only the three vendored tools and the steps written in `SKILL.md`; the workspace-mode
 extras above are read only when found, and their absence changes nothing about what either
 skill can do.
+
+The extras line was rewritten on 2026-08-12. It had named a specific tien-os gate file and a
+specific application repository's wrapper scripts, both of which were deleted that day, so the
+line described a world that no longer existed. It now names the repo-owned prefix the runtime
+text actually reaches for. The skills themselves did not change: `ui-verifier` drives ANY macOS
+app through the Accessibility API and was never bound to the app it happened to be exercised
+against.
 
 ## One part of a bigger system, shared on purpose
 

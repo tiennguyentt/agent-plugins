@@ -7,7 +7,7 @@ Standalone entry: `create-capability` walks for a `.git` root, finds no `CORE/GU
 Portable core: `skills/`
 Portable entry skill: `create-capability`
 Bundled equivalents: `engine/templates/agent-spec.md` -> `skills/create-capability/references/forms/agent-spec.md`, `engine/templates/skill-spec.md` -> `skills/create-capability/references/forms/skill-spec.md`, `engine/templates/workflow-spec.md` -> `skills/create-capability/references/forms/workflow-spec.md`, `engine/templates/agent-plugin-spec.md` -> `skills/create-capability/references/forms/agent-plugin-spec.md`
-Workspace-mode extras: `CLAUDE.md`, `control-plane/`, `artifact-plane/`, `policy-plane/`, `evaluation-plane/`, `graph-plane/`
+Workspace-mode extras: `CLAUDE.md`, `CORE/`, `engine/`, `records/`, `state/`, `studio/`
 Codex project agent: optional overlay
 
 The last three joined the list on 2026-08-07. They were always used — `CORE/GUARDRAILS.md`
