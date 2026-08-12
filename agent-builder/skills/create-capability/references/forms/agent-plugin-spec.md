@@ -8,9 +8,9 @@
 > the H1 in plain English, and fill every field. Use `N/A — <reason>` where a
 > component is intentionally absent.
 >
-> **It goes in `studio/workspace/`, not `studio/evaluation/<name>/`.**
+> **It goes in `studio/docs/<topic>/`, not `studio/evaluation/<name>/`.**
 > `CORE/GUARDRAILS.md` §6 gives planning exactly two homes —
-> `studio/projects/<name>/` for a product and `studio/workspace/` for the
+> `studio/projects/<name>/` for a product and `studio/docs/<topic>/` for the
 > workspace — and a capability of this workspace is the second.
 > `studio/evaluation/<name>/` holds retained evidence only: the
 > `evaluation/` cases and run records, which is all
@@ -35,7 +35,7 @@
 > agent adapter. Host-specific adapters improve routing or orchestration without
 > owning the only implementation.
 >
-> The spec must end with `End of spec. Ready to build on confirmation.` A build
+> The spec must end with `End of spec.` A build
 > is licensed only when a later line reads `Confirmed: <date> — Tien`, written by
 > Tien. No model originates it; an agent may transcribe it only citing a valid `approval` trace event (`CORE/GUARDRAILS.md` §1.2).
 >
@@ -394,6 +394,6 @@ procedure and its checklist. A push to the mirror is public and is Tiên's alone
 
 ---
 
-End of spec. Ready to build on confirmation.
+End of spec.
 
 Confirmed:
