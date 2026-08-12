@@ -1,0 +1,10 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "claude-code-for-codex",
+  "version": "1.0.1",
+  "description": "Use Claude Code from Codex to review code or delegate tasks.",
+  "author": {
+    "name": "Tien Nguyen",
+    "email": "tiennguyentthao@gmail.com"
+  }
+}

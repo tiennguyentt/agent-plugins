@@ -43,6 +43,11 @@ ambiguity in favor of the run that produced the capture.
 ## What the reviewer must not treat as evidence
 
 - Its own memory of what this screen "usually" looks like.
+- Any OCR text extracted from the capture, by the gate or by anyone else. OCR reads the glyph
+  layer; a rendering defect is a defect in the PIXELS. A string OCR recovered can sit under an
+  overlapping panel, be the wrong colour against its background, or be clipped to meaninglessness —
+  all `DEFECT`, all of which OCR reports as present. The gate compares OCR against expected strings
+  and that is the gate's job; the reviewer's job starts where OCR stops.
 - The gate's `elements=`/`identifiers=`/`with_press=` counts from step 4/5 — those measure the
   Accessibility tree, not the pixels, and a passing gate does not make a blank screenshot
   `RENDERED`.

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "claude-code-for-codex",
+  "version": "1.0.1",
+  "description": "Use Claude Code from Codex to review code or delegate tasks.",
+  "author": {
+    "name": "Tien Nguyen",
+    "email": "tiennguyentthao@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "claude-code",
+    "delegation",
+    "code-review",
+    "cross-agent",
+    "rescue"
+  ],
+  "extensions": {
+    "com.openai.codex": {
+      "manifest": "./.codex-plugin/plugin.json"
+    },
+    "com.anthropic.claude-code": {
+      "manifest": "./.claude-plugin/plugin.json"
+    }
+  }
+}

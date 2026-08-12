@@ -5,6 +5,12 @@
   },
   "plugins": [
     {
+      "name": "claude-code-for-codex",
+      "source": "./claude-code-for-codex",
+      "version": "1.0.1",
+      "description": "Use Claude Code from Codex to review code or delegate tasks. A port of OpenAI's codex-plugin-cc with the direction of delegation reversed."
+    },
+    {
       "name": "agent-builder",
       "source": "./agent-builder",
       "version": "2.5.0",
@@ -32,7 +38,7 @@
       "name": "ui-verifier",
       "source": "./ui-verifier",
       "version": "1.0.0",
-      "description": "[tien-os] Tests a macOS app's UI hands-free: off-screen launch, Accessibility-tree gates, screenshot capture with vision review, and golden AX-tree snapshot regression — every number measured, nothing advertised it cannot deliver."
+      "description": "[tien-os] Tests a macOS app's UI hands-free: off-screen launch, Accessibility-tree gates, screenshot capture with vision review, and golden AX-tree snapshot regression \u2014 every number measured, nothing advertised it cannot deliver."
     }
   ],
   "description": "Five agent plugins for Claude Code and Codex: unknown-remover (planning by unknown-removal), eval-writer (success criteria and evaluations), agent-builder (creates, evaluates, and packages capabilities), behavior-implementer (scenario-first BDD/TDD implementation), and ui-verifier (hands-free macOS UI testing via Accessibility)."

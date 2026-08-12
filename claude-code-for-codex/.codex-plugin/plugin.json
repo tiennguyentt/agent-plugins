@@ -1,0 +1,34 @@
+{
+  "name": "claude-code-for-codex",
+  "version": "1.0.1",
+  "description": "Use Claude Code from Codex to review code or delegate tasks.",
+  "author": {
+    "name": "Tien Nguyen"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "claude-code",
+    "delegation",
+    "code-review",
+    "cross-agent",
+    "rescue"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Claude Code",
+    "shortDescription": "Delegate tasks and reviews to Claude Code",
+    "longDescription": "Run Claude Code from inside Codex: hand off a substantial coding task, get a read-only or adversarial review of your changes, transfer the current Codex session across, and manage the background jobs it starts. The inverse of OpenAI's Codex plugin for Claude Code.",
+    "developerName": "Tien Nguyen",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Have Claude Code review my changes on this branch.",
+      "Hand this debugging task to Claude Code.",
+      "Show me the Claude Code jobs still running."
+    ]
+  }
+}
