@@ -339,13 +339,13 @@ Every path above must resolve. If one does not, say so and stop.
 
 **Every new HTML artifact in a `tien-os` checkout is `glass`.** Tiên's decision, 2026-08-01,
 recorded in `records/DECISION-LOG.md`; it supersedes the closed default in
-`attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-30-spec-glass-theme.html` §12(d). `thariq` is v1 and
+a retired tien-os document §12(d). `thariq` is v1 and
 is kept for the documents already written in it — **it is not what you reach for.**
 
 | Theme | Where | When |
 |---|---|---|
-| `glass` — v2, default | `${CLAUDE_PLUGIN_ROOT}/skills/write-chain-document/references/glass.css` — **bundled, so it works with no workspace present**; identical to `surfaces/themes/glass.css` inside tien-os | every new document. Copy its `:root` block (and the four `@media` blocks under it) inline, and set `data-theme="glass"` on `<html>` |
-| `thariq` — v1, legacy | `surfaces/DESIGN.md` §§1–7 | only when Tiên names it. Documents already on it are not converted |
+| `glass` — v2, default | `${CLAUDE_PLUGIN_ROOT}/skills/write-chain-document/references/glass.css` — **bundled, so it works with no workspace present**; identical to a retired tien-os document inside tien-os | every new document. Copy its `:root` block (and the four `@media` blocks under it) inline, and set `data-theme="glass"` on `<html>` |
+| `thariq` — v1, legacy | a retired tien-os document §§1–7 | only when Tiên names it. Documents already on it are not converted |
 
 **The attribute is the theme's declaration, and since 2026-08-03 it selects nothing** — the contrast checker was
 deleted and no document is contrast-checked. Historically, `engine/checks/check.py` selected which documents that checker
@@ -360,10 +360,10 @@ a relative `href` dies the moment the document moves:
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" rx="46" fill="%237f93d8"/><path d="M92 22 Q60 22 66 50 Q70 62 82 66 L100 70 L100 148 Q100 164 116 166" fill="none" stroke="%23f5f7fe" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M64 82 L136 82" fill="none" stroke="%23f5f7fe" stroke-width="22" stroke-linecap="round"/></svg>'>
 ```
 
-Copy it exactly — single quotes on the attribute, and `%23` for each `#`. `surfaces/themes/README.md`
+Copy it exactly — single quotes on the attribute, and `%23` for each `#`. a retired tien-os document
 carries the readable source and what the mark is.
 
-**Open `attic/archive-v1/artifact-plane/projects/tien-os-app/2026-08-01-tokens-glass-theme.html` before writing.** It is
+**Open a retired tien-os document before writing.** It is
 generated from the theme, so it is never stale: every token with its role, the type ladder rendered
 largest to smallest, and a comment-free block with a copy button — copying that block is the whole
 mechanism, and `glass.css` itself is 71% comment by character.
@@ -396,7 +396,7 @@ Three more things a session gets wrong by default, all measured:
   against. Nothing under 14px goes on a translucent surface.
 
 **The wallpaper does not drift and there is no window box.** Both settled 2026-08-01 after being
-built and rejected on sight. `surfaces/themes/README.md` has the measurements.
+built and rejected on sight. a retired tien-os document has the measurements.
 
 **Two things `glass` does not have, so they do not get invented:** dark mode, and form
 error/validation states. Neither surfaced in the Apple ingestion, so there is no answer to copy.

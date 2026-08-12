@@ -138,13 +138,13 @@ workspace specs. Exit `1` means it does not — treat that exactly like "it does
 never as something to re-check by reading the file yourself.
 
 **Where to look.** The capability's own artifact folder, not the workspace artifact sequence.
-`attic/archive-v1/artifact-plane/workspace/pre-implementation/` holds the planning sequence for the tien-os workspace itself — the repo
+a retired tien-os document holds the planning sequence for the tien-os workspace itself — the repo
 layout, the blocks, the lifecycle. A signed workspace spec licenses changes to the workspace; **it
 never licenses a capability.**
 
 Card §12·2 of the workspace spec is **closed** — she signed it 2026-07-26 — and its answer is
 `studio/evaluation/<name>/`, one folder per capability. A confirmed spec outranks this file, so use `studio/evaluation/`.
-The alternative it rejected was flat `attic/archive-v1/artifact-plane/workspace/pre-implementation/` told apart by filename; the reason given
+The alternative it rejected was flat a retired tien-os document told apart by filename; the reason given
 was that _"a folder boundary is checkable; a filename convention is a habit."_ That folder does not
 exist yet and the spec deliberately does not create it — the first capability to need it makes it.
 
@@ -230,7 +230,7 @@ stop at the first one that fits:
 
 Why this order is law, not taste: Anthropic's "simplest solution possible", OpenAI's "maximize a
 single agent first", and the measured 41–86.7% failure rate of multi-agent frameworks (MAST) — all
-in `attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-23-explainer-evidence.html`. **"Tiên asked for an agent" is
+in a retired tien-os document. **"Tiên asked for an agent" is
 not a justification.** Recommend the simpler option and say why.
 
 **The result is not limited to one row of the ladder.** A capability may be a
@@ -463,7 +463,7 @@ memory of one.
 `CLAUDE.md` · `CORE/GUARDRAILS.md` · `CORE/DEFINITION-OF-DONE.md` · `engine/templates/agent-spec.md` ·
 `engine/templates/skill-spec.md` · `engine/templates/workflow-spec.md` ·
 `engine/templates/agent-plugin-spec.md` ·
-`attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-23-explainer-evidence.html`
+a retired tien-os document
 
 And the workflow beside this file plus the sibling evaluation rubric, **both
 of which you open rather than remember**:

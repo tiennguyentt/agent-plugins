@@ -90,7 +90,7 @@ report clean.
    back-to-back captures of the identical state differ, the normalization in step 3 is
    incomplete, and every result from steps 4–5 is unproven until it is fixed.
 7. **When a tien-os workspace is present, it may already automate steps 1–6 across many
-   fixtures at once** — `engine/checks/test-ax-snapshot.py`, if that path exists in
+   fixtures at once** — a retired tien-os gate, if that path exists in
    the current repo, is a workspace-side runner built on this same method. Use it when present
    instead of repeating the manual loop by hand; when it is absent, the steps above are the
    complete, standalone procedure and nothing is missing by not having it.

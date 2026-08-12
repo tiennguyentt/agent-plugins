@@ -6,7 +6,7 @@
 > `studio/evaluation/<name>/`, chosen over flat filenames told apart by name because *"a folder boundary is
 > checkable; a filename convention is a habit."* The folder does not exist yet and the spec
 > deliberately does not create it — the first capability to need it makes it. Not
-> `attic/archive-v1/artifact-plane/workspace/pre-implementation/`, which holds the workspace's own chain.
+> a retired tien-os document, which holds the workspace's own chain.
 >
 > **Retitle the H1.** `# Agent Spec — <name>` names the form, which the v1 naming rules (retired 2026-08-05; the form stands by convention) bans in a
 > title: the filename already carries `spec` and the date. Replace it with plain English naming
@@ -20,7 +20,7 @@
 > only once a following line reads `Confirmed: <date> — Tien`, written by her. Nothing else
 > counts, the builder greps for that line, and **no model ever writes it.**
 >
-> Field lists below are copied from `attic/archive-v1/artifact-plane/workspace/pre-implementation/reference/ref-formats.md`, which is
+> Field lists below are copied from a retired tien-os document, which is
 > evidence and never binding. This template is what binds (`CORE/GUARDRAILS.md` §6).
 
 ## 1. Agent-shell choice — why this job needs its own context
@@ -130,7 +130,7 @@ and, when an optional project overlay exists, express the same routing and
 safety contract in Codex `developer_instructions`. Four come from
 Anthropic's own shipped agent format
 (`ref-formats.md`:92–129), which is the same four across a 20-plugin repository. Two are ours,
-and the research doc records why: `attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-25-research-block-formats.html` §7.
+and the research doc records why: a retired tien-os document §7.
 
 **The skill template uses the same contract headings where their responsibilities
 overlap** (`engine/templates/skill-spec.md` §3). The portable entry skill

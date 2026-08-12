@@ -19,7 +19,7 @@
 > only once a following line reads `Confirmed: <date> — Tien`, written by her. **No model ever
 > writes that line.**
 >
-> Field lists are copied from `attic/archive-v1/artifact-plane/workspace/pre-implementation/reference/ref-formats.md` (evidence, never
+> Field lists are copied from a retired tien-os document (evidence, never
 > binding). This template is what binds (`CORE/GUARDRAILS.md` §6).
 
 ## 1. Block choice — why a skill
@@ -180,7 +180,7 @@ an agent does not (`## Key insight`, `## Before you start`), so
 a block can move between the skill and agent options without a rewrite of the shared six. The
 ninth, `## Workflow`, appears only when this skill ships a `.js`. Four of the shared six come from
 Anthropic's shipped agent format; two are ours, and
-`attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-25-research-block-formats.html` §7 records why. `## Key insight`
+a retired tien-os document §7 records why. `## Key insight`
 is a skill-only convention, adopted 2026-08-06 from Uncle Bob's speclj-structure-check ("don't
 debug assertions; fix parens"), sixth shortlist adoptable.
 

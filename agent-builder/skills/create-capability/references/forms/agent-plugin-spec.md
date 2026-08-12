@@ -4,7 +4,7 @@
 > agent plugin: exactly one logical agent composing one or more licensed
 > reusable skills.
 > Copy it to
-> `attic/archive-v1/artifact-plane/workspace/pre-implementation/<YYYY-MM-DD>-spec-<name>.html`, retitle
+> a retired tien-os document<YYYY-MM-DD>-spec-<name>.html`, retitle
 > the H1 in plain English, and fill every field. Use `N/A — <reason>` where a
 > component is intentionally absent.
 >
@@ -20,11 +20,11 @@
 > **The spec ships as HTML, not Markdown.** This template is Markdown because
 > every file in `control-plane/` is; the document it produces is not.
 > the signature rule (`CORE/GUARDRAILS.md` §1.2) fixes the `Confirmed:` line inside a
-> `<pre>` and points at `attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-25-spec-tien-os.html:542`
+> `<pre>` and points at a retired tien-os document:542`
 > as the specimen, so the law's own worked example of a spec is an HTML file.
 > Every confirmed spec on disk is one. This line said `.md` until 2026-07-31 and
 > produced one Markdown spec before it was caught
-> (`records/DECISION-LOG.md`, same date). Open `surfaces/DESIGN.md`
+> (`records/DECISION-LOG.md`, same date). Open a retired tien-os document
 > and the exemplar at
 > `engine/agent-plugins/unknown-remover/skills/write-chain-document/references/html-effectiveness-main/unknowns/08-implementation-plan.html`
 > before writing it.

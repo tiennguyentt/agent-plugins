@@ -9,14 +9,14 @@ Distribution mode: dual
 Standalone entry: `write-chain-document` writes a planning document anywhere, styling it from the bundled `glass.css` and the 31 bundled worked examples
 Portable core: `skills/`
 Portable entry skill: `write-chain-document`
-Bundled equivalents: `surfaces/themes/glass.css` -> `skills/write-chain-document/references/glass.css`
+Bundled equivalents: a retired tien-os document -> `skills/write-chain-document/references/glass.css`
 Workspace-mode extras: `control-plane/`, `artifact-plane/`, `evaluation-plane/`
 Codex project agent: none
 ```
 
 This block read `Distribution mode: standalone` / `Runtime dependencies: none` until 2026-08-07.
 The **corpus** does ship inside the package, which is what that line was reaching for — but
-`skills/write-chain-document/SKILL.md` also sends the writer to `surfaces/themes/glass.css`
+`skills/write-chain-document/SKILL.md` also sends the writer to a retired tien-os document
 for the theme, `records/DECISION-LOG.md` for the decision behind it, and
 `artifact-plane/` for where the document lands. A plugin that names repo-owned paths at runtime is
 repo-bound; the standalone claim was one the package could not keep outside a `tien-os` checkout.
@@ -64,7 +64,7 @@ contract check fails the build when the manifests, the entry skill, or the route
 
 **Dual, and the gap that made it repo-bound is closed.** The method and the whole 31-example
 corpus always shipped inside the package. The one thing that did not was the theme:
-`write-chain-document` sent the writer to `surfaces/themes/glass.css`, which lived only
+`write-chain-document` sent the writer to a retired tien-os document, which lived only
 in the workspace. That file is now bundled at `skills/write-chain-document/references/glass.css`
 and compared to its source on every check run (check 15), so a document written outside `tien-os`
 gets the same theme as one written inside it. Workspace records like
