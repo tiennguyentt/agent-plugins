@@ -1,7 +1,7 @@
 ---
 name: no-ai-slop
 description: >
-  [tien-os] Edit drafts into sharper, more human writing while preserving the writer's personal
+  Edit drafts into sharper, more human writing while preserving the writer's personal
   voice, or detect AI-slop patterns without rewriting. Use when the user wants a draft clearer,
   more direct, more opinionated, or less AI-sounding, or asks whether writing reads as AI.
 ---
@@ -71,7 +71,7 @@ It reports median, p90, max, every sentence over 45 words, and every fat paragra
 draft can pass every number here and still read like a machine wrote it. The rest of this skill is
 what catches that.
 
-*The numbers came from measuring tien-os on 2026-07-31, not from a style guide.* This skill scored
+*The numbers came from measuring the suite on 2026-07-31, not from a style guide.* This skill scored
 median 13 and p90 23, and it reads fine. `CLAUDE.md` scored median 24 and p90 53. The two files Tiên
 opens most often were the two worst.
 

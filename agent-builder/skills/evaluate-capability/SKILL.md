@@ -1,18 +1,18 @@
 ---
 name: evaluate-capability
 description: >
-  [tien-os] Use when Tien asks to review, evaluate, verify, or grade a proposed
-  or active tien-os capability against its confirmed specification,
+  Use when Tien asks to review, evaluate, verify, or grade a proposed
+  or active capability against its confirmed specification,
   guardrails, evaluation evidence, runtime behavior, and Definition-of-Done.
   Do NOT use when there is no standard to judge against yet — designing the
-  success criteria and the eval from scratch, for a tien-os capability or
+  success criteria and the eval from scratch, for a capability or
   anything else, is `eval-writer:write-success-criteria`. This skill judges
   against an existing standard; it does not invent one.
 ---
 
 # evaluate-capability
 
-Evaluate one tien-os capability independently from the context that produced
+Evaluate one capability independently from the context that produced
 it. This is a reviewer, not a fixer.
 
 ## Key insight

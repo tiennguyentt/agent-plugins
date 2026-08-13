@@ -1,7 +1,7 @@
 ---
 name: discover-anatomy
 description: >
-  [tien-os] Use when Tiên needs a map of what a whole system is made of rather
+  Use when Tiên needs a map of what a whole system is made of rather
   than depth on one object — "what is this thing actually made of", "anatomy of
   X", "map how this works end to end", "cái này gồm những gì", "I don't
   understand what the pieces are". Writes one anatomy: the parts, how they fit,

@@ -1,7 +1,7 @@
 ---
 name: write-scenarios
 description: >
-  [tien-os] Turns a requested behavior into natural-language Given/When/Then scenarios before
+  Turns a requested behavior into natural-language Given/When/Then scenarios before
   any code exists. Use before implementing any new behavior, when the user asks to "write
   scenarios for X", "spec this feature as Given/When/Then", "viết scenario cho tính năng này",
   "define the behavior before we code it", or when implement-behavior finds a requested
@@ -10,7 +10,7 @@ description: >
   (that is implement-behavior) or to gate a commit (that is gate-commit). Do NOT use for
   non-deterministic output — an LLM answer, a generated document, anything whose Then cannot be
   observed the same way twice. That needs success criteria and a grading method, not a scenario;
-  in tien-os it is `eval-writer:write-success-criteria`.
+  in this suite it is `eval-writer:write-success-criteria`.
 ---
 
 # write-scenarios

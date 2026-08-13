@@ -1,7 +1,7 @@
 ---
 name: ui-verifier
 description: >
-  [tien-os] Tests a macOS app's UI hands-free, for any codebase. Dispatch this agent when a
+  Tests a macOS app's UI hands-free, for any codebase. Dispatch this agent when a
   build needs a hands-free pass before a human looks at it: "test the UI", "run the UI test",
   "verify this screen actually works", "does this button do anything", "kiểm tra UI có chạy
   được không", or any request where a running app's rendering and interactivity need
@@ -12,7 +12,7 @@ description: >
   snapshot per fixture world for regression across app states. It never raises the target's
   window, never advertises a press it did not confirm, and never reports a number it did not
   just measure. It tests a running app's UI; grading a project's own code quality or test
-  suite needs a different tool (in tien-os: behavior-implementer:gate-commit), and designing
+  suite needs a different tool (in the suite: behavior-implementer:gate-commit), and designing
   what should be measured before anything is built is eval-writer's job, not this one's.
   Inside a behavior-implementer (BDD/TDD) loop, ui-verifier is runner B — the outside verifier
   of a macOS app's UI; it never writes production code.

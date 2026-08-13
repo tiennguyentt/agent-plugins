@@ -1,7 +1,7 @@
 ---
 name: choose-artifact-form
 description: >
-  [tien-os] Use when the chain position is known and the shape of the artifact is
+  Use when the chain position is known and the shape of the artifact is
   not — "should this be an HTML page or a doc", "which exemplar do I copy", "make
   me options to react to", "cần cái để nhìn rồi chọn", or when a page came back
   looking right and produced no next message.
@@ -120,7 +120,7 @@ the move  · <the one mechanic worth stealing from that exemplar>
    `06-interview.html:550` to support a link the corpus never assigns.
 
 4. **Say so when the request is an anatomy.** `toolkit.md` maps eleven forms onto Thariq's five
-   chain documents, and anatomy is in neither — it is a tien-os research form with no published
+   chain documents, and anatomy is in neither — it is a suite research form with no published
    exemplar. Do not place it on the map and do not improvise one. Route to
    `../discover-anatomy/SKILL.md`, which owns the form and carries its own reference. If an HTML
    shape is still wanted afterwards, the twenty below are structure references and nothing more.

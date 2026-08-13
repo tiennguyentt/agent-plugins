@@ -13,7 +13,7 @@ criteria look plausible, not whether the eval design is long.
 ## Open the file first
 
 Open the output you are grading, `SKILL.md`'s full procedure (both the normal-mode steps and
-cold-start mode), and, when the subject is a tien-os capability, `engine/templates/skill-spec.md`
+cold-start mode), and, when the subject is a capability, `engine/templates/skill-spec.md`
 §7 and `engine/templates/agent-spec.md` §10. All of them, every time. A verdict reached without
 opening the actual output is void.
 
@@ -27,7 +27,7 @@ Return exactly one string per item graded. No others exist.
 |---|---|---|
 | `SMART` | a criterion is genuinely Specific, Measurable, Achievable, and Relevant, with a real number, threshold, or defined scale | quote the target |
 | `VAGUE` | a criterion restates the goal without a number or scale — "the model should classify sentiments well" and its kin | quote the line |
-| `REGIME-JUSTIFIED` | a test-set size is proposed only after the tien-os-vs-general regime question was asked and answered, and the count matches the regime named | quote both the regime statement and the count |
+| `REGIME-JUSTIFIED` | a test-set size is proposed only after the workspace-vs-general regime question was asked and answered, and the count matches the regime named | quote both the regime statement and the count |
 | `REGIME-SKIPPED` | a count appears with no regime named, or the count does not match the regime that was named | quote the count and say what regime it should have matched |
 | `GRADER-SEPARATE` | LLM-based grading is recommended and a grader model distinct from the generator is named, with a reason | quote both model names |
 | `GRADER-CONFLICT` | LLM-based grading is recommended and the same model is named for both roles, or no reason is given for the split | quote the line |

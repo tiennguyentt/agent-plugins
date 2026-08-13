@@ -1,6 +1,6 @@
 # unknown-remover plugin
 
-One independent agent plugin in the `tien-os` marketplace. It plans by removing unknowns: it names
+One independent agent plugin in the `agent-plugins` marketplace. It plans by removing unknowns: it names
 which unknown you are holding, picks the artifact form that retires it, and writes one planning
 document at a time.
 
@@ -19,10 +19,10 @@ The **corpus** does ship inside the package, which is what that line was reachin
 `skills/write-chain-document/SKILL.md` also sends the writer to `records/DECISION-LOG.md` for the
 decision behind a choice and to `studio/` for where the document lands. A plugin that names
 repo-owned paths at runtime is repo-bound; the standalone claim was one the package could not
-keep outside a `tien-os` checkout.
+keep outside a plugin checkout.
 
 Two corrections on 2026-08-12. `glass.css` moved from **Bundled equivalents** to plugin-owned:
-its tien-os source was deleted that day, and a "bundled equivalent" with no source is not a copy
+its source was deleted that day, and a "bundled equivalent" with no source is not a copy
 of anything — it is simply this plugin's file now, which is why it also left check 15's drift
 table. And the extras list still named `control-plane/`, `artifact-plane/`, `evaluation-plane/`,
 three directories renamed out of existence on 2026-08-07; a declaration that names nothing on
@@ -49,7 +49,7 @@ engine/agent-plugins/unknown-remover/
     └── discover-anatomy/        maps a whole system's parts, not one object
         ├── SKILL.md
         ├── rubric.md            is this a map, or an explainer wearing its name
-        └── references/          anatomy-form.md — tien-os-authored, not vendored
+        └── references/          anatomy-form.md — suite-authored, not vendored
 ```
 
 **The corpus sits in one folder, under the entry skill.** Its files cite each other by bare
@@ -60,7 +60,7 @@ cite, and the whole of `html-effectiveness-main/` — 31 examples, both index pa
 
 ## One part of a bigger system, shared on purpose
 
-This is one of four agent plugins in **tien-os**, a workspace OS where governed agent teams do
+This is one of four agent plugins in **the workspace**, where governed agent teams do
 the work end to end. It is published on its own because a part that only runs inside the repo
 that grew it is not a part — it is a dependency.
 
@@ -71,9 +71,9 @@ contract check fails the build when the manifests, the entry skill, or the route
 
 **Dual, and the gap that made it repo-bound is closed.** The method and the whole 31-example
 corpus always shipped inside the package. The one thing that did not was the theme:
-`write-chain-document` sent the writer to a retired tien-os document, which lived only
+`write-chain-document` sent the writer to a retired document, which lived only
 in the workspace. That file is now bundled at `skills/write-chain-document/references/glass.css`
-and compared to its source on every check run (check 15), so a document written outside `tien-os`
+and compared to its source on every check run (check 15), so a document written outside the workspace
 gets the same theme as one written inside it. Workspace records like
 `records/DECISION-LOG.md` are still read when present and simply skipped when not — they
 are provenance, not inputs.
@@ -86,7 +86,7 @@ The history is worth keeping: this block said "standalone", was corrected to "re
 This package follows **Agent Plugins 1.0.0**, an open, vendor-neutral standard from the Agent
 Plugins project — specification <https://agent-plugins.org/specification>, repository
 <https://github.com/agentplugins/agent-plugins-spec>. Specification text is licensed CC-BY-4.0,
-its schemas Apache-2.0. tien-os adopted it on 2026-08-07 after Google's announcement of the
+its schemas Apache-2.0. It was adopted on 2026-08-07 after Google's announcement of the
 format, <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>.
 
 The package *conforms to* that standard and vendors none of its files: `plugin.json` is written

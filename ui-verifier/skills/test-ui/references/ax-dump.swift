@@ -8,7 +8,7 @@
 //
 // Usage:
 //   swift tools/ax-dump.swift <pid>
-//   swift tools/ax-dump.swift --bundle-id sh.tien-os.app
+//   swift tools/ax-dump.swift --bundle-id sh.tien.app
 //   swift tools/ax-dump.swift --press rail.runs <pid>   (perform an AXPress on the
 //     first element whose kAXIdentifierAttribute matches, settle 300ms, THEN dump —
 //     added after the reality check below showed the plain walk alone was not enough:

@@ -1,14 +1,14 @@
 ---
 name: unknown-remover
 description: >
-  [tien-os] Plans by removing unknowns: classifies what Tiên does not know, picks the artifact form
+  Plans by removing unknowns: classifies what Tiên does not know, picks the artifact form
   that retires it, and writes one planning document at a time from the five-document chain.
   Dispatch this agent whenever Tiên wants a planning document or does not know where to start:
   "write the explainer", "viết spec", "research doc for X", "implementation notes", "we should
   re-research this", "what's the next doc", "chưa biết bắt đầu từ đâu", or "should this be an HTML
   page". It writes exactly one document, at the position the last document defines, and exits with
   pasteable text. It never writes two documents in one run and never signs anything.
-  Do not dispatch it to build software, only to plan it — building a tien-os capability is
+  Do not dispatch it to build software, only to plan it — building a capability is
   `agent-builder`, and writing a feature's code is `behavior-implementer`.
 tools:
   - Read

@@ -1,7 +1,7 @@
 ---
 name: snapshot-ui-state
 description: >
-  [tien-os] A macOS-app test tool: captures a golden Accessibility-tree snapshot of a running
+  A macOS-app test tool: captures a golden Accessibility-tree snapshot of a running
   macOS app per fixture world and diffs future
   captures against it byte-for-byte, normalized against wall-clock noise and SwiftUI's
   unordered siblings — a real UI regression, not just today's, shows as a diff instead of a
@@ -89,8 +89,8 @@ report clean.
    require the two normalized dumps to be byte-identical. This is the acceptance test — if two
    back-to-back captures of the identical state differ, the normalization in step 3 is
    incomplete, and every result from steps 4–5 is unproven until it is fixed.
-7. **When a tien-os workspace is present, it may already automate steps 1–6 across many
-   fixtures at once** — a retired tien-os gate, if that path exists in
+7. **When a the suite workspace is present, it may already automate steps 1–6 across many
+   fixtures at once** — a retired gate, if that path exists in
    the current repo, is a workspace-side runner built on this same method. Use it when present
    instead of repeating the manual loop by hand; when it is absent, the steps above are the
    complete, standalone procedure and nothing is missing by not having it.

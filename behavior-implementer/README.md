@@ -17,7 +17,7 @@ plane, so the package carries every rule it enforces.
 
 ## One part of a bigger system, shared on purpose
 
-This is one of four agent plugins in **tien-os**, a workspace OS where governed agent teams do
+This is one of four agent plugins in **the workspace**, a governed-agent where governed agent teams do
 the work end to end. It is published on its own because a part that only runs inside the repo
 that grew it is not a part — it is a dependency.
 
@@ -34,7 +34,7 @@ evaluation routes exist and are marked NOT BUILT / NOT RUN, not quietly left bla
 claims a pass it did not earn.
 
 **It runs beside nothing else.** `implement-behavior` is the whole route on both hosts, no
-tien-os checkout required. That is measured above, not asserted — and among the four plugins,
+the suite checkout required. That is measured above, not asserted — and among the four plugins,
 this is currently the only one where it is true.
 
 ## Package layout
@@ -69,7 +69,7 @@ behavior-implementer/
 This package follows **Agent Plugins 1.0.0**, an open, vendor-neutral standard from the Agent
 Plugins project — specification <https://agent-plugins.org/specification>, repository
 <https://github.com/agentplugins/agent-plugins-spec>. Specification text is licensed CC-BY-4.0,
-its schemas Apache-2.0. tien-os adopted it on 2026-08-07 after Google's announcement of the
+its schemas Apache-2.0. the workspace adopted it on 2026-08-07 after Google's announcement of the
 format, <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>.
 
 The package *conforms to* that standard and vendors none of its files: `plugin.json` is written
@@ -182,7 +182,7 @@ run a gate — a check whose tool is absent is reported **NOT RUN**, not skipped
   those is a separate job for a reviewer that is not the implementer.
 - The agent's own green suite is evidence, not a verdict; pair it with independent review.
 - `strengthen-tests` only reports what the mutation instrument can generate for the target
-  language and module; a kill rate is a floor on the suite's strength, not a ceiling on its
+  language and module; a kill rate is a floor on the workspace's strength, not a ceiling on its
   correctness.
 - `review-changes` reports what is wrong, never the fix, and refuses outright if it cannot
   confirm it is not grading its own diff — a review with no seat check behind it is not this

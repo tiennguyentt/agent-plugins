@@ -1,7 +1,7 @@
 ---
 name: gate-commit
 description: >
-  [tien-os] The last step before a commit: measures suite, red-run evidence, coverage,
+  The last step before a commit: measures suite, red-run evidence, coverage,
   linters, and complexity against the current tree, and reports each as pass, fail, or NOT
   RUN. Use when an implementation is green and about to be committed — "check before I
   commit", "gate this", "chạy gate trước khi commit", "is this ready to commit?" — or

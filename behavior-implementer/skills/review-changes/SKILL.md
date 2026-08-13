@@ -1,7 +1,7 @@
 ---
 name: review-changes
 description: >
-  [tien-os] The review seat: given a diff and the scenario set it claims to satisfy, reviews
+  The review seat: given a diff and the scenario set it claims to satisfy, reviews
   every changed hunk for red-first evidence, whether the code does only what a scenario
   licenses, and anything untested slipping in — reporting every finding, including low-
   confidence and low-severity ones, as what is wrong at file:line, never the repair. Use when

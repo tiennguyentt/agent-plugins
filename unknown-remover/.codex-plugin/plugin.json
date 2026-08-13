@@ -1,7 +1,7 @@
 {
   "name": "unknown-remover",
   "version": "1.3.0",
-  "description": "[tien-os] Classifies the unknown, picks the artifact form, and writes one planning document at a time from the five-document chain.",
+  "description": "Classifies the unknown, picks the artifact form, and writes one planning document at a time from the five-document chain.",
   "author": {
     "name": "Tien Nguyen"
   },
@@ -14,7 +14,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "unknown-remover",
-    "shortDescription": "[tien-os] Write the next planning document, one at a time.",
+    "shortDescription": "Write the next planning document, one at a time.",
     "longDescription": "A dual-host agent plugin that treats planning as unknown-removal: classify the unknown, choose the artifact form that retires it, and write the one chain document your position licenses.",
     "developerName": "Tien Nguyen",
     "category": "Productivity",

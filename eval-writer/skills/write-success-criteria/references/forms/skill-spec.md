@@ -15,11 +15,11 @@
 > the job needs an agent shell separately from deciding which skills own its
 > reusable procedures.
 >
-> **The spec must end with `End of spec. Ready to build on confirmation.`** A build is licensed
-> only once a following line reads `Confirmed: <date> — Tien`, written by her. **No model ever
+> **The spec must end with `End of spec.`** A build is licensed
+> A build is licensed the moment this spec exists and is cited; the signing ceremony was removed 2026-08-12 and Tien removed the wait again the same day ("gỡ việc chờ tiên ra > tiên cấp full quyền cho agent till done"). A `Confirmed:` line records when she said so, and no model ever writes it — but its absence blocks nothing. **No model ever
 > writes that line.**
 >
-> Field lists are copied from a retired tien-os document (evidence, never
+> Field lists are copied from a retired workspace document (evidence, never
 > binding). This template is what binds (`CORE/GUARDRAILS.md` §6).
 
 ## 1. Block choice — why a skill
@@ -158,7 +158,7 @@ skills across four plugins contained exactly **one** cross-plugin reference betw
 four pairs collided — success criteria against Given/When/Then scenarios, a capability's
 block files against a planning document, the workspace's own agents against a project's
 code, judging against an existing standard against inventing one. Write both directions. For
-a skill in a standalone plugin, lead with the distinction and name the tien-os sibling
+a skill in a standalone plugin, lead with the distinction and name the workspace sibling
 second, so the sentence still reads for someone who installed only that package.
 
 - **Boundaries this skill's description names, and who owns the other side:**
@@ -166,10 +166,10 @@ second, so the sentence still reads for someone who installed only that package.
 | `model`, `effort`, `hooks`, `paths`, `arguments`, `when_to_use`, `shell` | no | (:151) | |
 
 > **`allowed-tools` does not restrict anything — it pre-approves.** `disallowed-tools` is the
-> field that removes. Confusing the two broke the first tien-os spec draft; the restricting
+> field that removes. Confusing the two broke the first the suite spec draft; the restricting
 > semantics belongs to an *agent's* `tools:`, not a skill's.
 
-**Description pattern:** begin with the literal `[tien-os] ` selector tag,
+**Description pattern:** begin with a plain-language summary; no selector tag,
 then state when to use the skill with the phrases Tien will type. The tag is
 shared discovery metadata for crowded Claude and Codex selectors, not a
 substitute for a precise trigger.
@@ -180,7 +180,7 @@ an agent does not (`## Key insight`, `## Before you start`), so
 a block can move between the skill and agent options without a rewrite of the shared six. The
 ninth, `## Workflow`, appears only when this skill ships a `.js`. Four of the shared six come from
 Anthropic's shipped agent format; two are ours, and
-a retired tien-os document §7 records why. `## Key insight`
+a retired workspace document §7 records why. `## Key insight`
 is a skill-only convention, adopted 2026-08-06 from Uncle Bob's speclj-structure-check ("don't
 debug assertions; fix parens"), sixth shortlist adoptable.
 
@@ -330,6 +330,6 @@ standing mandate and failure path are tested. **Retirement condition:** what mak
 
 ---
 
-End of spec. Ready to build on confirmation.
+End of spec.
 
 Confirmed:

@@ -1,7 +1,7 @@
 {
   "name": "ui-verifier",
   "version": "1.0.0",
-  "description": "[tien-os] Tests a macOS app's UI hands-free: off-screen launch, Accessibility-tree gates, screenshot capture with vision review, and golden AX-tree snapshot regression — every number measured, nothing advertised it cannot deliver.",
+  "description": "Tests a macOS app's UI hands-free: off-screen launch, Accessibility-tree gates, screenshot capture with vision review, and golden AX-tree snapshot regression — every number measured, nothing advertised it cannot deliver.",
   "author": {
     "name": "Tien Nguyen"
   },
@@ -16,7 +16,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "ui-verifier",
-    "shortDescription": "[tien-os] Autonomous, hands-free UI testing for a macOS app via Accessibility.",
+    "shortDescription": "Autonomous, hands-free UI testing for a macOS app via Accessibility.",
     "longDescription": "A dual-host agent plugin that tests a macOS app's UI without touching the screen or a mouse: off-screen launch, Accessibility-condition waits instead of fixed sleeps, a content+pressable gate counted per viewport, screenshot capture with an honest two-cause failure message, a vision review of every capture, and a golden AX-tree snapshot method for regression. Every number is measured; a check that did not run is reported NOT RUN, never guessed.",
     "developerName": "Tien Nguyen",
     "category": "Productivity",

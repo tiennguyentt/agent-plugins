@@ -1,13 +1,13 @@
 ---
 name: implement-behavior
 description: >
-  [tien-os] The entry skill. Implements features scenario-first: every scenario seen failing,
+  The entry skill. Implements features scenario-first: every scenario seen failing,
   then the three laws of TDD until green. Use when the user asks to "implement this feature",
   "build X test-first", "làm tính năng này", "code cái này theo TDD", "make these scenarios
   pass", or hands over any feature request that will become production code. Do NOT use to
   write the scenarios themselves (that is write-scenarios) or to run the pre-commit gate
   (that is gate-commit) — this skill runs the loop between them. It writes application code:
-  authoring an agent, skill, or plugin for the workspace itself is a different job (in tien-os:
+  authoring an agent, skill, or plugin for the workspace itself is a different job (in this suite:
   `agent-builder:create-capability`), and so is writing the plan before any code exists
   (`unknown-remover:write-chain-document`). UI-visible behaviors are verified through the
   ui-verifier plugin (runner B, a macOS-app test tool) — this plugin never grades its own UI

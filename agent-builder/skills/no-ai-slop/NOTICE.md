@@ -18,10 +18,10 @@ this repo and outside git. A wipe of the host would have left that rule pointing
   *"Install this skill globally"* describes the upstream install route and does not apply here,
   because the skill now ships inside this package.
 
-**What tien-os changed, and when.** MIT permits modification; this list exists so a reader can tell
+**What the suite changed, and when.** MIT permits modification; this list exists so a reader can tell
 the upstream author's work from Tiên's.
 
-1. **2026-07-30 — the `description:` line in `SKILL.md`**, to carry the `[tien-os] ` prefix every
+1. **2026-07-30 — the `description:` line in `SKILL.md`**, to carry the ` prefix every
    installed skill in this package uses so it is identifiable in the selector.
 2. **2026-07-31 — a "Sentence and paragraph length" section in `SKILL.md`**, five matching checks in
    `references/eval.md`, and `references/prose-metrics.py`. Tiên asked for a length standard after

@@ -6,21 +6,30 @@
 > `studio/evaluation/<name>/`, chosen over flat filenames told apart by name because *"a folder boundary is
 > checkable; a filename convention is a habit."* The folder does not exist yet and the spec
 > deliberately does not create it — the first capability to need it makes it. Not
-> a retired tien-os document, which holds the workspace's own chain.
+> a retired workspace document, which holds the workspace's own chain.
 >
 > **Retitle the H1.** `# Agent Spec — <name>` names the form, which the v1 naming rules (retired 2026-08-05; the form stands by convention) bans in a
 > title: the filename already carries `spec` and the date. Replace it with plain English naming
 > what this capability is for.
 >
-> Fill every field. "N/A" needs a one-line justification. Reviewed against `CORE/GUARDRAILS.md` before the
-> agent file is written — the v2 law awaits Tiên's ratification (it binds from the date on its
-> `Confirmed:` line), and its §1 block list is the only part a confirmed spec cannot unlock.
+> Fill every field. "N/A" needs a one-line justification. Reviewed against `CORE/GUARDRAILS.md`
+> before the agent file is written; the law is ACTIVE as written, and its §1 block list is the
+> only part a spec cannot unlock.
 >
-> **The spec must end with `End of spec. Ready to build on confirmation.`** A build is licensed
-> only once a following line reads `Confirmed: <date> — Tien`, written by her. Nothing else
-> counts, the builder greps for that line, and **no model ever writes it.**
+> **The spec must end with `End of spec.`** A build is licensed the moment the spec exists and
+> is cited — there is no confirmation step to wait for.
 >
-> Field lists below are copied from a retired tien-os document, which is
+> Changed 2026-08-12, twice, on Tien's word. §1.2 removed the signing ceremony, and this
+> template still said a build waits for a `Confirmed: <date> — Tien` line "written by her,
+> nothing else counts". She then removed the wait explicitly: *"gỡ việc chờ tiên ra > tiên cấp
+> full quyền cho agent till done."* A template that makes every future capability wait for a
+> signature is how a removed ceremony grows back, one new spec at a time.
+>
+> A `Confirmed:` line may still appear, and still means exactly one thing: a record of the date
+> she said so. **No model ever writes it** — that rule is unchanged and is not about permission
+> to build, it is about never forging her word. Its ABSENCE no longer blocks anything.
+>
+> Field lists below are copied from a retired workspace document, which is
 > evidence and never binding. This template is what binds (`CORE/GUARDRAILS.md` §6).
 
 ## 1. Agent-shell choice — why this job needs its own context
@@ -103,7 +112,7 @@ repo-root `agents/` (see the blockquote in §1). Frontmatter — only `name` and
 | `maxTurns`, `memory`, `background`, `effort`, `isolation`, `color`, `initialPrompt` | no | (:90) | |
 
 > **`tools:` omitted means every tool, not none.** Getting this backwards is the exact error that
-> broke the first draft of the tien-os spec. Write the list.
+> broke the first draft of the workspace spec. Write the list.
 
 ### Codex optional project overlay
 
@@ -130,7 +139,7 @@ and, when an optional project overlay exists, express the same routing and
 safety contract in Codex `developer_instructions`. Four come from
 Anthropic's own shipped agent format
 (`ref-formats.md`:92–129), which is the same four across a 20-plugin repository. Two are ours,
-and the research doc records why: a retired tien-os document §7.
+and the research doc records why: a retired workspace document §7.
 
 **The skill template uses the same contract headings where their responsibilities
 overlap** (`engine/templates/skill-spec.md` §3). The portable entry skill
@@ -157,7 +166,7 @@ procedure stays in the relevant skill.
 ### Skill composition
 
 Every skill name is verb-object kebab-case and every skill description starts
-with `[tien-os] `. Record both explicit host routes:
+with `. Record both explicit host routes:
 Claude `/plugin:skill`; Codex `$plugin:skill`.
 
 Fill one row for every skill the agent may use. Existing skills are referenced,
@@ -274,6 +283,6 @@ gate line where it names a command. Pattern adopted from Uncle Bob's AIR-J `AGEN
 
 ---
 
-End of spec. Ready to build on confirmation.
+End of spec.
 
 Confirmed:

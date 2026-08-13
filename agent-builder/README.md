@@ -1,6 +1,6 @@
 # agent-builder plugin
 
-One independent agent plugin in the `tien-os` marketplace:
+One independent agent plugin in the `agent-plugins` marketplace:
 
 Distribution mode: dual
 Standalone entry: `create-capability` walks for a `.git` root, finds no `CORE/GUARDRAILS.md`, and runs its refuse-and-scaffold path off the four bundled forms
@@ -42,7 +42,7 @@ engine/agent-plugins/agent-builder/
 
 ## One part of a bigger system, shared on purpose
 
-This is one of four agent plugins in **tien-os**, a workspace OS where governed agent teams do
+This is one of four agent plugins in **the workspace**, a governed-agent where governed agent teams do
 the work end to end. It is published on its own because a part that only runs inside the repo
 that grew it is not a part — it is a dependency.
 
@@ -56,7 +56,7 @@ drift apart.
 root; if no `CORE/GUARDRAILS.md` is there, it runs standalone off the four spec forms
 bundled at `skills/create-capability/references/forms/` — byte-identical copies of
 `engine/templates/`, compared on every check run (check 15) so they cannot drift. Inside
-a `tien-os` checkout it switches to workspace mode and also reads that workspace's law, records
+a `the suite` checkout it switches to workspace mode and also reads that workspace's law, records
 and evaluation routes. Those deliberately do NOT travel: `CORE/GUARDRAILS.md` is the law
 of the workspace that ratifies it, and shipping a copy would be shipping someone else's rules.
 
@@ -69,7 +69,7 @@ was describing a plugin that no longer existed, and a launch slide inherited the
 This package follows **Agent Plugins 1.0.0**, an open, vendor-neutral standard from the Agent
 Plugins project — specification <https://agent-plugins.org/specification>, repository
 <https://github.com/agentplugins/agent-plugins-spec>. Specification text is licensed CC-BY-4.0,
-its schemas Apache-2.0. tien-os adopted it on 2026-08-07 after Google's announcement of the
+its schemas Apache-2.0. the workspace adopted it on 2026-08-07 after Google's announcement of the
 format, <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>.
 
 The package *conforms to* that standard and vendors none of its files: `plugin.json` is written
@@ -107,7 +107,7 @@ portable entry procedure.
 `engine/templates/` remains the sole authority for the four capability-spec forms;
 `create-capability` vendors byte-identical, read-only copies at
 `skills/create-capability/references/forms/` so the plugin can scaffold and gate a build with no
-`tien-os` control plane present. A drift check inside the workspace that produces this plugin
+`the suite` control plane present. A drift check inside the workspace that produces this plugin
 (`engine/checks/check.py` check 15) keeps the two copies honest — the copy travels, the authority does
 not move.
 

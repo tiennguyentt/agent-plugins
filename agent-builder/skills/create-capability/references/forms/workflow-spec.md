@@ -36,7 +36,7 @@
 > deleted) is about the **composed** sense: **keep the steps fixed.** It is not an instruction to
 > author a file.
 >
-> **Ends with `End of spec. Ready to build on confirmation.`** Licensed only by
+> **Ends with `End of spec.`** A build is licensed the moment this spec exists and is cited; the signing ceremony was removed 2026-08-12 and Tien removed the wait again the same day ("gỡ việc chờ tiên ra > tiên cấp full quyền cho agent till done"). A `Confirmed:` line records when she said so, and no model ever writes it — but its absence blocks nothing. Formerly licensed only by
 > `Confirmed: <date> — Tien`, written by her. **No model originates it; transcription requires a cited `approval` trace event (`CORE/GUARDRAILS.md` §1.2).**
 
 ## 1. What this workflow produces
@@ -200,6 +200,6 @@ standing mandate and failure path are tested. **Retirement condition:** what mak
 
 ---
 
-End of spec. Ready to build on confirmation.
+End of spec.
 
 Confirmed:

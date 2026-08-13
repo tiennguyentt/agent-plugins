@@ -1,5 +1,5 @@
 /*
-  tien-os · glass theme · token layer
+  workspace · glass theme · token layer
   Source of authority: attic/archive-v1/artifact-plane/workspace/pre-implementation/2026-07-30-spec-glass-theme.html
   (confirmed 2026-08-01). Every value below traces to a section of that spec, cited in comments
   as §N. This file is tokens only — §11 step 2's acceptance test: "Every token from §§4–7 as
@@ -89,7 +89,7 @@
      collapsed it onto --g-primary, which is the INTERACTIVE colour. One token was doing
      two jobs: "you can click this" and "look at this". These three separate them again.
      WHAT RED MEANS HERE, and it is not Apple's meaning: attention, change, unresolved,
-     needs review. It never means destructive, and nothing in a tien-os document deletes
+     needs review. It never means destructive, and nothing in a workspace document deletes
      anything. Pair with --g-keep, which is its opposite: settled, passing, done. */
   --g-attn:              #ff3b30;  /* ingested — Apple systemRed, light. NON-TEXT: it measures
                                       1.87:1 on this theme's worst-case background, so it is for
@@ -274,7 +274,7 @@
      compositor clock over CDP, not under Chrome's virtual time, which freezes compositor
      animations and reported a false zero twice.
      So: a document that wants drift supplies its own oversized fixed layer and reads these
-     two tokens. No tien-os document currently does. Do not add it back to one without
+     two tokens. No workspace document currently does. Do not add it back to one without
      asking her — this is settled, not forgotten. */
   --g-drift-name: g-drift;  /* opt-in and unused: names the drift keyframes so reduced motion can kill it */
 

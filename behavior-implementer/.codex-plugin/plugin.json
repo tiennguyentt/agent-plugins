@@ -1,7 +1,7 @@
 {
   "name": "behavior-implementer",
   "version": "1.2.0",
-  "description": "[tien-os] Implements features scenario-first: Given/When/Then scenarios seen failing, the three laws of TDD, and a measured quality gate before every commit.",
+  "description": "Implements features scenario-first: Given/When/Then scenarios seen failing, the three laws of TDD, and a measured quality gate before every commit.",
   "author": {
     "name": "Tien Nguyen"
   },
@@ -15,7 +15,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "behavior-implementer",
-    "shortDescription": "[tien-os] Implement features scenario-first with BDD/TDD discipline.",
+    "shortDescription": "Implement features scenario-first with BDD/TDD discipline.",
     "longDescription": "A dual-host agent plugin that implements features behavior-first: natural-language Given/When/Then scenarios written before any code, every scenario seen failing before it may pass, the three laws of TDD during implementation, and a measured coverage/lint/complexity gate before every commit. It never pushes without asking.",
     "developerName": "Tien Nguyen",
     "category": "Productivity",

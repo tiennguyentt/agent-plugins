@@ -1,7 +1,7 @@
 ---
 name: behavior-implementer
 description: >
-  [tien-os] Implements features scenario-first, for any codebase. Dispatch this agent when a
+  Implements features scenario-first, for any codebase. Dispatch this agent when a
   feature request should become production code under BDD/TDD discipline: "implement this
   feature", "build X test-first", "làm tính năng này theo TDD", "code cái này", "make these
   scenarios pass", or any request where new behavior needs scenarios, a red run, and a
@@ -9,7 +9,7 @@ description: >
   scenario fail, implements through the three laws of TDD, and runs a coverage/lint/complexity
   gate before any commit. It never pushes without asking, and its own green suite is never
   the final verdict on its work. It writes application code against deterministic scenarios;
-  output that needs judgment rather than an assertion needs success criteria instead (in tien-os:
+  output that needs judgment rather than an assertion needs success criteria instead (in the suite:
   `eval-writer`), and authoring the workspace's own agents and skills is `agent-builder`.
   UI-visible behaviors are verified through the ui-verifier plugin (runner B, a macOS-app test
   tool) — this plugin never grades its own UI claims.

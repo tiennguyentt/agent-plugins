@@ -1,7 +1,7 @@
 ---
 name: strengthen-tests
 description: >
-  [tien-os] The mutation seat: given a module and its test suite, runs a mutation-testing
+  The mutation seat: given a module and its test suite, runs a mutation-testing
   instrument (mutmut or equivalent) in a fresh sandbox — never inside a prior run's cache,
   which is evidence, not a scratchpad — triages every survivor into accepted-with-a-written-
   reason or a real hole, and writes exact-match killing tests for the real holes. Use when the

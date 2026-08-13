@@ -1,6 +1,6 @@
-# Agent plugins — the working parts of TienOS
+# Agent plugins — the working parts of workspace
 
-**TienOS is an autonomous workspace: agent teams that plan, decide, build, and check
+**workspace is an autonomous workspace: agent teams that plan, decide, build, and check
 their own work, with every step visible.** These four plugins are the part of it you can
 install today, in Claude Code or Codex, without the rest of the system.
 
@@ -88,12 +88,12 @@ drafts and never grants itself autonomy.
 **All four run anywhere.** Each carries the files it needs — the spec forms, the theme, the
 31 worked examples — inside the package. Nothing asks you to clone a workspace first.
 
-`agent-builder` and `unknown-remover` will *also* pick up a TienOS checkout's templates and
+`agent-builder` and `unknown-remover` will *also* pick up a workspace checkout's templates and
 records if they happen to find one, and quietly skip them if they don't. What deliberately does
-not ship is TienOS's own law and evaluation routes: those are the rules of one workspace, and
+not ship is workspace's own law and evaluation routes: those are the rules of one workspace, and
 handing you someone else's rules would be worse than shipping nothing.
 
-## What TienOS believes, and what these inherit
+## What workspace believes, and what these inherit
 
 The plugins are opinionated because the system is. These are the rules they enforce on
 themselves as much as on your work:
@@ -212,7 +212,7 @@ Apache-2.0, from the [Agent Plugins project](https://github.com/agentplugins/age
 
 ## Where these come from
 
-TienOS is a private workspace where agent teams plan, build and check their own work with
+workspace is a private workspace where agent teams plan, build and check their own work with
 every step visible. These four plugins are the part of it that stands on its own, and
 **this repository is where they are maintained** — edits land here directly. What stays
 behind is workspace state and internal run records, nothing you'd want in your repo anyway.

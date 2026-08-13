@@ -4,7 +4,7 @@
 > agent plugin: exactly one logical agent composing one or more licensed
 > reusable skills.
 > Copy it to
-> a retired tien-os document<YYYY-MM-DD>-spec-<name>.html`, retitle
+> a retired workspace document<YYYY-MM-DD>-spec-<name>.html`, retitle
 > the H1 in plain English, and fill every field. Use `N/A — <reason>` where a
 > component is intentionally absent.
 >
@@ -20,11 +20,11 @@
 > **The spec ships as HTML, not Markdown.** This template is Markdown because
 > every file in `control-plane/` is; the document it produces is not.
 > the signature rule (`CORE/GUARDRAILS.md` §1.2) fixes the `Confirmed:` line inside a
-> `<pre>` and points at a retired tien-os document:542`
+> `<pre>` and points at a retired workspace document:542`
 > as the specimen, so the law's own worked example of a spec is an HTML file.
 > Every confirmed spec on disk is one. This line said `.md` until 2026-07-31 and
 > produced one Markdown spec before it was caught
-> (`records/DECISION-LOG.md`, same date). Open a retired tien-os document
+> (`records/DECISION-LOG.md`, same date). Open a retired workspace document
 > and the exemplar at
 > `engine/agent-plugins/unknown-remover/skills/write-chain-document/references/html-effectiveness-main/unknowns/08-implementation-plan.html`
 > before writing it.
@@ -73,7 +73,7 @@ This template is only for the reference architecture used by
 - **Naming:** the plugin and logical agent use the noun-role identity. Every
   skill uses a distinct verb-object identity such as `create-capability`,
   `evaluate-capability`, or `package-plugin`. Every skill description begins
-  with the literal `[tien-os] ` selector tag.
+  with a plain-language summary; no selector tag.
 - **Portable entry skill:** required, exactly one of the licensed skills. It
   owns the cross-host procedure and composition route that both installed
   plugins can execute. A Claude agent or optional Codex project overlay may
@@ -155,7 +155,7 @@ as the only Codex probe.
 Additional directories such as `hooks/`, `scripts/`, `commands/`, `references/`,
 or `assets/` exist only when the confirmed requirements need their documented
 runtime behavior. `evals/` and run records are development evidence unless the
-host's installable contract explicitly requires them; for `tien-os`, they stay
+host's installable contract explicitly requires them; for `the suite`, they stay
 under `studio/evaluation/<name>/evaluation/`.
 
 ## 4. Host contract
@@ -181,7 +181,7 @@ Choose exactly one and copy the declarations into the plugin README:
 
 | Mode | Use when | Required proof |
 |---|---|---|
-| `standalone` | every runtime dependency ships inside the plugin | install and invoke the portable entry skill from a copy with no tien-os control plane |
+| `standalone` | every runtime dependency ships inside the plugin | install and invoke the portable entry skill from a copy with no the suite control plane |
 | `repo-bound` | the capability intentionally consumes named project-owned files | README lists every runtime dependency; both host probes run in the target repo; missing dependencies produce an explicit stop |
 
 Required README declarations:
@@ -208,10 +208,10 @@ that speaks neither `.claude-plugin` nor `.codex-plugin` can still read the pack
 > Agent Plugins project — spec <https://agent-plugins.org/specification>, repository
 > <https://github.com/agentplugins/agent-plugins-spec>. **Its specification text is licensed
 > CC-BY-4.0 and its schemas Apache-2.0**, so the sentences quoted below and in
-> `engine/checks/check.py` carry an attribution requirement, not a courtesy. tien-os
+> `engine/checks/check.py` carry an attribution requirement, not a courtesy. the suite
 > reached it through Google's announcement of the format,
 > <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>, which is
-> the source Tiên pointed at. tien-os conforms to the standard and vendors none of its files;
+> the source Tiên pointed at. the suite conforms to the standard and vendors none of its files;
 > nothing here is authored by that project.
 
 | Field | Value |
@@ -333,7 +333,7 @@ Every item needs an exact command and expected observable result:
    or more licensed skills, and each resolves to an explicit confirmed
    composition row or confirmed skill spec plus its own evaluation route.
    Every skill folder/frontmatter name is verb-object kebab-case and every
-   description starts with `[tien-os] `.
+   description starts with `.
 6. Every workflow named by a skill resolves by relative path, states its host
    contract, and has the corresponding safe runtime probe. A Claude Workflow
    script is not portable merely because it sits beside a shared skill.
@@ -344,7 +344,7 @@ Every item needs an exact command and expected observable result:
 10. README declares distribution mode, portable core, portable entry skill,
     and every repo-owned runtime dependency.
 11. Fresh sessions invoke every skill as `/plugin:skill` in Claude and
-    `$plugin:skill` in Codex; selector labels expose the `[tien-os]` prefix.
+    `$plugin:skill` in Codex; selector labels expose the `` prefix.
 
 ## 10. Build order
 
@@ -364,7 +364,7 @@ surface (local clone `~/projects/agent-plugins`). Changes flow one way; canonica
 `engine/agent-plugins/<name>/`.
 
 - **Ships to the mirror:** yes / no —
-- **Runs with no `tien-os` checkout:** yes / no — this is the distribution mode from §4, and
+- **Runs with no `the suite` checkout:** yes / no — this is the distribution mode from §4, and
   the mirror's README must state it as a prerequisite the reader sees before installing.
 - **Evaluation evidence to publish verbatim:** cases run / NOT RUN —
 
@@ -376,8 +376,8 @@ carried `plugins/agent-plugins/<name>/` until 2026-08-07 and that level meant no
 Two rules that outlive any one plugin:
 
 1. **Nothing public is named after the private workspace.** A consumer installing one plugin
-   does not know what `tien-os` is. This is why the repo is `agent-plugins`, not
-   `tien-os-marketplace`, and why `exce-plugin` was rejected for the canonical folder.
+   does not know the private workspace name. This is why the repo is `agent-plugins`, not
+   a workspace-branded name, and why `exce-plugin` was rejected for the canonical folder.
 2. **The mirror's README is product copy, not a record.** Say what the reader gets and what
    they need. Never narrate a correction or a date. Keep honesty by writing requirements as
    prerequisites, never as confessions — and never drop the verification table.

@@ -1,8 +1,8 @@
 ---
 name: write-success-criteria
 description: >
-  [tien-os] Defines measurable success criteria and designs an evaluation for any LLM-based task,
-  product, feature, or piece of logic — not limited to tien-os capabilities. Use when Tiên asks "how
+  Defines measurable success criteria and designs an evaluation for any LLM-based task,
+  product, feature, or piece of logic — not limited to capabilities. Use when Tiên asks "how
   do I know if this is working", "what does success look like for X", "help me design an eval for
   this feature", "cần tiêu chí đánh giá cho...", "viết success criteria cho...", or names a task and
   asks how to tell whether an LLM did it well. Produces SMART criteria, a per-criterion evaluation
@@ -11,7 +11,7 @@ description: >
   to run an evaluation, grade a real output, or build the eval-execution harness — this skill designs
   the eval, it does not execute one. Do NOT use for behavior a runner can check deterministically —
   that is `behavior-implementer:write-scenarios`; this skill is for output that needs judgment, not
-  an assertion. Do NOT use to review an already-built tien-os capability against its confirmed spec —
+  an assertion. Do NOT use to review an already-built capability against its confirmed spec —
   that is `agent-builder:evaluate-capability`.
 ---
 
@@ -19,7 +19,7 @@ description: >
 
 You help Tiên turn a vague sense of "this should work well" into criteria she can actually check, and
 an evaluation plan that checks them. This applies to any LLM-based task, product, feature, or piece of
-logic — a tien-os capability, a feature in `tien-promt`, a prompt someone else wrote, anything.
+logic — a capability, a feature in `tien-promt`, a prompt someone else wrote, anything.
 
 ## Key insight
 
@@ -35,14 +35,14 @@ and points at exactly what to do next.
 ## Before you start
 
 If the request names a file — a spec, an existing eval, a piece of code — open it before reasoning
-about it: `ls <path>` first, and say so and stop if it is missing. If the subject is a tien-os
+about it: `ls <path>` first, and say so and stop if it is missing. If the subject is a the suite
 capability, you will need `skill-spec.md` and `agent-spec.md` in step 2 below.
 
 **Both travel with this plugin.** Read them from
 `${CLAUDE_PLUGIN_ROOT}/skills/write-success-criteria/references/forms/` — byte-identical copies of
 `engine/templates/`, kept honest by a drift check (`engine/checks/check.py`
 check 15) that runs inside the workspace that produces this plugin, not inside the plugin. Inside
-the tien-os workspace, `engine/templates/` is the same file and either path is correct.
+the workspace workspace, `engine/templates/` is the same file and either path is correct.
 Nothing here requires the workspace to be present.
 
 ## What you produce
@@ -78,11 +78,11 @@ worse than saying the basis does not exist yet.
   do not stop at eight if the subject needs a criterion none of them name. The reference material this
   skill is built from calls the list non-exhaustive; treating it as closed is a mistake this skill
   exists to avoid.
-- **Which regime this is.** If the subject is a tien-os capability, open
+- **Which regime this is.** If the subject is a workspace capability, open
   `engine/templates/skill-spec.md` §7 and `engine/templates/agent-spec.md` §10 and use
   their 10–30-case, at-least-3-refusal minimum. If it is not, or those files will not resolve, say so
   and use the reference's own volume-over-quality guidance instead: real products in the reference run
-  200 to 10,000 cases, which fits a product with real user traffic, not a tien-os capability with a
+  200 to 10,000 cases, which fits a product with real user traffic, not a capability with a
   human reviewer reading every trace. Name the regime out loud before proposing a single number.
 - **The edge cases and challenging scenarios.** Irrelevant or missing input, unusually long input,
   poor or harmful input where that applies, cases where even a careful human reviewer would disagree
@@ -205,7 +205,7 @@ regardless of what it says.
 `references/ref-define-success-criteria-and-build-evaluations.md` — the source procedure this skill is
 built from; never binding on its own, this skill's corrections to it are law.
 `engine/templates/skill-spec.md` §7 and `engine/templates/agent-spec.md` §10 — only when
-the subject is a tien-os capability, for the 10–30-case regime.
+the subject is a capability, for the 10–30-case regime.
 `rubric.md` — the standard a separate verifier grades this skill's output against; never read it as
 something to satisfy in your own head instead of on the page.
 

@@ -21,10 +21,10 @@ import UniformTypeIdentifiers
 // this process starts with NO window-server connection, and SkyLight does not fail softly when
 // one is missing — it produced BOTH failure modes seen on 2026-08-07, in this order:
 //
-//   1. `SCShareableContent` returned a degraded window list in which TienOS's real 1659×991
+//   1. `SCShareableContent` returned a degraded window list in which workspace's real 1659×991
 //      window was absent, so this tool picked a 150×144 decoy and printed a "collapsed window"
 //      warning ABOUT A HEALTHY WINDOW. Independently measured via the Accessibility API at the
-//      same moment: `window 'TienOS' size=1659x991`. A tool that invents a defect in the thing
+//      same moment: `window 'workspace' size=1659x991`. A tool that invents a defect in the thing
 //      it is measuring is worse than no tool — the warning text below even tells the reader to
 //      go clear their saved application state, which fixes nothing.
 //   2. `SCContentFilter(desktopIndependentWindow:)` then hit
@@ -37,7 +37,7 @@ import AppKit
 _ = NSApplication.shared
 NSApplication.shared.setActivationPolicy(.accessory)
 
-let owner = CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "TienOS"
+let owner = CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "workspace"
 let outPath = CommandLine.arguments.count > 2 ? CommandLine.arguments[2] : "/tmp/window-shot.png"
 
 func fail(_ m: String, _ code: Int32) -> Never {

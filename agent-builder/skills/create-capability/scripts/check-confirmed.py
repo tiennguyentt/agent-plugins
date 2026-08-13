@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """The standalone-mode `Confirmed:`-gate — the vendored twin of
-`evaluation-plane/checks/check.py --confirmed` in the tien-os workspace.
+`evaluation-plane/checks/check.py --confirmed` in the workspace.
 
     python3 check-confirmed.py <spec-file-or-capability-name>
 
@@ -12,13 +12,13 @@ let `create-capability`'s standalone branch write the scaffold instead.
 Same acceptance rule as workspace mode's check 2 / `--confirmed`, same regex
 (`policy-plane/GUARDRAILS.md` §9 rule 9: `Confirmed: <YYYY-MM-DD> — <signature>`, column 1 of
 its own line) — but this file is the standalone copy, not an import of the workspace one.
-**It imports nothing from `tien-os/scripts/` or `tien-os/control-plane/` on purpose**: this
+**It imports nothing from `workspace/scripts/` or `workspace/control-plane/` on purpose**: this
 script ships inside the plugin and must run in a consumer's project that has neither directory.
 Standard library only, so it works with no install step, exactly like the script it mirrors.
 
 Licensed by
 archive-v1/artifact-plane/workspace/pre-implementation/2026-07-31-spec-agent-builder-standalone.html §6, §11
-step 4. If this file and `tien-os/evaluation-plane/checks/check.py`'s `check_confirmed()` / `CONFIRMED_LINE_RE`
+step 4. If this file and `workspace/evaluation-plane/checks/check.py`'s `check_confirmed()` / `CONFIRMED_LINE_RE`
 ever disagree, that is drift to fix by hand — there is no shared source at runtime, by design,
 because a standalone consumer cannot resolve a path back into this workspace.
 """
@@ -27,7 +27,7 @@ import re
 import sys
 from pathlib import Path
 
-# Byte-identical to CONFIRMED_LINE_RE in tien-os/evaluation-plane/checks/check.py. Column 1 of its own line —
+# Byte-identical to CONFIRMED_LINE_RE in workspace/evaluation-plane/checks/check.py. Column 1 of its own line —
 # policy-plane/GUARDRAILS.md §9 rule 9 fixes this as the one accepted format.
 CONFIRMED_LINE_RE = re.compile(r"^Confirmed: 20\d\d-\d\d-\d\d", re.M)
 

@@ -1,7 +1,7 @@
 ---
 name: test-ui
 description: >
-  [tien-os] The entry skill. Tests a running macOS app's UI hands-free, no mouse and no
+  The entry skill. Tests a running macOS app's UI hands-free, no mouse and no
   screen touched: cleans saved state and stale instances (naming what it cleaned), launches
   off-screen, waits on Accessibility conditions instead of fixed sleeps, gates on content and
   pressable elements counted per viewport, captures a screenshot per viewport with an honest

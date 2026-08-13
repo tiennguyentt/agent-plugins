@@ -1,7 +1,7 @@
 {
   "name": "agent-builder",
   "version": "2.5.0",
-  "description": "[tien-os] Creates, evaluates, and packages confirmed capabilities as one-agent-with-licensed-skills plugins.",
+  "description": "Creates, evaluates, and packages confirmed capabilities as one-agent-with-licensed-skills plugins.",
   "author": {
     "name": "Tien Nguyen"
   },
@@ -14,8 +14,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "agent-builder",
-    "shortDescription": "[tien-os] Build capabilities from confirmed specs.",
-    "longDescription": "A dual-host agent plugin for creating, evaluating, and packaging narrow, auditable capabilities from confirmed tien-os specifications.",
+    "shortDescription": "Build capabilities from confirmed specs.",
+    "longDescription": "A dual-host agent plugin for creating, evaluating, and packaging narrow, auditable capabilities from confirmed the suite specifications.",
     "developerName": "Tien Nguyen",
     "category": "Productivity",
     "capabilities": [

@@ -1,6 +1,6 @@
 # agent-plugins — repo law
 
-This repo holds the working parts of TienOS as installable agent plugins. The global
+This repo holds the working parts of the suite as installable agent plugins. The global
 law is one file at `~/.agents/CONDUCT.md` (symlinked at `~/AGENTS.md`); it wins on
 conflict. This file only adds what is specific to this repository.
 
@@ -10,7 +10,7 @@ Six versioned Claude Code plugins, each in its own directory, published as the
 `agent-plugins` marketplace (root: `.agents/plugins/marketplace.json`, remote:
 `github.com/tiennguyentt/agent-plugins`):
 
-- `agent-builder` 2.5.0 — creates agents, skills, workflows (tien-os)
+- `agent-builder` 2.5.0 — creates agents, skills, workflows
 - `behavior-implementer` 1.2.0 — scenario-first TDD implementation, gated commits
 - `eval-writer` 1.2.0 — success criteria and eval design for LLM output
 - `unknown-remover` 1.3.0 — names the unknown, writes exactly one document

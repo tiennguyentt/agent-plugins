@@ -1,7 +1,7 @@
 ---
 name: package-plugin
 description: >
-  [tien-os] Use when a confirmed tien-os logical agent and its licensed skills
+  Use when a confirmed workspace logical agent and its licensed skills
   must be packaged, renamed, installed, or validated as one dual-host agent
   plugin for Claude Code and Codex.
 ---
@@ -70,7 +70,7 @@ optional directory is allowed.
 `plugin.json` at the plugin root is Agent Plugins 1.0.0 — an open, vendor-neutral standard
 from the Agent Plugins project (<https://agent-plugins.org/specification>, repository
 <https://github.com/agentplugins/agent-plugins-spec>), specification text CC-BY-4.0 and
-schemas Apache-2.0. Adopted by tien-os 2026-08-07. It carries the identity
+schemas Apache-2.0. Adopted 2026-08-07. It carries the identity
 once — `$schema`, `name`, `version`, `description`, `author`, `license`, `keywords` — and
 declares each host's files under a reverse-domain `extensions` namespace
 (`com.anthropic.claude-code`, `com.openai.codex`). Its schema is `additionalProperties: false`:
@@ -96,7 +96,7 @@ empty optional file, which this skill forbids.
 3. Use one verb-object identity for each independently reusable skill across
    its folder, frontmatter, optional workflow filename, spec subject, and eval
    route.
-4. Start every skill description with the literal `[tien-os] ` namespace tag.
+4. Start every skill description with a plain-language summary; no namespace tag.
 5. Preserve one portable entry skill. Document the exact host invocations:
    Claude `/plugin:skill`; Codex `$plugin:skill`.
 6. Validate all three manifests, all routes, repo-owned dependencies, optional
@@ -132,15 +132,15 @@ when there is a real sibling distinction to encode, as `anthropics/claude-plugin
 has with `external_plugins/`; `anthropics/knowledge-work-plugins` wraps nothing because it
 has nothing to distinguish, and neither does this.
 
-**Never name a public thing after the private workspace.** `tien-os-marketplace` was
+**Never name a public thing after the private workspace.** A workspace-branded marketplace name was
 renamed to `agent-plugins` the same day for that reason: a consumer installing one plugin
-has no idea what `tien-os` is, and the packages already conform to a standard called Agent
+has no idea what the private workspace is, and the packages already conform to a standard called Agent
 Plugins. The same test killed `exce-plugin` for the canonical folder.
 
 **The mirror's README is customer-facing writing, not an internal record.** State what a
 reader gets and what they must have; never narrate a correction, a date, or what a sentence
 used to say. Honesty is kept by stating requirements as prerequisites — *"the other three
-read files from the `tien-os` workspace"* — never by confessing. The verification table
+read files from the `the suite` workspace"* — never by confessing. The verification table
 stays: two of four plugins have never had an evaluation case run, and that is stated.
 
 **The export is a script, not a copy by hand:**

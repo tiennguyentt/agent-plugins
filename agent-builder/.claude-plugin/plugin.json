@@ -2,7 +2,7 @@
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "agent-builder",
   "version": "2.5.0",
-  "description": "[tien-os] Creates, evaluates, and packages confirmed capabilities as one-agent-with-licensed-skills plugins.",
+  "description": "Creates, evaluates, and packages confirmed capabilities as one-agent-with-licensed-skills plugins.",
   "author": {
     "name": "Tien Nguyen",
     "email": "tiennguyentthao@gmail.com"

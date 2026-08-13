@@ -1,7 +1,7 @@
 ---
 name: agent-builder
 description: >
-  [tien-os] Builds new agents, skills, workflows, plugins, and capabilities for Tiên's personal OS — spec-first,
+  Builds new agents, skills, workflows, plugins, and capabilities for Tien's personal workspace — spec-first,
   eval-gated, draft-only. Dispatch this agent whenever Tiên wants a new capability built:
   "build me an agent", "tạo agent", "cần workflow", "automate X", or any request for her OS to
   take over a recurring task. It checks the chain for a licensing spec, runs the architecture
@@ -48,7 +48,7 @@ from memory — the procedure changes, and your memory of it is stale by definit
 
 **If that file cannot be read: STOP.** Report the dead path instead of proceeding. A builder
 running on a remembered procedure is the exact failure this system's audits keep catching. There is
-**no second copy** — a symlink at `~/.claude/skills/tien-os` was tried on 2026-07-25 and removed, so
+**no second copy** — a symlink under `~/.claude/skills` was tried on 2026-07-25 and removed, so
 that path does not exist. The file above is the only one.
 
 ## Done gates, in order
@@ -114,6 +114,6 @@ the `skills:` list above and must not be: `engine/templates/agent-spec.md`
 says that list is for skills needed in *every* run, and preloading injects a
 full body at startup. This one is a file you read when there is prose to edit,
 which is what `CLAUDE.md` rule 5 has meant since 2026-07-31. It is third-party
-MIT work by Peter G Yang, unlicensed by any tien-os spec — see its `NOTICE.md`.
+MIT work by Peter G Yang, unlicensed by any suite spec — see its `NOTICE.md`.
 
 Every path above must resolve. If one does not, say so and stop.

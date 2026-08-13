@@ -1,6 +1,6 @@
 # eval-writer plugin
 
-One independent agent plugin in the `tien-os` marketplace:
+One independent agent plugin in the `agent-plugins` marketplace:
 
 ```text
 Distribution mode: dual
@@ -29,7 +29,7 @@ engine/agent-plugins/eval-writer/
 
 ## One part of a bigger system, shared on purpose
 
-This is one of four agent plugins in **tien-os**, a workspace OS where governed agent teams do
+This is one of four agent plugins in **the workspace**, a governed-agent where governed agent teams do
 the work end to end. It is published on its own because a part that only runs inside the repo
 that grew it is not a part — it is a dependency.
 
@@ -44,7 +44,7 @@ recorded as a skeleton, never reported as a pass.
 
 **Dual, and the common case needs nothing.** Designing an evaluation for any LLM-based task,
 product or feature requires no workspace at all. The two `engine/templates/` sections the
-skill reads when its subject is specifically a tien-os capability now travel with it, bundled at
+skill reads when its subject is specifically a capability now travel with it, bundled at
 `skills/write-success-criteria/references/forms/` and compared to their source on every check run
 (check 15). This block said "repo-bound" until 2026-08-07, when those two files were vendored.
 
@@ -53,7 +53,7 @@ skill reads when its subject is specifically a tien-os capability now travel wit
 This package follows **Agent Plugins 1.0.0**, an open, vendor-neutral standard from the Agent
 Plugins project — specification <https://agent-plugins.org/specification>, repository
 <https://github.com/agentplugins/agent-plugins-spec>. Specification text is licensed CC-BY-4.0,
-its schemas Apache-2.0. tien-os adopted it on 2026-08-07 after Google's announcement of the
+its schemas Apache-2.0. the workspace adopted it on 2026-08-07 after Google's announcement of the
 format, <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>.
 
 The package *conforms to* that standard and vendors none of its files: `plugin.json` is written
@@ -84,10 +84,10 @@ bad, and unsure, with reasons recorded for every "bad," rather than an invented 
 The portable `write-success-criteria` skill owns the entire cross-host procedure. The Claude agent
 adds only a session-wide `tools:` bound (`Read`, `Grep`, `Glob`, `Write` — no `Bash`, no `Edit`) and a
 pointer to the skill; it holds no procedure of its own. This makes `eval-writer` an explicitly
-repo-bound plugin when its subject is a tien-os capability — it opens
+repo-bound plugin when its subject is a capability — it opens
 `engine/templates/skill-spec.md` §7 and `engine/templates/agent-spec.md` §10 for the
 10–30-case regime in that case — and a general-purpose one otherwise, falling back to the reference
-material's own volume-over-quality guidance when the subject is not a tien-os capability or those
+material's own volume-over-quality guidance when the subject is not a capability or those
 files do not resolve.
 
 The plugin has no MCP server, command, monitor, hook, or eval-execution runtime. It designs

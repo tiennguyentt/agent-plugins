@@ -58,7 +58,7 @@ as one.
   notes and re-research.
 - **No decision.** An anatomy licenses the research document; it does not make the research
   document's pick. One of the three says this outright: *"This teaches the shapes; it does not
-  decide tien-os's layout (that's the spec's job)."*
+  decide the workspace's layout (that's the spec's job)."*
 
 ## 4 · Where it sits
 
@@ -88,11 +88,11 @@ cites the other by filename.
 
 Distilled 2026-07-31 from five sources, none of them portable method:
 
-- a retired tien-os document — nine parts of
+- a retired document — nine parts of
   Claude Code, and §2's borrowed lede.
-- a retired tien-os document — the five parts of
+- a retired document — the five parts of
   a personal OS, and the *"vocabulary, not domain map"* sibling label.
-- a retired tien-os document — five
+- a retired document — five
   parts of one workflow and the failure modes between them.
 - `CORE/GUARDRAILS.md` §6 — the eight research forms named in §4.
 - `records/DECISION-LOG.md`, 2026-07-26 — the account of a `thariq-os-anatomy` skill that
@@ -101,4 +101,4 @@ Distilled 2026-07-31 from five sources, none of them portable method:
   the record of its shape, not copied from it.
 
 **Every path in this section is provenance, not runtime.** Nothing in this file is read from them at run
-time, and a copy of this package outside `tien-os` resolves none of them and needs none of them.
+time, and a copy of this package outside the workspace resolves none of them and needs none of them.

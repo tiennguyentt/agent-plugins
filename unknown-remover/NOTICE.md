@@ -2,7 +2,7 @@
 
 **Most of `references/` is not Tiên's work — and one file in it is.** Two outside authors, two
 licensing positions. The manifests name Tien Nguyen as author of `unknown-remover`; that claim covers the four `SKILL.md`
-files, both `rubric.md` files, the tien-os-authored `skills/discover-anatomy/references/anatomy-form.md`,
+files, both `rubric.md` files, the workspace-authored `skills/discover-anatomy/references/anatomy-form.md`,
 the agent adapter, `README.md`, both manifests, this notice, **and
 `skills/write-chain-document/references/lessons.md`** — its own header records that §§1–9 came from Tiên's machine running
 links 1–3 of one chain end to end on 2026-07-23, n = 1. An earlier version of this notice
@@ -63,7 +63,7 @@ conversation transcripts and the ingested copies of his post and demo files — 
 any install; it sits outside the package at `studio/capabilities/unknown-remover/provenance/`.
 
 **One contaminated block was removed upstream before this copy was taken.** `mental-model.md`
-carried a `[tien-os]`-tagged sentence naming **Tiên or Mew** as who confirms a stage, against the
+carried a ``-tagged sentence naming **Tiên or Mew** as who confirms a stage, against the
 folder's own first line — *"Copy this folder into any project. Nothing in it is about you or about
 personal-os"* — and against its Provenance rule. "Mew" was additionally the pre-2026-07-26 name for
 Claude. It was deleted from the source `mental-model.md` on 2026-07-31 and the file re-copied here before
@@ -127,7 +127,7 @@ under `skills/write-chain-document/references/ingest/thariq-demo/` — the AI-vi
 documents and the doc-structures report — reference that project's own source files: four Python
 scripts under its scripts directory, and a transcript JSON under its transcript directory. Those
 documents are worked examples of Thariq's video editor, and the addresses are his repository's
-files. No action available here can make them resolve, so `tien-os`'s link check skips
+files. No action available here can make them resolve, so the workspace's link check skips
 `references/ingest/` and this paragraph is where they are reported instead.
 
 The method files and the

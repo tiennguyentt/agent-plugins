@@ -1,7 +1,7 @@
 ---
 name: classify-unknown
 description: >
-  [tien-os] Use before any planning document exists, when Tiên says "I don't know
+  Use before any planning document exists, when Tiên says "I don't know
   where to start", "should I write a doc for this", "chưa biết bắt đầu từ đâu",
   or describes a task without naming what she is missing. Names which of the four
   quadrants the unknown sits in and which instrument retires it, including the

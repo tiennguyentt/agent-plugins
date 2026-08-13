@@ -65,7 +65,7 @@ is what was asked for.
 
 **Default to `ADEQUATE` when uncertain.** This is the one place the tie-break runs toward the
 simpler answer rather than the sceptical one, and the reason is measured: multi-agent frameworks
-fail at **41–86.7%** (MAST, cited in a retired tien-os document), and
+fail at **41–86.7%** (MAST, cited in a retired workspace document), and
 the recorded bias in this system is reaching for an agent when a skill would do. *"Tiên asked for an
 agent"* is not a reason an option is inadequate.
 
