@@ -4,7 +4,7 @@
 usually goes undone — figuring out what to build, deciding what "working" means, giving your
 agent a new capability, and writing code that earns its green.
 
-Each is a specialist with one job. They are peers: install one, install all four, in any
+Each is a specialist with one job. They are peers: install one, install all six, in any
 order. None depends on another.
 
 ## Quickstart
@@ -32,13 +32,15 @@ Or browse everything with `/plugin` and pick.
 | Figure out what to build, or where to start | **unknown-remover** | `/unknown-remover:classify-unknown` |
 | Judge whether an AI feature actually works | **eval-writer** | `/eval-writer:write-success-criteria` |
 | Give your agent a new capability | **agent-builder** | `/agent-builder:create-capability` |
+| Test a macOS app's UI hands-free | **ui-verifier** | `/ui-verifier:test-ui` |
+| Delegate a task or review from Codex to Claude Code | **claude-code-for-codex** | `$claude-review` |
 
 Used together they run a full cycle — plan, define success, build the capability, write the
 code. Each is useful on its own.
 
 ---
 
-### behavior-implementer `1.1.0`
+### behavior-implementer `1.3.0`
 
 **Code that earns its green.** Describe a feature in plain language; get Given/When/Then
 scenarios back before a line is written. Every scenario is run and *seen to fail* first, so
@@ -76,6 +78,25 @@ most don't — then writes the specs, the skill files, and an evaluation skeleto
 drafts and never grants itself autonomy.
 
 *Skills:* `create-capability` · `evaluate-capability` · `package-plugin` · `no-ai-slop`
+
+### ui-verifier `1.1.0`
+
+**Hands-free macOS UI testing.** Launches a target app off-screen, waits on Accessibility
+conditions instead of fixed sleeps, gates on content and pressable elements per viewport,
+captures a screenshot per viewport for vision review, and can baseline a golden
+Accessibility-tree snapshot for regression across app states. Never reports a press it did not
+confirm.
+
+*Skills:* `test-ui` · `snapshot-ui-state`
+
+### claude-code-for-codex `1.0.1`
+
+**Claude Code from inside Codex.** The inverse of OpenAI's own Codex plugin for Claude Code —
+same architecture, opposite direction of delegation. Review code or hand off a substantial task
+to Claude Code without leaving Codex.
+
+*Skills:* `claude-review` · `claude-adversarial-review` · `claude-rescue` · `claude-status` ·
+`claude-cancel` · `claude-transfer` · `claude-setup` · `claude-result` and 3 internal helpers
 
 ---
 
@@ -117,19 +138,23 @@ instead of a badge, here is where each one honestly stands.
 
 | Plugin | Where it stands |
 |---|---|
-| `unknown-remover` | Passes all 12 of its test scenarios. The most exercised of the four. |
+| `unknown-remover` | Passes all 12 of its test scenarios. The most exercised of the six. |
 | `agent-builder` | Passed 8 of 12 at its last run, and hasn't been re-tested since. |
 | `eval-writer` | 17 test cases written; none run yet. |
-| `behavior-implementer` | The newest. Used daily; its own test cases aren't written yet. |
+| `behavior-implementer` | Used daily; its own test cases aren't written yet. |
+| `ui-verifier` | macOS-only. Exercised against real target apps; no fixed regression suite of its own yet. |
+| `claude-code-for-codex` | A direct port of OpenAI's own codex-plugin-cc; inherits that plugin's track record, not independently re-tested here. |
 
 That table is the product working. These plugins refuse to report a check they didn't run —
 and the rule doesn't get suspended for their own README. If you'd rather have a green badge
 than a true one, this isn't the toolkit for you.
 
-**Both hosts.** All four ship a Claude Code manifest and a Codex manifest, and read the same
+**Both hosts.** All six ship a Claude Code manifest and a Codex manifest, and read the same
 skill files, so a procedure behaves the same on either. On Codex we've installed and used
-`unknown-remover` so far; the other three are packaged and catalogued but not yet put
-through a Codex session.
+`unknown-remover` so far; the other five are packaged and catalogued but not yet put
+through a Codex session. `ui-verifier` is macOS-only regardless of host, since it drives the
+Accessibility API. `claude-code-for-codex` is Codex-only by design — it exists to call Claude
+Code, not to run inside it.
 
 ## Fork it — it's all just Markdown
 
@@ -163,9 +188,11 @@ agent-plugins/
 ├── .claude-plugin/marketplace.json   Claude Code catalog
 ├── .agents/plugins/marketplace.json  Codex catalog
 ├── agent-builder/                    ┐
-├── behavior-implementer/             │ four plugins, peers,
-├── eval-writer/                      │ one directory each
-├── unknown-remover/                  ┘
+├── behavior-implementer/             │
+├── eval-writer/                      │ six plugins, peers,
+├── unknown-remover/                  │ one directory each
+├── ui-verifier/                      │
+├── claude-code-for-codex/            ┘
 ├── LICENSE
 └── README.md
 ```
@@ -211,5 +238,5 @@ Apache-2.0, from the [Agent Plugins project](https://github.com/agentplugins/age
 name the file and quote what it told you to do — these are procedures, so a bad instruction
 is a reproducible bug, not a matter of taste.
 
-Pull requests are welcome on any of the four. If you fork one and bend it to your team, that
+Pull requests are welcome on any of the six. If you fork one and bend it to your team, that
 counts as it working; if you send the change back, everyone else gets it too.
