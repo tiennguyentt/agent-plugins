@@ -54,7 +54,7 @@ It never pushes without asking. Every time.
 
 *Skills:* `write-scenarios` · `implement-behavior` · `gate-commit`
 
-### unknown-remover `1.3.0`
+### unknown-remover `1.3.1`
 
 **For when you don't know where to start.** It names which kind of unknown you're actually
 holding, picks the document that retires it, and writes exactly one — never a stack of

@@ -1,6 +1,6 @@
 {
   "name": "unknown-remover",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Classifies the unknown, picks the artifact form, and writes one planning document at a time from the five-document chain.",
   "author": {
     "name": "Tien Nguyen"

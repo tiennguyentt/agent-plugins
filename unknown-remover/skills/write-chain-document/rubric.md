@@ -20,7 +20,7 @@ Do not accept the document's own label. Derive the type, then compare.
 
 | Evidence in the document | Type it indicates |
 |---|---|
-| Ends `End of spec. Ready to build on confirmation.` | spec |
+| Ends `End of spec.` | spec |
 | Carries `NEW` / `EDIT` / `REGENERATED` per file | implementation notes |
 | Cites a measurement by filename and reopens one question | re-research |
 | Ranked options with ranking tags exiting in one decision | research |

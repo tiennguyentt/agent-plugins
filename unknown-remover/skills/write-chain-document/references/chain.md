@@ -8,7 +8,7 @@
 | --- | --- | --- | --- |
 | 1 | **EXPLAINER** | *"A working tour of X… and the failure modes that don't appear in the README"* | the research doc |
 | 2 | **RESEARCH**, pre-decision | *"…which model to reach for… and the half-dozen decisions worth making before writing code"* | the spec |
-| 3 | **SPEC** | ends *"End of spec. Ready to build on confirmation"* | the build |
+| 3 | **SPEC** | ends *"End of spec."* | the build |
 | 4 | **IMPLEMENTATION NOTES** | *"What got built, where it deviates from the research doc, and what you need to do once to light it up"* | re-research — or nothing |
 | 5 | **RE-RESEARCH**, after measured failure | *"…the drift problem SAM 2 hits around frame 90 on your podium clip"* | a respec, or a drop |
 
@@ -153,7 +153,9 @@ decision — *"Whisper is a language model that happens to be conditioned on aud
 
 ### 3 · SPEC
 
-**Job:** commit. Twelve sections, ending *"End of spec. Ready to build on confirmation."*
+**Job:** commit. Twelve sections, ending *"End of spec."* A build is licensed the moment the spec
+exists and is cited — there is no confirmation step to wait for (Tien removed the signing ceremony
+2026-08-12).
 
 **This is where a structure is finally allowed to exist.** It is banned in every earlier document;
 naming it is this document's job.
