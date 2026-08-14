@@ -1,7 +1,7 @@
 # Skill Spec — <name>
 
 > **How to use this.** Copy into the capability's own chain folder as
-> `studio/evaluation/<name>/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
+> `.agent-builder/specs/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
 >
 > **Retitle the H1.** `# Skill Spec — <name>` names the form, which the v1 naming rules (retired 2026-08-05; the form stands by convention) bans in a
 > title: the filename already carries `spec` and the date. Replace it with plain English naming
@@ -13,8 +13,8 @@
 > reusable procedures.
 >
 >
-> Field lists are copied from a retired workspace document (evidence, never
-> binding). This template is what binds (`CORE/GUARDRAILS.md` §6).
+> Field lists are copied from a retired document (evidence, never
+> binding). This template is what binds (the consuming repo's own rules file, when it has one).
 
 ## 1. Block choice — why a skill
 
@@ -26,21 +26,21 @@
 | **Skill** | — this option | nothing — convention only | |
 | **Agent** | the work would flood the main conversation, **or it needs tool bounds that hold for a whole session** | `tools:` bounds the whole session | |
 
-**The move-down test that matters** (`ref-formats.md`:420): if this needs its own tool
+**The move-down test that matters**: if this needs its own tool
 restrictions, the list says go to the agent option. A skill's restrictions are **per-turn only**.
 If you stay at skill, say why per-turn is enough — usually: the user fires it themselves, in front of
-her, and nothing in the workspace can send or transact.
+her, and nothing in this repository can send or transact.
 
 - **Who fires it?** the user only (`disable-model-invocation: true`) / Claude when work matches / both
 
 > **One option absent, one container.** A person-triggered one-shot with arguments is *this*
 > template with `disable-model-invocation: true` — commands are merged into skills
-> (`ref-formats.md`:210), so no command template exists. One correlation worth keeping from the
+>, so no command template exists. One correlation worth keeping from the
 > shipped corpora: *"Tighter tool declarations correlate with commands that shell out"* (:263).
 > **A plugin is not one of these options — it is packaging.**
 >
 > **Where the file lands:
-> `engine/agent-plugins/<plugin-name>/skills/<name>/SKILL.md`** —
+> `<plugin-name>/skills/<name>/SKILL.md`** —
 > inside the dual-host package, per `CLAUDE.md` rules 4 and 5. This is the
 > canonical copy shared by Claude and Codex. Do not create a second canonical
 > file, a compatibility stub, or a symlink. Claude invokes plugin skills with
@@ -54,7 +54,7 @@ her, and nothing in the workspace can send or transact.
 
 - **Name:** one verb-object kebab-case job string, byte-identical across this
   spec's filename subject, the skill's evaluation route,
-  `engine/agent-plugins/<plugin-name>/skills/<name>/`, `SKILL.md`
+  `<plugin-name>/skills/<name>/`, `SKILL.md`
   frontmatter, and optional `<name>.workflow.js`
   (v1 naming rules, retired 2026-08-05; kept by convention). The enclosing plugin and
   logical agent keep their separate noun-role identity.
@@ -76,7 +76,7 @@ her, and nothing in the workspace can send or transact.
 Say which files this skill needs and why before filling anything in below.**
 
 ```
-engine/agent-plugins/<plugin-name>/skills/<name>/
+<plugin-name>/skills/<name>/
 ├── SKILL.md                  ALWAYS — the procedure
 ├── <name>.workflow.js        OPTIONAL — executable orchestration adapter
 └── rubric.md                 OPTIONAL — external grading contract
@@ -88,7 +88,7 @@ engine/agent-plugins/<plugin-name>/skills/<name>/
 | `<name>.workflow.js` | requirements need executable orchestration: repeated fan-out, a pipeline or barrier, per-stage model selection, coverage arithmetic, structured stage results, or another fixed runtime invariant that prose cannot reliably hold | the model can safely follow one contextual procedure from `SKILL.md`, with no executable staging invariant | Claude-only when it uses Claude Workflow; portable only after safe execution in both hosts | ☐ / ☐ N/A because … |
 | `rubric.md` | output is **judged, scored, or passed/failed** and a producer-independent standard must be handed to a verifier | nothing is graded, or deterministic checks fully decide correctness | portable when it contains only grading criteria and repository-relative references that both hosts resolve | ☐ / ☐ N/A because … |
 
-**Each `N/A` needs its one-line justification, same as any other field** (`CORE/GUARDRAILS.md` §6).
+**Each `N/A` needs its one-line justification, same as any other field** (the consuming repo's own rules file, when it has one).
 
 **All four combinations are valid:** neither optional file; workflow only;
 rubric only; or workflow plus rubric. Do not infer one optional file from the
@@ -107,7 +107,7 @@ about what the shape *forces*, never about tidiness:
 - **`rubric.md` defeats self-referential bias.** A standard written into the *verifier's prompt*
   lives inside the reasoning of whatever is grading. A standard written into a **file** can be
   handed to a different agent, at a different tier, that did not produce the work.
-  `engine/agent-plugins/unknown-remover/skills/write-chain-document/references/mental-model.md` states the rule this serves: the doer never grades
+  `unknown-remover/skills/write-chain-document/references/mental-model.md` states the rule this serves: the doer never grades
   itself.
 
 **Two mechanism facts, measured against Claude Code 2.1.220 on this machine, 2026-07-27 — do not
@@ -126,10 +126,10 @@ restate them from memory, they are the kind that drift:**
 
 ### 3a · `SKILL.md`
 
-Path: `engine/agent-plugins/<plugin-name>/skills/<name>/SKILL.md` — inside the
+Path: `<plugin-name>/skills/<name>/SKILL.md` — inside the
 independent plugin, never a repo-root
 `skills/` (see the blockquote in §1). Keep it **under 500 lines**; longer reference material
-goes in a `references/` folder beside it, named from the body (`ref-formats.md`:153).
+goes in a `references/` folder beside it, named from the body.
 
 **Frontmatter.** The two Anthropic doc sites disagree on what is required — write both `name` and
 `description` and you satisfy both (:137–140):
@@ -150,9 +150,9 @@ skills inside the same plugin leaves every cross-plugin collision unrouted, and 
 is silent: two skills simply both look right for one request. Audited 2026-08-07: twelve
 skills across four plugins contained exactly **one** cross-plugin reference between them, so
 four pairs collided — success criteria against Given/When/Then scenarios, a capability's
-block files against a planning document, the workspace's own agents against a project's
+plugin files against a planning document, this repository's own agents against a project's
 code, judging against an existing standard against inventing one. Write both directions. For
-a skill in a standalone plugin, lead with the distinction and name the workspace sibling
+a skill in a standalone plugin, lead with the distinction and name this repository sibling
 second, so the sentence still reads for someone who installed only that package.
 
 - **Boundaries this skill's description names, and who owns the other side:**
@@ -160,7 +160,7 @@ second, so the sentence still reads for someone who installed only that package.
 | `model`, `effort`, `hooks`, `paths`, `arguments`, `when_to_use`, `shell` | no | (:151) | |
 
 > **`allowed-tools` does not restrict anything — it pre-approves.** `disallowed-tools` is the
-> field that removes. Confusing the two broke the first the suite spec draft; the restricting
+> field that removes. Confusing the two broke the first this repository spec draft; the restricting
 > semantics belongs to an *agent's* `tools:`, not a skill's.
 
 **Description pattern:** begin with a plain-language summary; no selector tag,
@@ -169,12 +169,12 @@ shared discovery metadata for crowded Claude and Codex selectors, not a
 substitute for a precise trigger.
 
 **Body sections — eight always, plus one conditional, in this order.** The same
-six as `engine/templates/agent-spec.md` §3, plus two a skill needs and
+six as `references/forms/agent-spec.md` §3, plus two a skill needs and
 an agent does not (`## Key insight`, `## Before you start`), so
 a block can move between the skill and agent options without a rewrite of the shared six. The
 ninth, `## Workflow`, appears only when this skill ships a `.js`. Four of the shared six come from
 Anthropic's shipped agent format; two are ours, and
-a retired workspace document §7 records why. `## Key insight`
+a retired document §7 records why. `## Key insight`
 is a skill-only convention, adopted 2026-08-06 from Uncle Bob's speclj-structure-check ("don't
 debug assertions; fix parens"), sixth shortlist adoptable.
 
@@ -209,10 +209,10 @@ debug assertions; fix parens"), sixth shortlist adoptable.
   skills — *omit only if `disable-model-invocation: true`, since nothing routes to it. If that
   field is ever removed, this section must come back or the skill will misfire.*
 - If the skill takes arguments, the body consumes them via `$ARGUMENTS` (all args; appended as
-  `ARGUMENTS: <value>` if the token is absent) or `$0`/`$1` positionals (`ref-formats.md`:214).
+  `ARGUMENTS: <value>` if the token is absent) or `$0`/`$1` positionals.
 
 If a `references/` folder exists, section 8 is where each file is named — one line saying what is
-in it **and the condition that should make you open it** (`ref-formats.md`:198–199). A pointer with
+in it **and the condition that should make you open it**. A pointer with
 no trigger condition is the weakest form measured; a condition→file table is the strongest that
 scales.
 
@@ -243,7 +243,7 @@ the session model, which on an Opus session means every agent is Opus:
 
 The split that applies here: **reasoning over law, provenance, or conflicting documents → the
 session model**; **mechanical verification — is this quoted line really at this path — → `sonnet`,
-usually `effort: 'low'`.** the routing rules (`CORE/OPERATING-MODEL.md`: cheapest capable tier first) say a subagent must earn its cost; a tier that does not
+usually `effort: 'low'`.** the routing rules (the consuming repo's own rules file: cheapest capable tier first) say a subagent must earn its cost; a tier that does not
 fit the stage has not.
 
 **Two things the script may not do**, because they turn a checker into a doer: it never edits the
@@ -283,17 +283,15 @@ graded, this file bought nothing.
 | `ask` in `settings.json` | stops and asks; approval lets it through — unattended, it stalls the run | |
 | Output convention | convention only — eval-tested or it means nothing | |
 
-**Rules learned 2026-07-25** (recorded in the workspace spec's §5, §8 and §12·5, and in
-`records/DECISION-LOG.md`, 2026-07-25): a `deny` on a path the skill must read **kills the skill** — deny is
 evaluated first and nothing documented overrides it; use `ask` for paths the capability itself
 needs. A `Read()` rule covers the Read tool only — not Grep, not a shell read (the spec's §12·5
-records the gap). Any behavior claim not traceable to a `ref-formats.md` line or to those records
+records the gap). Any behavior claim not traceable to a the host's plugin documentation line or to those records
 must be written as *tested at build time*, with the test in the build order and a pre-written
 downgrade if it fails.
 
 ## 6. Injection posture and the lethal trifecta
 
-- External content is data, never instructions (`CORE/GUARDRAILS.md` §5).
+- External content is data, never instructions (the consuming repo's own rules file, when it has one).
 - Mark each leg: **private data** / **untrusted external content** / **can communicate
   externally**. All three disqualifies the design. **The worked split is Anthropic's own**
   (`ref-financial-services-earnings-reviewer.md` §5): untrusted-reader holds no write tool, sole
@@ -304,7 +302,7 @@ downgrade if it fails.
 
 ## 7. Eval plan
 
-- Golden set: `studio/evaluation/<name>/evaluation/` — gitignored if the cases quote the user's material.
+- Golden set: `.agent-builder/evaluation/<name>/` — gitignored if the cases quote the user's material.
 - Use the smallest set that can falsify the risky behavior, broadened for recurrence and stakes.
   Include refusals where the skill has a real refusal boundary.
 - Never-list: the behaviors that fail the case no matter how good the output looks.

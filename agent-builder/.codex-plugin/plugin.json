@@ -15,7 +15,7 @@
   "interface": {
     "displayName": "agent-builder",
     "shortDescription": "Build capabilities from confirmed specs.",
-    "longDescription": "A dual-host agent plugin for creating, evaluating, and packaging narrow, auditable capabilities from confirmed the suite specifications.",
+    "longDescription": "A dual-host agent plugin for creating, evaluating, and packaging narrow, auditable capabilities from confirmed specifications.",
     "developerName": "Tien Nguyen",
     "category": "Productivity",
     "capabilities": [

@@ -3,20 +3,19 @@
 One independent agent plugin in the `agent-plugins` marketplace:
 
 Distribution mode: dual
-Standalone entry: `create-capability` walks for a `.git` root, finds no `CORE/GUARDRAILS.md`, and runs its refuse-and-scaffold path off the four bundled forms
+Standalone entry: `create-capability` walks for a `.git` root, finds no the consuming repo's own rules file, and runs its refuse-and-scaffold path off the four bundled forms
 Portable core: `skills/`
 Portable entry skill: `create-capability`
-Bundled equivalents: `engine/templates/agent-spec.md` -> `skills/create-capability/references/forms/agent-spec.md`, `engine/templates/skill-spec.md` -> `skills/create-capability/references/forms/skill-spec.md`, `engine/templates/workflow-spec.md` -> `skills/create-capability/references/forms/workflow-spec.md`, `engine/templates/agent-plugin-spec.md` -> `skills/create-capability/references/forms/agent-plugin-spec.md`
-Workspace-mode extras: `CLAUDE.md`, `CORE/`, `engine/`, `records/`, `state/`, `studio/`
+Bundled equivalents: `references/forms/agent-spec.md` -> `skills/create-capability/references/forms/agent-spec.md`, `references/forms/skill-spec.md` -> `skills/create-capability/references/forms/skill-spec.md`, `references/forms/workflow-spec.md` -> `skills/create-capability/references/forms/workflow-spec.md`, `references/forms/agent-plugin-spec.md` -> `skills/create-capability/references/forms/agent-plugin-spec.md`
 Codex project agent: optional overlay
 
-The last three joined the list on 2026-08-07. They were always used — `CORE/GUARDRAILS.md`
+The last three joined the list on 2026-08-07. They were always used — the consuming repo's own rules file
 for the law a build may not cross, `evaluation-plane/` for the eval route a capability owes, and
 `graph-plane/` for the trace a run has to land in — but the declaration named only the first three,
 so three real runtime dependencies travelled undeclared.
 
 ```text
-engine/agent-plugins/agent-builder/
+agent-builder/
 ├── plugin.json                  portable manifest — Agent Plugins 1.0.0
 ├── .claude-plugin/plugin.json   Claude Code adapter
 ├── .codex-plugin/plugin.json    Codex and ChatGPT adapter
@@ -42,7 +41,7 @@ engine/agent-plugins/agent-builder/
 
 ## One part of a bigger system, shared on purpose
 
-This is one of four agent plugins in **the workspace**, a governed-agent where governed agent teams do
+This is one of several agent plugins in this repository, where agent teams do
 the work end to end. It is published on its own because a part that only runs inside the repo
 that grew it is not a part — it is a dependency.
 
@@ -53,12 +52,11 @@ produce the work. The packaging is checked by machine: `plugin.json` conforms to
 drift apart.
 
 **Dual, and it proves it rather than promising it.** `create-capability` walks for a `.git`
-root; if no `CORE/GUARDRAILS.md` is there, it runs standalone off the four spec forms
+root; if no the consuming repo's own rules file is there, it runs standalone off the four spec forms
 bundled at `skills/create-capability/references/forms/` — byte-identical copies of
-`engine/templates/`, compared on every check run (check 15) so they cannot drift. Inside
-a `the suite` checkout it switches to workspace mode and also reads that workspace's law, records
-and evaluation routes. Those deliberately do NOT travel: `CORE/GUARDRAILS.md` is the law
-of the workspace that ratifies it, and shipping a copy would be shipping someone else's rules.
+a repo with its own rules file it switches to repo mode and also reads that repo's rules
+and evaluation routes. Those deliberately do NOT travel: the consuming repo's own rules file is the law
+of this repository that ratifies it, and shipping a copy would be shipping someone else's rules.
 
 This paragraph said "repo-bound … making it standalone is real work and is not done" until
 2026-08-07. The standalone work had in fact been done on 2026-07-31, forms and all; the README
@@ -69,7 +67,7 @@ was describing a plugin that no longer existed, and a launch slide inherited the
 This package follows **Agent Plugins 1.0.0**, an open, vendor-neutral standard from the Agent
 Plugins project — specification <https://agent-plugins.org/specification>, repository
 <https://github.com/agentplugins/agent-plugins-spec>. Specification text is licensed CC-BY-4.0,
-its schemas Apache-2.0. the workspace adopted it on 2026-08-07 after Google's announcement of the
+its schemas Apache-2.0. this repository adopted it on 2026-08-07 after Google's announcement of the
 format, <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>.
 
 The package *conforms to* that standard and vendors none of its files: `plugin.json` is written
@@ -104,21 +102,15 @@ required for Codex execution. The sibling skills expose evaluation and
 packaging as independently callable recurring jobs without duplicating the
 portable entry procedure.
 
-`engine/templates/` remains the sole authority for the four capability-spec forms;
-`create-capability` vendors byte-identical, read-only copies at
-`skills/create-capability/references/forms/` so the plugin can scaffold and gate a build with no
-`the suite` control plane present. A drift check inside the workspace that produces this plugin
-(`engine/checks/check.py` check 15) keeps the two copies honest — the copy travels, the authority does
-not move.
+`skills/create-capability/references/forms/` holds the four capability-spec forms the plugin
+ships with, so it can write a spec and build from it with nothing else installed.
 
-`create-capability` detects its own mode at the start of every invocation: inside a project whose
-nearest `.git` root has a `CORE/GUARDRAILS.md`, it runs exactly as it always has —
-repo-bound, gated by `python3 engine/checks/check.py --confirmed`, against `engine/templates/`
-and `studio/evaluation/<name>/`. Outside one, it runs standalone — gated by its own vendored
-`skills/create-capability/scripts/check-confirmed.py`, against the vendored forms and
-`.agent-builder/specs/` in the consumer's own project — refusing any build ahead of a spec the
-consumer signs themselves, and scaffolding that spec rather than stopping bare. Neither mode
-grants autonomy; only its authority and file locations move.
+`create-capability` detects its own mode at the start of every invocation. Inside a repo that
+has its own rules file, it uses that repo's own spec and template locations. Outside one, it
+runs standalone: specs live at `.agent-builder/specs/` in the consumer's own project, checked by
+`skills/create-capability/scripts/check-spec.py`. When no spec exists, it writes one from the
+matching form and builds what that spec specifies, rather than stopping. Neither mode grants
+autonomy; only the file locations move.
 
 The plugin has no MCP server, command, monitor, hook, or runtime template copy.
 
@@ -126,7 +118,7 @@ The plugin has no MCP server, command, monitor, hook, or runtime template copy.
 
 Evaluation is not a hook. `evaluate-capability` is an on-demand skill; its
 golden cases and historical run records remain development evidence at
-`studio/evaluation/agent-builder/evaluation/`, outside the installable
+`.agent-builder/evaluation/agent-builder/`, outside the installable
 plugin.
 
 Claude Code can run native plugin eval suites when an `evals/` directory is

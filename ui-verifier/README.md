@@ -13,17 +13,17 @@ did not just measure.
 Distribution mode: dual
 Portable core: `skills/`
 Portable entry skill: `test-ui`
-Standalone entry: runs test-ui and snapshot-ui-state entirely from the vendored references/ax-dump.swift, ax-actions.swift, and window-shot.swift plus the steps written into each SKILL.md — no workspace file is required for either skill's core procedure.
-Workspace-mode extras: `state/` (a the suite workspace's own multi-fixture world runner, which automates snapshot-ui-state's fixture loop across many app states at once; the skill uses it when the path exists in the current repo and falls back to its own manual loop otherwise)
+Standalone entry: runs test-ui and snapshot-ui-state entirely from the vendored references/ax-dump.swift, ax-actions.swift, and window-shot.swift plus the steps written into each SKILL.md — no extra file is required for either skill's core procedure.
+Optional, not shipped with the plugin: a multi-fixture world runner, which automates snapshot-ui-state's fixture loop across many app states at once; the skill uses it when the path exists in the current repo and falls back to its own manual loop otherwise)
 Codex project agent: none
 ```
 
 Standalone behavior is measured, not asserted: both skills' own procedures run to completion
-using only the three vendored tools and the steps written in `SKILL.md`; the workspace-mode
+using only the three vendored tools and the steps written in `SKILL.md`; this repository-mode
 extras above are read only when found, and their absence changes nothing about what either
 skill can do.
 
-The extras line was rewritten on 2026-08-12. It had named a specific the suite gate file and a
+The extras line was rewritten on 2026-08-12. It had named a specific this repository gate file and a
 specific application repository's wrapper scripts, both of which were deleted that day, so the
 line described a world that no longer existed. It now names the repo-owned prefix the runtime
 text actually reaches for. The skills themselves did not change: `ui-verifier` drives ANY macOS
@@ -32,10 +32,10 @@ against.
 
 ## One part of a bigger system, shared on purpose
 
-This is the fifth of the workspace's agent plugins — a workspace OS where governed agent teams do the
+This is one of this repository's agent plugins, where agent teams do the
 work end to end. It is published on its own because a UI-testing eye that only runs inside the
 repo that grew it is not a part — it is a dependency. The three tools it drives were built for
-one macOS app (the suite.app) but take a pid/owner-name/identifier-prefix as arguments, not a
+one macOS app (this repository.app) but take a pid/owner-name/identifier-prefix as arguments, not a
 hardcoded target — nothing about them is specific to that app.
 
 **Built for a team, not for a demo.** One agent, two skills, each independently invocable
@@ -78,7 +78,7 @@ are verbatim copies of the same three files at a project repository/tools/` — 
 copies are the maintained originals; these are the portable core this plugin ships so it runs
 with no a project repository checkout. Each already takes its target as an argument (pid, bundle id,
 owner name, or identifier prefix), not a hardcoded app, which is what makes them app-agnostic
-rather than the suite-specific:
+rather than this repository-specific:
 
 - `ax-dump.swift <pid> | --bundle-id <id> [--press <identifier>]` — walks the Accessibility
   tree and prints one deterministic, diffable line per element; the file header explains why a
@@ -97,7 +97,7 @@ rather than the suite-specific:
 This package follows **Agent Plugins 1.0.0**, an open, vendor-neutral standard from the Agent
 Plugins project — specification <https://agent-plugins.org/specification>, repository
 <https://github.com/agentplugins/agent-plugins-spec>. Specification text is licensed CC-BY-4.0,
-its schemas Apache-2.0. the suite adopted it 2026-08-07 after Google's announcement of the
+its schemas Apache-2.0. this repository adopted it 2026-08-07 after Google's announcement of the
 format, <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>.
 
 The package *conforms to* that standard and vendors none of its files: `plugin.json` is written
@@ -149,7 +149,7 @@ Invoke on Claude Code: `/ui-verifier:test-ui` (or `:snapshot-ui-state`), or disp
   maps a system conceptually for a human reader; `snapshot-ui-state`'s output is a
   byte-comparable Accessibility-tree dump for machine diffing, never a narrative document.
 - **vs `agent-builder:evaluate-capability`** — evaluate-capability grades whether an agent or
-  skill complies with the workspace law, its own spec, and evaluation evidence; `ui-verifier` tests a
+  skill complies with this repository law, its own spec, and evaluation evidence; `ui-verifier` tests a
   macOS application's UI and has no opinion about agent/skill compliance.
 
 ## Optional files, decided per skill
@@ -165,11 +165,11 @@ decisions:
 A rubric is read by a reviewer that did not produce the capture it grades; `test-ui` points its
 vision-review step at the file and never grades its own screenshot.
 
-## Standalone by design, workspace-aware when present
+## Standalone by design, repo-aware when present
 
 Both skills read only their own vendored tools and the target app's own state. The dual
-distribution mode above is honest about the one place this plugin is *aware* of a the suite
-workspace without depending on it: `snapshot-ui-state` will use
+distribution mode above is honest about the one place this plugin is *aware* of a this repository
+a repo's own runner without depending on it: `snapshot-ui-state` will use
 `a retired gate` to automate its fixture loop when that file is
 present, and runs its own manual loop identically well when it is not.
 

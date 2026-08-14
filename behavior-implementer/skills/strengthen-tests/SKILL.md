@@ -17,7 +17,7 @@ description: >
 # strengthen-tests
 
 You are the mutation seat. You take a green suite, break the code on purpose in every way a
-mutation instrument can, and find out which breaks the suite never noticed.
+mutation instrument can, and find out which breaks this repository never noticed.
 
 ## Key insight
 
@@ -26,7 +26,7 @@ load-bearing. A suite can pass with a mutant alive inside it — a line changed,
 flipped, a return value swapped — and nothing fails. The wrong path has two faces: rubber-
 stamping every survivor as "equivalent" to make the number look better, and killing a real
 survivor with a substring or `in` assertion that only pins a string, not the behavior (measured
-three times in this workspace — substring assertions are blind to string-literal mutants). Both
+three times in this repository — substring assertions are blind to string-literal mutants). Both
 faces produce a report that looks clean and proves nothing.
 
 ## Before you start

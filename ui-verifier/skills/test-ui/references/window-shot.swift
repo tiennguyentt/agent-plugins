@@ -1,7 +1,7 @@
 // Reliable window screenshot via ScreenCaptureKit (macOS 14+). Captures a named app's
 // main window even when occluded and WITHOUT bringing it on screen or stealing focus — the
 // robust "eye". Required over `screencapture`/foreground grabs because the machine has one
-// screen and Tiên is multitasking: the app must never be raised to be photographed.
+// screen and the user is multitasking: the app must never be raised to be photographed.
 // Fix vs the first version: no semaphore (that deadlocked SCK's main-queue dispatch);
 // the Task calls exit() itself and RunLoop.main.run() keeps the process alive until then.
 // Fix 2026-08-07: pick the largest ON-SCREEN window (the content window), never a hard
@@ -32,7 +32,7 @@ import UniformTypeIdentifiers
 //
 // `NSApplication.shared` establishes the connection. `.accessory` keeps this process out of the
 // Dock and, more importantly, stops it stealing focus — the whole point of the off-screen eye is
-// that Tiên's screen is never touched.
+// that the user's screen is never touched.
 import AppKit
 _ = NSApplication.shared
 NSApplication.shared.setActivationPolicy(.accessory)

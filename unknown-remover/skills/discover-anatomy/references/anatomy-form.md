@@ -58,7 +58,7 @@ as one.
   notes and re-research.
 - **No decision.** An anatomy licenses the research document; it does not make the research
   document's pick. One of the three says this outright: *"This teaches the shapes; it does not
-  decide the workspace's layout (that's the spec's job)."*
+  decide this repository's layout (that's the spec's job)."*
 
 ## 4 · Where it sits
 
@@ -94,11 +94,10 @@ Distilled 2026-07-31 from five sources, none of them portable method:
   a personal OS, and the *"vocabulary, not domain map"* sibling label.
 - a retired document — five
   parts of one workflow and the failure modes between them.
-- `CORE/GUARDRAILS.md` §6 — the eight research forms named in §4.
-- `records/DECISION-LOG.md`, 2026-07-26 — the account of a `thariq-os-anatomy` skill that
+- the consuming repo's own rules file — the eight research forms named in §4.
   produced the three documents above and was restructured into the seven-section format at 199
   lines. **That file and its checksummed backup are both gone.** This distillation is informed by
   the record of its shape, not copied from it.
 
 **Every path in this section is provenance, not runtime.** Nothing in this file is read from them at run
-time, and a copy of this package outside the workspace resolves none of them and needs none of them.
+time, and a copy of this package outside this repository resolves none of them and needs none of them.

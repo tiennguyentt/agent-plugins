@@ -750,7 +750,7 @@ export async function runTurn(cwd, options = {}) {
 
 function deriveClaudeProjectSlug(cwd) {
   // Observed on this machine: every ~/.claude/projects/<slug> dir is "-" plus the session
-  // cwd with "/" replaced by "-" (e.g. /Users/tiennguyen/workspace -> -Users-tiennguyen-workspace,
+  // cwd with "/" replaced by "-" (e.g. /home/user/project -> -home-user-project,
   // /private/tmp/.../scratchpad -> -private-tmp-...-scratchpad). Backslashes are normalized
   // for Windows parity.
   return `-${String(cwd).replace(/[\\/]/g, "-")}`;

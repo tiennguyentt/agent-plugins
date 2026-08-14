@@ -10,7 +10,7 @@ export const meta = {
   phases: [
     { title: 'Architecture', detail: 'one agent per block option, then one composition pass that separates job modules, optional agent shell, and packaging. Fixed at 6 agents. sonnet, effort high' },
     { title: 'Audit', detail: 'one agent per required spec section, graded against rubric.md — sonnet, low' },
-    { title: 'Done-checks', detail: 'the checks in CORE/DEFINITION-OF-DONE.md partitioned across at most 13 workers, one reader agent first — sonnet, low. Sized by the ceiling, never by how many checks exist, so nothing is dropped at any count' },
+    { title: 'Done-checks', detail: 'the checks in the repo done-criteria file partitioned across at most 13 workers, one reader agent first — sonnet, low. Sized by the ceiling, never by how many checks exist, so nothing is dropped at any count' },
   ],
 }
 
@@ -20,7 +20,6 @@ export const meta = {
 // are more of them than the ceiling allows agents, so the fan-out is sized by the ceiling and the
 // items are partitioned across it. Before adding a stage, ask what the items share — if they all
 // open the same file, batch by that file; if there can be more of them than the ceiling, partition.
-// The retired verifier's measured failure and the replacement rule are preserved in records/DECISION-LOG.md.
 
 // `meta` is parsed separately and STRIPPED from this body before it runs, so `meta.maxAgents` is
 // not in scope here — an earlier workflow failed on that exact reference. Restate it.
@@ -28,7 +27,7 @@ export const meta = {
 const MAX_AGENTS = 14
 
 // Derived, never a second literal. Every fan-out stage runs one reader agent first, so the cap is
-// the ceiling minus that reader. It was a hardcoded 12 until 2026-07-28, while `CORE/DEFINITION-OF-DONE.md`
+// the ceiling minus that reader. It was a hardcoded 12 until 2026-07-28, while `the repo done-criteria file`
 // carried 13 checks — so check 13, the one that measures what a run COSTS, was the single check
 // this workflow silently declined to assess. A cap that is not derived from the ceiling drifts the
 // moment the thing it counts grows by one.
@@ -84,17 +83,17 @@ function coverage(assignedIds, results, idKey, validVerdicts, verdictKey) {
 }
 
 // ── inputs ───────────────────────────────────────────────────────────────────
-// { stage: 'architecture', request: "<what Tiên asked for>" }
+// { stage: 'architecture', request: "<what the user asked for>" }
 // { stage: 'audit',        spec: "<abs path>", template: "<abs path>" }
-// { stage: 'done-checks',  artifact: "<what was built>", checks: "<abs path to CORE/DEFINITION-OF-DONE.md>" }
+// { stage: 'done-checks',  artifact: "<what was built>", checks: "<abs path to the repo done-criteria file>" }
 
 const input = args || {}
 const STAGE = input.stage
 // RELATIVE, on purpose. An absolute path here made the skill read its grading standard from the
-// original repo when run in a git worktree or from a copied package — Tiên, 2026-07-28:
+// original repo when run in a git worktree or from a copied package — the user, 2026-07-28:
 // *"hiện tại working wrong workspace"*. Every path in this file resolves against the working
 // directory of the session that invoked it.
-const RUBRIC = input.rubric || 'engine/agent-plugins/agent-builder/skills/evaluate-capability/rubric.md'
+const RUBRIC = input.rubric || 'skills/evaluate-capability/rubric.md'
 
 if (!STAGE) {
   return { error: "No stage given. Pass { stage: 'architecture' | 'audit' | 'done-checks' } — see meta.phases." }
@@ -113,7 +112,7 @@ if (!STAGE) {
 // composable; they are not mutually exclusive rungs.
 //
 // Tier, and why it is stated through `effort` rather than `model`. This is reasoning
-// over CORE/GUARDRAILS.md and the evidence explainer, and a misread rule here mis-shapes
+// over the repo rules file and the evidence explainer, and a misread rule here mis-shapes
 // everything downstream — so it wants the most care of any stage in this file.
 //
 // It cannot get that from `model`. `~/.claude/settings.json` sets
@@ -127,10 +126,10 @@ if (!STAGE) {
 const OPTIONS = [
   { key: 'permission-rule', holds: 'the program',
     when: 'a tool must be blocked or surfaced every time, in every session' },
-  { key: 'hook', holds: 'the program — but it needs a script, which is a recorded exception in CLAUDE.md and records/DECISION-LOG.md in the same change',
+  { key: 'hook', holds: 'the program — but it needs a script, which is a recorded exception recorded as an exception in the same change',
     when: 'something must happen every time and no permission rule can express it' },
   { key: 'locked-skill', holds: '`disable-model-invocation: true`',
-    when: 'a procedure only Tiên may start' },
+    when: 'a procedure only the user may start' },
   { key: 'skill', holds: 'nothing — convention only',
     when: 'knowledge or a procedure Claude loads when the work matches' },
   { key: 'agent', holds: '`tools:` bounds the whole session',
@@ -138,7 +137,7 @@ const OPTIONS = [
 ]
 
 if (STAGE === 'architecture') {
-  if (!input.request) return { error: 'stage architecture needs { request: "<what Tiên asked for>" }' }
+  if (!input.request) return { error: 'stage architecture needs { request: "<what the user asked for>" }' }
   phase('Architecture')
 
   const verdicts = await parallel(OPTIONS.map(o => () =>
@@ -153,7 +152,7 @@ if (STAGE === 'architecture') {
       `One question: can THIS option do this job? Return INADEQUATE only if you can name the ` +
       `specific thing it cannot do. Uncertainty returns ADEQUATE — the measured failure rate of ` +
       `multi-agent frameworks is 41-86.7% and the recorded bias in this system is reaching for an ` +
-      `agent when a skill would do. "Tiên asked for an agent" is not a reason.`,
+      `agent when a skill would do. "the user asked for an agent" is not a reason.`,
       { label: `arch:${o.key}`, phase: 'Architecture', model: 'sonnet', effort: 'high', schema: {
           type: 'object',
           properties: {
@@ -225,7 +224,7 @@ if (STAGE === 'architecture') {
 
 // ── stage 2 · audit the spec ─────────────────────────────────────────────────
 // One agent per required section. The builder wrote the spec; a builder grading
-// its own spec is the doer grading itself, which CORE/GUARDRAILS.md §6 and the mental model
+// its own spec is the doer grading itself, which the repo rules file §6 and the mental model
 // both forbid by name.
 //
 // sonnet/low: the standard lives in rubric.md and the template owns the field
@@ -351,7 +350,7 @@ if (STAGE === 'audit') {
 }
 
 // ── stage 3 · done-checks ────────────────────────────────────────────────────
-// BALANCED BATCHING, not one agent per check. `CORE/DEFINITION-OF-DONE.md` grows; the ceiling
+// BALANCED BATCHING, not one agent per check. `the repo done-criteria file` grows; the ceiling
 // does not. One agent per check meant the agent count was set by however many
 // checks happened to exist, so the stage truncated at the cap — and on 2026-07-28
 // the cap was 12 against 13 checks, which made the check that measures run cost
@@ -369,7 +368,7 @@ if (STAGE === 'audit') {
 
 if (STAGE === 'done-checks') {
   if (!input.artifact || !input.checks) {
-    return { error: 'stage done-checks needs { artifact: "<what was built>", checks: "<abs path to CORE/DEFINITION-OF-DONE.md>" }' }
+    return { error: 'stage done-checks needs { artifact: "<what was built>", checks: "<abs path to the repo done-criteria file>" }' }
   }
   phase('Done-checks')
 
@@ -400,7 +399,7 @@ if (STAGE === 'done-checks') {
   const allChecks = [...byNumber.values()].sort((a, b) => a.number - b.number)
   if (!allChecks.length) {
     return { stage: 'done-checks', complete: false, passes: false,
-             error: 'no checks parsed — read CORE/DEFINITION-OF-DONE.md by hand' }
+             error: 'no checks parsed — read the repo done-criteria file by hand' }
   }
 
   const batches = partition(allChecks, FANOUT_CAP)
@@ -419,7 +418,7 @@ if (STAGE === 'done-checks') {
       `listed. Saying in a note that you covered them all is not coverage; the rows are.\n\n` +
       batch.map(c => `--- CHECK ${c.number} · ${c.title}\nITS COMMAND: ${c.command}`).join('\n') +
       `\n\nReproduce each check ONLY where your own tools honestly can — a file exists, a line is ` +
-      `present. **If you cannot run it, return NOT-RUN and quote the command for Tiên.** Never ` +
+      `present. **If you cannot run it, return NOT-RUN and quote the command for the user.** Never ` +
       `report a result for a command you did not run: a verification that has not been run is a ` +
       `claim, not a check. An empty command result proves the command ran, not that the thing is absent.`,
       { label: `checks:${batch.map(c => c.number).join(',').slice(0, 24)}`, phase: 'Done-checks',
@@ -429,7 +428,7 @@ if (STAGE === 'done-checks') {
             results: { type: 'array', items: { type: 'object', properties: {
               number: { type: 'integer' },
               result: { enum: ['PASS', 'FAIL', 'PARTIAL', 'NOT-RUN'] },
-              evidence: { type: 'string', description: 'what was actually opened or run. For NOT-RUN, the command to hand Tiên.' },
+              evidence: { type: 'string', description: 'what was actually opened or run. For NOT-RUN, the command to hand the user.' },
               note: { type: 'string' },
             }, required: ['number', 'result', 'evidence', 'note'], additionalProperties: false } },
           },

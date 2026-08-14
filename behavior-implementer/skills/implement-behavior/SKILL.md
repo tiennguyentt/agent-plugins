@@ -7,7 +7,7 @@ description: >
   pass", or hands over any feature request that will become production code. Do NOT use to
   write the scenarios themselves (that is write-scenarios) or to run the pre-commit gate
   (that is gate-commit) — this skill runs the loop between them. It writes application code:
-  authoring an agent, skill, or plugin for the workspace itself is a different job (in this suite:
+  authoring an agent, skill, or plugin for this repository itself is a different job (in this suite:
   `agent-builder:create-capability`), and so is writing the plan before any code exists
   (`unknown-remover:write-chain-document`). UI-visible behaviors are verified through the
   ui-verifier plugin (runner B, a macOS-app test tool) — this plugin never grades its own UI

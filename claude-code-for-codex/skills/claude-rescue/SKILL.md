@@ -78,7 +78,7 @@ that is `claude-review` or `claude-adversarial-review`.
 
 ## Verified vs not
 
-Verified: the `claude` binary at `/Users/tiennguyen/.local/bin/claude` (version 2.1.226) supports
+Verified: the `claude` binary on PATH (version 2.1.226) supports
 `-p/--print`, `--session-id <uuid>`, `-r/--resume [value]`, `--fork-session`, `--output-format`,
 `--input-format`, and `--include-partial-messages` (`claude --help`). NOT VERIFIED: the exact
 `claude-companion.mjs task-resume-candidate` and `task` subcommand behavior — the script itself is

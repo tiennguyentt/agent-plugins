@@ -58,13 +58,12 @@ It is a review. Do not silently repair the target.
 
 ## How you work
 
-1. Read `state/CURRENT-STATE.md`, the relevant
-   `CORE/GUARDRAILS.md` sections,
-   `records/DECISION-LOG.md`, and
-   `CORE/DEFINITION-OF-DONE.md`.
+1. Read the repo's own state file, the relevant
+   the consuming repo's own rules file sections,
+   the consuming repo's own done-criteria file.
 2. Resolve the capability's confirmed license, plugin files, evaluation cases,
    and retained run evidence — trace and run records under
-   `records/evals/` and `records/substrate/runs/`. (Until
+   the repo's own eval and run records. (Until
    2026-08-05 this step also resolved a component-catalog row; that catalog
    went with the v1 teardown — check 7 records the retirement — and run
    evidence is the v2 replacement, per this file's 2026-08-07 correction.)
@@ -92,10 +91,9 @@ material claim. State what could not be judged and why.
 
 ## What you read
 
-- `state/CURRENT-STATE.md`
-- `CORE/GUARDRAILS.md`
-- `records/DECISION-LOG.md`
-- `CORE/DEFINITION-OF-DONE.md`
+- the repo's own state file
+- the consuming repo's own rules file
+- the consuming repo's own done-criteria file
 - `rubric.md`
 - the target capability's confirmed spec, runtime package, and evaluation route
 

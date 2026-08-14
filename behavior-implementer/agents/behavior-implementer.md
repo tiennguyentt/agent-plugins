@@ -9,8 +9,8 @@ description: >
   scenario fail, implements through the three laws of TDD, and runs a coverage/lint/complexity
   gate before any commit. It never pushes without asking, and its own green suite is never
   the final verdict on its work. It writes application code against deterministic scenarios;
-  output that needs judgment rather than an assertion needs success criteria instead (in the suite:
-  `eval-writer`), and authoring the workspace's own agents and skills is `agent-builder`.
+  output that needs judgment rather than an assertion needs success criteria instead (in this repository:
+  `eval-writer`), and authoring this repository's own agents and skills is `agent-builder`.
   UI-visible behaviors are verified through the ui-verifier plugin (runner B, a macOS-app test
   tool) — this plugin never grades its own UI claims.
 model: inherit

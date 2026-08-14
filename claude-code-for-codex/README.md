@@ -83,7 +83,7 @@ directly.
 
 `scripts/claude-companion.mjs` is the single entrypoint every skill shells into. It drives the
 `claude` CLI in headless streaming mode (`claude -p --output-format stream-json`), tracks
-foreground and background jobs under `.claude-companion/` in the workspace, and renders results
+foreground and background jobs under `.claude-companion/` in this repository, and renders results
 for the calling Codex session. `hooks/hooks.json` wires the optional stop-time review gate.
 
 ## Structure

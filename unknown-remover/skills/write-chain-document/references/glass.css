@@ -46,7 +46,7 @@
                                       (2026-07-30-spec-glass-theme.html:228) and tints its current
                                       sidebar row rgba(10,124,255,.16) at :269. The decision log
                                       had already flagged the divergence on 2026-08-01 without
-                                      resolving it; Tiên resolved it by looking at the result and
+                                      resolving it; it was resolved by looking at the result and
                                       saying the colour looked outdated. #0066cc is Apple's 2015-era
                                       web LINK blue, desaturated on purpose for body copy. #0a7cff
                                       is the on-screen accent, which is what a Liquid Glass surface
@@ -77,7 +77,7 @@
   --g-primary-on-dark:   #2997ff;  /* ingested — links on dark surfaces only */
   --g-keep:              #248a3d;  /* filled — second semantic accent: keep, good, passing (§4 departure from Apple's one-accent rule) */
 
-  /* THIRD SEMANTIC ACCENT — attention / change / needs review. Added 2026-08-01 on Tiên's
+  /* THIRD SEMANTIC ACCENT — attention / change / needs review. Added 2026-08-01 on review
      instruction: "why no accent red? … update thêm accent, not sử dụng only blue."
      I recommended against it and she overruled; recording both so the reasoning is not
      lost and the decision is not re-argued. My argument was that Apple's law is one
@@ -227,7 +227,7 @@
   --g-control:        rgba(255, 255, 255, 0.48);   /* L3 toolbar controls, secondary button */
   --g-control-active: rgba(255, 255, 255, 0.60);  /* a control under the pointer, or a segmented control selected */
 
-  /* L4 reading rung. Changed 2026-08-01 from rgba(255,255,255,0.94) on Tiên's click,
+  /* L4 reading rung. Changed 2026-08-01 from rgba(255,255,255,0.94) on review,
      and the change is measured rather than tasted. She pointed at the spec's own
      glass-cards prototype state and asked why the shipped cards were still white.
      Measured off that prototype: its card renders rgb(236,244,255), only +16 per
@@ -266,7 +266,7 @@
      alone, with no element selector in this file.
 
      STATUS, 2026-08-01: drift is OPT-IN AND NOTHING OPTS IN. §7 makes it normative for
-     the theme and it stays here for that reason, but Tiên rejected wallpaper motion on
+     the theme and it stays here for that reason, but wallpaper motion was rejected on
      sight after three builds of it — the original ±2% translate (invisible), round blobs
      (she named it exactly: "một đốm sáng di chuyển", a bright spot travelling), and four
      sweeping wave bands with a caustic line, which reached seven times the original rate

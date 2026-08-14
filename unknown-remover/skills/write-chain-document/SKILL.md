@@ -6,7 +6,7 @@ description: >
   should re-research this", or "what's the next doc". Writes exactly one document
   from the five-document chain, at the position the last document defines, and
   exits with pasteable text. Do NOT use to build the thing the document plans:
-  producing a capability's block files is `agent-builder:create-capability`,
+  producing a capability's plugin files is `agent-builder:create-capability`,
   and writing the code is `behavior-implementer:implement-behavior`. This skill
   writes the document; it never ships the package.
 ---
@@ -267,7 +267,7 @@ full, in a copyable block, at the bottom.
 what makes it usable by a reader who cannot evaluate the field.
 
 `references/toolkit.md` draws a third consequence from the same rule, and it is the one that
-protects the workspace: a page whose entire value is on the clipboard **can be deleted the moment it
+protects this repository: a page whose entire value is on the clipboard **can be deleted the moment it
 is copied, and should be.** That disposability is the defence against a workspace where every
 document survives, accumulates, and becomes governance. It applies to the artifact, never to the
 chain — see *What you never do* below for the line between them.
@@ -335,18 +335,17 @@ Every path above must resolve. If one does not, say so and stop.
 
 ## The theme is `glass`, and the exemplars are not
 
-**Every new HTML artifact in the workspace checkout is `glass`.** the user's decision, 2026-08-01,
-recorded in `records/DECISION-LOG.md`; it supersedes the closed default in
+**Every new HTML artifact in this repository checkout is `glass`.** the user's decision, 2026-08-01,
 a retired document §12(d). `thariq` is v1 and
 is kept for the documents already written in it — **it is not what you reach for.**
 
 | Theme | Where | When |
 |---|---|---|
-| `glass` — v2, default | `${CLAUDE_PLUGIN_ROOT}/skills/write-chain-document/references/glass.css` — **bundled, so it works with no workspace present**; identical to a retired workspace document inside the workspace | every new document. Copy its `:root` block (and the four `@media` blocks under it) inline, and set `data-theme="glass"` on `<html>` |
-| `thariq` — v1, legacy | a retired workspace document §§1–7 | only when the user names it. Documents already on it are not converted |
+| `glass` — v2, default | `${CLAUDE_PLUGIN_ROOT}/skills/write-chain-document/references/glass.css` — **bundled, so it needs nothing else installed**; bundled with the plugin | every new document. Copy its `:root` block (and the four `@media` blocks under it) inline, and set `data-theme="glass"` on `<html>` |
+| `thariq` — v1, legacy | a retired document §§1–7 | only when the user names it. Documents already on it are not converted |
 
 **The attribute is the theme's declaration, and since 2026-08-03 it selects nothing** — the contrast checker was
-deleted and no document is contrast-checked. Historically, `engine/checks/check.py` selected which documents that checker
+deleted and no document is contrast-checked. Historically, a repo-side checker selected which documents that checker
 holds to the §8 legibility floors by looking for `data-theme="glass"` in the file. A glass document
 without it is never checked — that is the failure mode, and it is silent.
 
@@ -358,7 +357,7 @@ a relative `href` dies the moment the document moves:
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" rx="46" fill="%237f93d8"/><path d="M92 22 Q60 22 66 50 Q70 62 82 66 L100 70 L100 148 Q100 164 116 166" fill="none" stroke="%23f5f7fe" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M64 82 L136 82" fill="none" stroke="%23f5f7fe" stroke-width="22" stroke-linecap="round"/></svg>'>
 ```
 
-Copy it exactly — single quotes on the attribute, and `%23` for each `#`. a retired workspace document
+Copy it exactly — single quotes on the attribute, and `%23` for each `#`. a retired document
 carries the readable source and what the mark is.
 
 **Open a retired document before writing.** It is
@@ -394,11 +393,11 @@ Three more things a session gets wrong by default, all measured:
   against. Nothing under 14px goes on a translucent surface.
 
 **The wallpaper does not drift and there is no window box.** Both settled 2026-08-01 after being
-built and rejected on sight. a retired workspace document has the measurements.
+built and rejected on sight. a retired document has the measurements.
 
 **Two things `glass` does not have, so they do not get invented:** dark mode, and form
 error/validation states. Neither surfaced in the Apple ingestion, so there is no answer to copy.
 
-**Outside a workspace checkout this section does not apply.** The themes live in the control plane,
+**Outside a repo that defines its own themes this section does not apply.** The themes live in the control plane,
 which is not packaged, so a consumer project has neither file and should use its own design system.
 Say so rather than inventing one.

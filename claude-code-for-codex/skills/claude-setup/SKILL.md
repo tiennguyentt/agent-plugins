@@ -76,7 +76,7 @@ completed turn — only enable it when the user plans to monitor the session.
 
 ## Verified vs not
 
-Verified on this machine: `claude` is at `/Users/tiennguyen/.local/bin/claude`, version `2.1.226`
+Verified: `claude` resolves on PATH, version `2.1.226`
 (`claude --version`); the installable npm package is `@anthropic-ai/claude-code`, and `npm view
 @anthropic-ai/claude-code version` resolves to `2.1.226`, matching the installed binary; `claude
 auth` exposes `login`, `logout`, and `status --json|--text` (`claude auth --help`, `claude auth

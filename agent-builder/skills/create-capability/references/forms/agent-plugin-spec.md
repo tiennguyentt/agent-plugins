@@ -4,18 +4,18 @@
 > agent plugin: exactly one logical agent composing one or more licensed
 > reusable skills.
 > Copy it to
-> a retired workspace document<YYYY-MM-DD>-spec-<name>.html`, retitle
+> a retired document<YYYY-MM-DD>-spec-<name>.html`, retitle
 > the H1 in plain English, and fill every field. Use `N/A — <reason>` where a
 > component is intentionally absent.
 >
-> **It goes in `studio/docs/<topic>/`, not `studio/evaluation/<name>/`.**
-> `CORE/GUARDRAILS.md` §6 gives planning exactly two homes —
-> `studio/projects/<name>/` for a product and `studio/docs/<topic>/` for the
-> workspace — and a capability of this workspace is the second.
-> `studio/evaluation/<name>/` holds retained evidence only: the
+> **It goes in the consuming repo's own docs folder, not `.agent-builder/specs/`.**
+> the consuming repo's own rules file gives planning exactly two homes —
+> the repo's own projects folder for a product and its docs folder for the
+> repository — and a capability of this repository is the second.
+> `.agent-builder/specs/` holds retained evidence only: the
 > `evaluation/` cases and run records, which is all
-> `studio/evaluation/agent-builder/` has ever contained. This line said
-> `studio/evaluation/` until the user moved a spec out of it on 2026-07-31.
+> `.agent-builder/evaluation/agent-builder/` has ever contained. This line said
+> `.agent-builder/evaluation/` until the user moved a spec out of it on 2026-07-31.
 >
 > **The spec ships as HTML, not Markdown.** This template is Markdown because
 > every file in `control-plane/` is; the document it produces is not.
@@ -45,7 +45,7 @@
 ## 2. Composition model
 
 This template is only for the reference architecture used by
-`engine/agent-plugins/`:
+``:
 
 - **Logical agent:** required, exactly one logical agent. Use a standalone
   skill instead when the job does not need dedicated context, delegation,
@@ -71,7 +71,7 @@ This template is only for the reference architecture used by
 
 | Logical agent | Runtime job | Claude packaged adapter | Codex project overlay | Shared skill | Portable entry? | Why this is a separate skill |
 |---|---|---|---|---|---|---|
-| `<noun-role>` | | `engine/agent-plugins/<noun-role>/agents/<noun-role>.md` | `.codex/agents/<noun-role>.toml` — OPTIONAL project overlay | `<verb-object-a>` | yes | |
+| `<noun-role>` | | `<noun-role>/agents/<noun-role>.md` | `.codex/agents/<noun-role>.toml` — OPTIONAL project overlay | `<verb-object-a>` | yes | |
 | `<noun-role>` | | same Claude adapter | same optional overlay | `<verb-object-b>` — only when independently licensed | no | |
 
 Do not merge several recurring jobs into one large `SKILL.md` merely because one
@@ -89,7 +89,7 @@ descriptions and answer:
 A cross-plugin collision is silent: nothing errors, two skills simply both look right and
 the router picks one. Audited 2026-08-07, twelve skills across four plugins held exactly
 **one** cross-plugin reference in total, so four pairs collided unrouted. Every new plugin
-adds a boundary to every existing one; `engine/templates/skill-spec.md` carries the
+adds a boundary to every existing one; `references/forms/skill-spec.md` carries the
 rule for the description field itself. This is convention, not a check — no automated rule
 can tell a real distinction from a forced one.
 
@@ -103,7 +103,7 @@ directories.
 ├── .codex/
 │   └── agents/
 │       └── <agent>.toml            OPTIONAL project overlay; not installed by plugin
-└── engine/agent-plugins/<noun-role>/
+└── <noun-role>/
     ├── plugin.json                  REQUIRED — the portable Agent Plugins 1.0.0 manifest
     ├── .claude-plugin/
     │   └── plugin.json
@@ -139,8 +139,8 @@ as the only Codex probe.
 Additional directories such as `hooks/`, `scripts/`, `commands/`, `references/`,
 or `assets/` exist only when the confirmed requirements need their documented
 runtime behavior. `evals/` and run records are development evidence unless the
-host's installable contract explicitly requires them; for `the suite`, they stay
-under `studio/evaluation/<name>/evaluation/`.
+host's installable contract explicitly requires them; for this repository, they stay
+under `.agent-builder/evaluation/<name>/`.
 
 ## 4. Host contract
 
@@ -149,7 +149,7 @@ under `studio/evaluation/<name>/evaluation/`.
 | Manifest | `.claude-plugin/plugin.json` | `.codex-plugin/plugin.json` |
 | Shared capability | discovers portable core in `skills/` | manifest exposes the same `./skills/` |
 | Explicit skill invocation | `/plugin:skill` | `$plugin:skill` |
-| Agent definition | packaged adapter at `engine/agent-plugins/<plugin>/agents/<agent>.md` | no current installable plugin component |
+| Agent definition | packaged adapter at `<plugin>/agents/<agent>.md` | no current installable plugin component |
 | Optional custom-agent overlay | N/A | project configuration at `.codex/agents/<agent>.toml` |
 | Multi-skill orchestration | portable entry skill; agent frontmatter may preload several skills | portable entry skill; optional project overlay may route several skills |
 | Skill-local workflow JS | runs only through the documented Claude adapter that calls it | use the shared procedure and a Codex-native equivalent; do not assume the JS is portable |
@@ -165,7 +165,7 @@ Choose exactly one and copy the declarations into the plugin README:
 
 | Mode | Use when | Required proof |
 |---|---|---|
-| `standalone` | every runtime dependency ships inside the plugin | install and invoke the portable entry skill from a copy with no the suite control plane |
+| `standalone` | every runtime dependency ships inside the plugin | install and invoke the portable entry skill from a copy with no this repository control plane |
 | `repo-bound` | the capability intentionally consumes named project-owned files | README lists every runtime dependency; both host probes run in the target repo; missing dependencies produce an explicit stop |
 
 Required README declarations:
@@ -192,10 +192,10 @@ that speaks neither `.claude-plugin` nor `.codex-plugin` can still read the pack
 > Agent Plugins project — spec <https://agent-plugins.org/specification>, repository
 > <https://github.com/agentplugins/agent-plugins-spec>. **Its specification text is licensed
 > CC-BY-4.0 and its schemas Apache-2.0**, so the sentences quoted below and in
-> `engine/checks/check.py` carry an attribution requirement, not a courtesy. the suite
+> Vendored third-party files carry an attribution requirement, not a courtesy. This repository
 > reached it through Google's announcement of the format,
 > <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>, which is
-> the source the user pointed at. the suite conforms to the standard and vendors none of its files;
+> the source the user pointed at. this repository conforms to the standard and vendors none of its files;
 > nothing here is authored by that project.
 
 | Field | Value |
@@ -278,8 +278,8 @@ evidence that a skill is legitimate.
 
 | Skill | Confirmed skill spec | Evaluation route | Job | Portable entry? | `SKILL.md` | Workflow JS? Host? Why? | `rubric.md`? Why? | Standalone trigger |
 |---|---|---|---|---|---|---|---|---|
-| `<verb-object-a>` | | `studio/evaluation/<plugin>/evaluation/<verb-object-a>/` | | yes | required | no — | no — | |
-| `<verb-object-b>` | | `studio/evaluation/<plugin>/evaluation/<verb-object-b>/` | | no | required | yes / no — | yes / no — | |
+| `<verb-object-a>` | | `.agent-builder/evaluation/<plugin>/evaluation/<verb-object-a>/` | | yes | required | no — | no — | |
+| `<verb-object-b>` | | `.agent-builder/evaluation/<plugin>/evaluation/<verb-object-b>/` | | no | required | yes / no — | yes / no — | |
 
 ## 8. Runtime and safety
 
@@ -309,11 +309,11 @@ Every item needs an exact command and expected observable result:
 3. Codex lists the plugin and invokes the portable entry skill without reading
    `.codex/agents/<agent>.toml`.
 4. Exactly one packaged Claude agent exists at
-   `engine/agent-plugins/<plugin>/agents/<agent>.md`. If an optional Codex
+   `<plugin>/agents/<agent>.md`. If an optional Codex
    project overlay exists, parse and probe it separately after the bare-plugin
    check.
 5. Every agent skill name or route resolves to exactly one
-   `engine/agent-plugins/<plugin>/skills/<name>/SKILL.md`; the plugin has one
+   `<plugin>/skills/<name>/SKILL.md`; the plugin has one
    or more licensed skills, and each resolves to an explicit confirmed
    composition row or confirmed skill spec plus its own evaluation route.
    Every skill folder/frontmatter name is verb-object kebab-case and every
@@ -345,10 +345,10 @@ explicitly.
 
 Fill this only when the plugin ships to `tiennguyentt/agent-plugins`, the public consumer
 surface (local clone `~/projects/agent-plugins`). Changes flow one way; canonical is
-`engine/agent-plugins/<name>/`.
+`<name>/`.
 
 - **Ships to the mirror:** yes / no —
-- **Runs with no `the suite` checkout:** yes / no — this is the distribution mode from §4, and
+- **Runs with no this repository checkout:** yes / no — this is the distribution mode from §4, and
   the mirror's README must state it as a prerequisite the reader sees before installing.
 - **Evaluation evidence to publish verbatim:** cases run / NOT RUN —
 
@@ -359,14 +359,11 @@ carried `plugins/agent-plugins/<name>/` until 2026-08-07 and that level meant no
 
 Two rules that outlive any one plugin:
 
-1. **Nothing public is named after the private workspace.** A consumer installing one plugin
-   does not know the private workspace name. This is why the repo is `agent-plugins`, not
-   a workspace-branded name, and why `exce-plugin` was rejected for the canonical folder.
 2. **The mirror's README is product copy, not a record.** Say what the reader gets and what
    they need. Never narrate a correction or a date. Keep honesty by writing requirements as
    prerequisites, never as confessions — and never drop the verification table.
 
-`engine/agent-plugins/agent-builder/skills/package-plugin/SKILL.md` owns the export
+`agent-builder/skills/package-plugin/SKILL.md` owns the export
 procedure and its checklist. A push to the mirror is public and is the user's alone.
 
 ## 11. Done and retirement

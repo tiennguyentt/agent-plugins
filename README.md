@@ -1,12 +1,8 @@
-# Agent plugins — the working parts of workspace
+# Agent plugins
 
-**workspace is an autonomous workspace: agent teams that plan, decide, build, and check
-their own work, with every step visible.** These four plugins are the part of it you can
-install today, in Claude Code or Codex, without the rest of the system.
-
-They cover the work that surrounds code and usually goes undone — figuring out what to
-build, deciding what "working" means, giving your agent a new capability, and writing code
-that earns its green.
+**Agent plugins for Claude Code and Codex.** They cover the work that surrounds code and
+usually goes undone — figuring out what to build, deciding what "working" means, giving your
+agent a new capability, and writing code that earns its green.
 
 Each is a specialist with one job. They are peers: install one, install all four, in any
 order. None depends on another.
@@ -83,20 +79,19 @@ drafts and never grants itself autonomy.
 
 ---
 
-## Works in your repo, not just ours
+## Works in your repo
 
-**All four run anywhere.** Each carries the files it needs — the spec forms, the theme, the
-31 worked examples — inside the package. Nothing asks you to clone a workspace first.
+**They run anywhere.** Each carries the files it needs — the spec forms, the theme, the
+worked examples — inside the package. Nothing asks you to clone anything first.
 
-`agent-builder` and `unknown-remover` will *also* pick up a workspace checkout's templates and
-records if they happen to find one, and quietly skip them if they don't. What deliberately does
-not ship is workspace's own law and evaluation routes: those are the rules of one workspace, and
+`agent-builder` and `unknown-remover` will *also* pick up your repo's own templates and records
+if they find them, and quietly skip them if they don't. They ship no rules file of their own:
 handing you someone else's rules would be worse than shipping nothing.
 
-## What workspace believes, and what these inherit
+## What these enforce
 
-The plugins are opinionated because the system is. These are the rules they enforce on
-themselves as much as on your work:
+The plugins are opinionated. These are the rules they enforce on themselves as much as on your
+work:
 
 - **One agent, one job.** Every plugin is a specialist. None is a general-purpose helper,
   and none quietly answers a question another one owns.
@@ -196,7 +191,7 @@ Everything below `SKILL.md` appears only where that job earns it.
 
 ## License
 
-The repository [LICENSE](LICENSE) (MIT, © 2026 Tien Nguyen) covers Tiên's work. Third-party
+The repository [LICENSE](LICENSE) (MIT, © 2026 Tien Nguyen) covers the maintainer's work. Third-party
 material is declared per plugin and travels with every copy — **please keep the `NOTICE.md`
 files when you redistribute**:
 
@@ -205,17 +200,10 @@ files when you redistribute**:
 - [`eval-writer/NOTICE.md`](eval-writer/NOTICE.md) — one reproduced Anthropic documentation
   page, declared in full.
 - [`agent-builder/NOTICE.md`](agent-builder/NOTICE.md) — the `no-ai-slop` editing skill by
-  [Peter G Yang](https://github.com/petergyang/no-ai-slop), MIT; not Tiên's work.
+  [Peter G Yang](https://github.com/petergyang/no-ai-slop), MIT; not the maintainer's work.
 
 The Agent Plugins format is used under its own terms: specification text CC-BY-4.0, schemas
 Apache-2.0, from the [Agent Plugins project](https://github.com/agentplugins/agent-plugins-spec).
-
-## Where these come from
-
-workspace is a private workspace where agent teams plan, build and check their own work with
-every step visible. These four plugins are the part of it that stands on its own, and
-**this repository is where they are maintained** — edits land here directly. What stays
-behind is workspace state and internal run records, nothing you'd want in your repo anyway.
 
 ## Found something wrong?
 

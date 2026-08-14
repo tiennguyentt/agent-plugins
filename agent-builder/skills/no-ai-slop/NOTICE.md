@@ -18,7 +18,7 @@ this repo and outside git. A wipe of the host would have left that rule pointing
   *"Install this skill globally"* describes the upstream install route and does not apply here,
   because the skill now ships inside this package.
 
-**What the suite changed, and when.** MIT permits modification; this list exists so a reader can tell
+**What this repository changed, and when.** MIT permits modification; this list exists so a reader can tell
 the upstream author's work from the user's.
 
 1. **2026-07-30 — the `description:` line in `SKILL.md`**, to carry the ` prefix every

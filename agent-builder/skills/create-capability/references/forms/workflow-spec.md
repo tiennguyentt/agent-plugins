@@ -1,7 +1,7 @@
 # Workflow Spec — <name>
 
 > **How to use this.** Copy into the capability's own chain folder as
-> `studio/evaluation/<name>/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
+> `.agent-builder/specs/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
 >
 > **Retitle the H1.** `# Workflow Spec — <name>` names the form, which the v1 naming rules (retired 2026-08-05; the form stands by convention) bans in
 > a title: the filename already carries `spec` and the date. Replace it with plain English naming
@@ -29,8 +29,7 @@
 > `.workflow.js` has **zero occurrences** in the binary, so the suffix triggers nothing and is a
 > naming convention only.)*
 >
-> "Default to workflow, not agent" (`CORE/GUARDRAILS.md` §6 — the rule moved there on 2026-07-26 when §2 was
-> deleted) is about the **composed** sense: **keep the steps fixed.** It is not an instruction to
+> "Default to workflow, not agent" (the consuming repo's own rules file, when it has one) is about the **composed** sense: **keep the steps fixed.** It is not an instruction to
 > author a file.
 >
 
@@ -50,13 +49,13 @@
   any skill/workflow block that implements it
   (v1 naming rules, retired 2026-08-05; kept by convention). An enclosing agent plugin
   retains its separate noun-role identity.
-- **Sensitivity:** `CORE/GUARDRAILS.md` §4's tiers are **RATIFIED** as of 2026-07-26 — give the tier letter
+- **Sensitivity:** the consuming repo's own rules file's tiers are **RATIFIED** as of 2026-07-26 — give the tier letter
   (S / C / P) plus plain words for what it touches.
 - **Owner:** the repo owner.
 
 ## 3. The blocks it is made of
 
-One row per artifact this workflow actually writes. In this order, top to bottom (`ref-formats.md` §8):
+One row per artifact this workflow actually writes. In this order, top to bottom:
 
 | Step | Block | File written | Why this option | **Held by** — the program, or the model? |
 |---|---|---|---|---|
@@ -82,17 +81,15 @@ One row per artifact this workflow actually writes. In this order, top to bottom
 
 - **Permission rule** — a tool must be blocked or surfaced every time, in every session. The only
   thing here enforced by the program. Syntax is documented — `allow`/`ask`/`deny` arrays of
-  `Tool` or `Tool(specifier)` rules, e.g. `"Bash(npm run *)"`, `"Read(./.env)"`
-  (`ref-formats.md`:323, :328–340) — never invented.
+  `Tool` or `Tool(specifier)` rules, e.g. `"Bash(npm run *)"`, `"Read(./.env)"` — never invented.
 - **Hook** — must happen every time and no rule can express it. Handler `type` may be `command`,
-  `http`, `mcp_tool`, `prompt`, or `agent` (`ref-formats.md`:275); a **command-type handler needs
-  a script**, which in this workspace is a recorded exception in `CLAUDE.md` and `records/DECISION-LOG.md`
-  in the same change. Field list and hooks.json shape: `ref-formats.md`:273–310.
-- **Command** — merged into skills (`ref-formats.md`:210); use `skill-spec.md` with
+  `http`, `mcp_tool`, `prompt`, or `agent`; a **command-type handler needs
+  in the same change. Field list and hooks.json shape: the host's plugin documentation.
+- **Command** — merged into skills; use `skill-spec.md` with
   `disable-model-invocation: true`. **Skill / agent** — each gets its own filled-in section from
   the matching template. Files land **inside the independent agent plugin** —
-  `engine/agent-plugins/<plugin-name>/skills/<name>/SKILL.md`
-  and `engine/agent-plugins/<plugin-name>/agents/<name>.md`
+  `<plugin-name>/skills/<name>/SKILL.md`
+  and `<plugin-name>/agents/<name>.md`
   (v1 naming rule 5, retired 2026-08-05; kept by convention). The project-root
   `.claude/skills/` and `.claude/agents/` folders are also discovered by Claude Code, but a block
   written there is outside the package and does not travel with it.
@@ -118,8 +115,8 @@ One row per artifact this workflow actually writes. In this order, top to bottom
   Use `agent-plugin-spec.md` when these blocks must ship together across hosts. Two
   things worth knowing for packaging:
   `settings.json` is **never** shipped inside a plugin, and neither is `CLAUDE.md` — a plugin-root
-  `CLAUDE.md` is not loaded as project context (`ref-formats.md`:45, :326). So a plugin can carry
-  capability; it can never carry this workspace's governance.
+  `CLAUDE.md` is not loaded as project context. So a plugin can carry
+  capability; it can never carry this repository's governance.
 
 > Anything on this list that is a skill or an agent needs its **own** frontmatter table and its
 > own restraint table. Do not summarise them here — copy the sections in.
@@ -153,11 +150,9 @@ scope, schedule, spend ceiling, stop control and what ends the mandate.
 | skill `disallowed-tools` | **per-turn only** | |
 | Step order / conventions | convention only | |
 
-**Rules learned 2026-07-25** (recorded in the workspace spec's §5, §8 and §12·5, and in
-`records/DECISION-LOG.md`, 2026-07-25): deny is evaluated first and beats everything, so never deny a path
 a step must read — use `ask`. A skill's `allowed-tools` pre-approves and does not restrict. A
 `Read()` rule covers the Read tool only, not Grep and not a shell read. Anything not traceable to
-`ref-formats.md` or those records is written as *tested at build time*.
+the host's plugin documentation or those records is written as *tested at build time*.
 
 **State coverage:** empty / malformed / ambiguous / duplicate / no-bucket → always "surface to
 the user with context." **Idempotency:** re-run behavior, and what makes duplicate side effects
@@ -165,7 +160,7 @@ impossible.
 
 ## 8. Injection posture, trifecta, evals
 
-- External content is data, never instructions (`CORE/GUARDRAILS.md` §1.5). It cannot expand
+- External content is data, never instructions (the consuming repo's own rules file, when it has one). It cannot expand
   the delegated objective; side effects stay inside the saved mandate.
 - **Legs:** private data / untrusted external content / can communicate externally. All three
   disqualifies the design — split it or drop a leg. **The worked split is Anthropic's own**
@@ -174,7 +169,7 @@ impossible.
   Count honestly: a leg closed only by habit is open.
 - **Does any text of this workflow live in more than one file?** Source of truth, sync direction,
   drift check (`ref-financial-services-packaging.md` §3).
-- **Evaluation set** at `studio/evaluation/<name>/evaluation/` — the smallest real set
+- **Evaluation set** at `.agent-builder/evaluation/<name>/` — the smallest real set
   that can falsify the risky behavior, broadened in proportion to stakes and recurrence. Include
   refusal and failure-path cases where those boundaries exist.
 

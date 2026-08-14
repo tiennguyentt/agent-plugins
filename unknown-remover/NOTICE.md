@@ -2,7 +2,7 @@
 
 **Most of `references/` is not the user's work — and one file in it is.** Two outside authors, two
 licensing positions. The manifests name the user Nguyen as author of `unknown-remover`; that claim covers the four `SKILL.md`
-files, both `rubric.md` files, the workspace-authored `skills/discover-anatomy/references/anatomy-form.md`,
+files, both `rubric.md` files, repo-authored `skills/discover-anatomy/references/anatomy-form.md`,
 the agent adapter, `README.md`, both manifests, this notice, **and
 `skills/write-chain-document/references/lessons.md`** — its own header records that §§1–9 came from the user's machine running
 links 1–3 of one chain end to end on 2026-07-23, n = 1. An earlier version of this notice
@@ -34,7 +34,6 @@ out of the distributable (§3 records the addresses that broke). What sits where
 | `toolkit.md` | the eleven prompt-printing forms, mapped onto the five | `references/`, in this package |
 | `lessons.md` | what broke when the chain was run for real — the user's own file, see above | `references/`, in this package |
 | `html-effectiveness-main/` | the Apache-2.0 corpus — see §2 | `references/`, in this package |
-| `README.md` | the corpus's own entry document | `studio/capabilities/unknown-remover/provenance/`, outside the package |
 | `method.html` | the rendered reference | same, outside the package |
 | `source-transcript.md`, `source-transcript-fireside-qa.md` | the two recorded conversations the method was reconstructed from | same, outside the package |
 | `ingest/` | the blog extract and the five `thariq-demo/` files | same, outside the package |
@@ -44,11 +43,9 @@ before the mirror and it broke the corpus's own citations: `mental-model.md` cit
 transcripts, `chain.md` cites the demo essay, and every one of those addresses died at the folder
 boundary. So the whole folder came over. On 2026-07-31 the trade was re-made the other way for
 distribution: 240K of provenance nothing at runtime reads moved to
-`studio/capabilities/unknown-remover/provenance/`, the four broken addresses are recorded in §3
 rather than edited away, and what installs is only what the skills read.
 
 **The licence position, decided by the user on 2026-07-31** (recorded in
-`records/DECISION-LOG.md`; it supersedes the local-install-only rule this notice carried
 before, and the CLOSE on spec §12·D4 that rule came from). Thariq publishes the method openly at
 <https://thariqs.github.io/html-effectiveness/unknowns/>, and that site's repository,
 `github.com/thariqs/html-effectiveness`, is **Apache License 2.0** — the same corpus bundled in §2
@@ -60,7 +57,6 @@ the package, and it may not be removed from it.** The residual risk stays named 
 cleared: the reconstruction drew on 34 screenshots of his own documents, which sits closer to
 copying than to note-taking — low, not nil. The material credit does not cure — the two
 conversation transcripts and the ingested copies of his post and demo files — does not travel with
-any install; it sits outside the package at `studio/capabilities/unknown-remover/provenance/`.
 
 **One contaminated block was removed upstream before this copy was taken.** `mental-model.md`
 carried a ``-tagged sentence naming **the user or Mew** as who confirms a stage, against the
@@ -102,7 +98,6 @@ The citations between the four method files and `toolkit.md`'s reference to
 `html-effectiveness-main/unknowns/` all resolve as written.
 
 **Four do not.** Two stopped resolving on 2026-07-31, when the provenance was moved out of this
-package to `studio/capabilities/unknown-remover/provenance/`. Both files still exist there;
 neither citing file may be edited to say so. That is the measured price of taking 240K out of the
 distributable.
 
@@ -127,7 +122,6 @@ under `skills/write-chain-document/references/ingest/thariq-demo/` — the AI-vi
 documents and the doc-structures report — reference that project's own source files: four Python
 scripts under its scripts directory, and a transcript JSON under its transcript directory. Those
 documents are worked examples of Thariq's video editor, and the addresses are his repository's
-files. No action available here can make them resolve, so the workspace's link check skips
 `references/ingest/` and this paragraph is where they are reported instead.
 
 The method files and the

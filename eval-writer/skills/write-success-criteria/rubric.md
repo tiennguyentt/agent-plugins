@@ -13,8 +13,8 @@ criteria look plausible, not whether the eval design is long.
 ## Open the file first
 
 Open the output you are grading, `SKILL.md`'s full procedure (both the normal-mode steps and
-cold-start mode), and, when the subject is a capability, `engine/templates/skill-spec.md`
-§7 and `engine/templates/agent-spec.md` §10. All of them, every time. A verdict reached without
+cold-start mode), and, when the subject is a capability, `references/forms/skill-spec.md`
+§7 and `references/forms/agent-spec.md` §10. All of them, every time. A verdict reached without
 opening the actual output is void.
 
 ---
@@ -27,7 +27,7 @@ Return exactly one string per item graded. No others exist.
 |---|---|---|
 | `SMART` | a criterion is genuinely Specific, Measurable, Achievable, and Relevant, with a real number, threshold, or defined scale | quote the target |
 | `VAGUE` | a criterion restates the goal without a number or scale — "the model should classify sentiments well" and its kin | quote the line |
-| `REGIME-JUSTIFIED` | a test-set size is proposed only after the workspace-vs-general regime question was asked and answered, and the count matches the regime named | quote both the regime statement and the count |
+| `REGIME-JUSTIFIED` | a test-set size is proposed only after this repository-vs-general regime question was asked and answered, and the count matches the regime named | quote both the regime statement and the count |
 | `REGIME-SKIPPED` | a count appears with no regime named, or the count does not match the regime that was named | quote the count and say what regime it should have matched |
 | `GRADER-SEPARATE` | LLM-based grading is recommended and a grader model distinct from the generator is named, with a reason | quote both model names |
 | `GRADER-CONFLICT` | LLM-based grading is recommended and the same model is named for both roles, or no reason is given for the split | quote the line |
@@ -50,11 +50,11 @@ rest of it reads.** Do not average them away.
 | a test-set size proposed before the regime question is asked and answered | this rubric's own reason for existing, the first correction it enforces |
 | the eight common criteria treated as a closed list, with a real ninth criterion the subject needs left unnamed | `SKILL.md` Step 2, "non-exhaustive" |
 | `<grading_approach>` missing entirely from a normal-mode response | the reference's own most useful section, dropped |
-| LLM-based grading recommended with grader and generator as the same named model, with no stated reason | `engine/templates/skill-spec.md`:113, "the doer never grades itself," applied to the design being proposed |
+| LLM-based grading recommended with grader and generator as the same named model, with no stated reason | `references/forms/skill-spec.md`:113, "the doer never grades itself," applied to the design being proposed |
 | **any numeric target, threshold, or percentage whose basis is not stated** — no benchmark, no prior measurement, no named expert judgment behind it | the reason cold-start mode exists. "I don't know yet, here is how to find out" is a correct and complete answer and never a failure; an invented number dressed as a measurement is |
 | normal mode used to produce SMART criteria when step 1's own reasoning shows no real basis existed | same rule, from the other direction: entering normal mode does not create a basis, it only hides the absence of one |
 | the eval-execution harness, scripts, or grading code offered as this skill's own deliverable | `SKILL.md`, *What you never do* |
-| Tier S material, exact finances, credentials, or medical records used as a worked example without being flagged | `CORE/GUARDRAILS.md` §3 |
+| Tier S material, exact finances, credentials, or medical records used as a worked example without being flagged | the consuming repo's own rules file |
 | the output grading itself: reasoning that treats its own criteria as already verified rather than handing them to this rubric | the mental model this rubric exists to enforce |
 
 ---

@@ -77,7 +77,7 @@ you never push.
    number is a lie with confidence.
 2. **Never fix what you find.** Report and hand back to implement-behavior; the gate stays
    a gate.
-3. **Never let a coverage percentage stand in for the suite passing**, or vice versa — they
+3. **Never let a coverage percentage stand in for this repository passing**, or vice versa — they
    measure different things and both get their own line.
 4. **Never push, and never advise pushing without the human's fresh yes.**
 5. **Never claim the gate covers what it doesn't.** The `not checked` line names behavior

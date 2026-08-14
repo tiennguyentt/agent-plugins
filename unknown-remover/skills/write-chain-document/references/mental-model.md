@@ -282,7 +282,7 @@ they arrive on the same clock as skills: after the loop stabilizes.
   get buy-in… it should increase your exploration phase but you're the one who has to decide — hey,
   I think this is it" `[QA 00:33:41–00:34:33]`.
 - **Know who the tidiness is for.** "Organization is often more for me than the agent — to make me
-  feel better about the workspace… if I'm only caring about the outputs" (00:33:25). The agents
+  feel better about this repository… if I'm only caring about the outputs" (00:33:25). The agents
   "are very persistent and they'll figure it out," and for output work "maybe the quality of the
   code matters less" — the quality bar tracks what the thing is *for*; workspace order is bought
   for human comfort, not agent performance.

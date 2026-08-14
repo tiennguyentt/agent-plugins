@@ -15,7 +15,7 @@ header carries the same provenance block.
   skill, its rubric, the agent adapter, `README.md`, both manifests, and this notice. **It does not
   cover that reference file**, which remains Anthropic's documentation under Anthropic's terms.
 - The file is reference material the skill reads, never binding law:
-  `CORE/GUARDRAILS.md` §9 rule 3.
+  the consuming repo's own rules file rule 3.
 - Redistributing this plugin redistributes that page. It was kept because the skill's procedure
   cites it; anyone uncomfortable carrying it can delete the file — the skill falls back to its own
   procedure text, though that fallback has not been evaluated (no golden case has run against it,

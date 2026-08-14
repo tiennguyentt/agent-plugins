@@ -35,15 +35,15 @@ and points at exactly what to do next.
 ## Before you start
 
 If the request names a file — a spec, an existing eval, a piece of code — open it before reasoning
-about it: `ls <path>` first, and say so and stop if it is missing. If the subject is a the suite
+about it: `ls <path>` first, and say so and stop if it is missing. If the subject is a this repository
 capability, you will need `skill-spec.md` and `agent-spec.md` in step 2 below.
 
 **Both travel with this plugin.** Read them from
 `${CLAUDE_PLUGIN_ROOT}/skills/write-success-criteria/references/forms/` — byte-identical copies of
-`engine/templates/`, kept honest by a drift check (`engine/checks/check.py`
-check 15) that runs inside the workspace that produces this plugin, not inside the plugin. Inside
-the workspace workspace, `engine/templates/` is the same file and either path is correct.
-Nothing here requires the workspace to be present.
+`references/forms/`, kept honest by a drift check
+check 15) that runs inside this repository that produces this plugin, not inside the plugin. Inside
+this repository, `references/forms/` is the same file and either path is correct.
+Nothing here requires this repository to be present.
 
 ## What you produce
 
@@ -78,8 +78,8 @@ worse than saying the basis does not exist yet.
   do not stop at eight if the subject needs a criterion none of them name. The reference material this
   skill is built from calls the list non-exhaustive; treating it as closed is a mistake this skill
   exists to avoid.
-- **Which regime this is.** If the subject is a workspace capability, open
-  `engine/templates/skill-spec.md` §7 and `engine/templates/agent-spec.md` §10 and use
+- **Which regime this is.** If the subject is a capability in this repository, open
+  `references/forms/skill-spec.md` §7 and `references/forms/agent-spec.md` §10 and use
   their 10–30-case, at-least-3-refusal minimum. If it is not, or those files will not resolve, say so
   and use the reference's own volume-over-quality guidance instead: real products in the reference run
   200 to 10,000 cases, which fits a product with real user traffic, not a capability with a
@@ -204,7 +204,7 @@ regardless of what it says.
 
 `references/ref-define-success-criteria-and-build-evaluations.md` — the source procedure this skill is
 built from; never binding on its own, this skill's corrections to it are law.
-`engine/templates/skill-spec.md` §7 and `engine/templates/agent-spec.md` §10 — only when
+`references/forms/skill-spec.md` §7 and `references/forms/agent-spec.md` §10 — only when
 the subject is a capability, for the 10–30-case regime.
 `rubric.md` — the standard a separate verifier grades this skill's output against; never read it as
 something to satisfy in your own head instead of on the page.

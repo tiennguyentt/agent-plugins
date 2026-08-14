@@ -89,9 +89,9 @@ report clean.
    require the two normalized dumps to be byte-identical. This is the acceptance test — if two
    back-to-back captures of the identical state differ, the normalization in step 3 is
    incomplete, and every result from steps 4–5 is unproven until it is fixed.
-7. **When a the suite workspace is present, it may already automate steps 1–6 across many
+7. **When the repo provides its own multi-fixture runner, it may already automate steps 1-6 across many
    fixtures at once** — a retired gate, if that path exists in
-   the current repo, is a workspace-side runner built on this same method. Use it when present
+   the current repo, is a repo-side runner built on this same method. Use it when present
    instead of repeating the manual loop by hand; when it is absent, the steps above are the
    complete, standalone procedure and nothing is missing by not having it.
 

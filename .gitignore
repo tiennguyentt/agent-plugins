@@ -1,1 +1,26 @@
+# Local-only — never pushed
+# Anything under a `local/` folder is private working material: notes, drafts,
+# specs in progress, scratch output. The plugins never read from it.
+local/
+**/local/
+
+# Repo-private working notes
+AGENTS.md
+CLAUDE.md
+.agent-builder/
+.claude/
+.codex/
+
+# Scratch and generated
+*.local.md
+*.draft.md
+scratch/
+tmp/
+.tmp/
+
+# OS / editor
 .DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

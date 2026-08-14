@@ -10,26 +10,24 @@ Standalone entry: `write-chain-document` writes a planning document anywhere, st
 Portable core: `skills/`
 Portable entry skill: `write-chain-document`
 Bundled equivalents: none
-Workspace-mode extras: `CORE/`, `engine/`, `records/`, `studio/`
 Codex project agent: none
 ```
 
 This block read `Distribution mode: standalone` / `Runtime dependencies: none` until 2026-08-07.
 The **corpus** does ship inside the package, which is what that line was reaching for — but
-`skills/write-chain-document/SKILL.md` also sends the writer to `records/DECISION-LOG.md` for the
-decision behind a choice and to `studio/` for where the document lands. A plugin that names
+decision behind a choice and to the repo's own artifact folder for where the document lands. A plugin that names
 repo-owned paths at runtime is repo-bound; the standalone claim was one the package could not
 keep outside a plugin checkout.
 
 Two corrections on 2026-08-12. `glass.css` moved from **Bundled equivalents** to plugin-owned:
 its source was deleted that day, and a "bundled equivalent" with no source is not a copy
 of anything — it is simply this plugin's file now, which is why it also left check 15's drift
-table. And the extras list still named `control-plane/`, `artifact-plane/`, `evaluation-plane/`,
+table. And the extras list still named `control-plane/`, the repo's own artifact folder, `evaluation-plane/`,
 three directories renamed out of existence on 2026-08-07; a declaration that names nothing on
 disk cannot be checked, so it now names the epoch-2 rooms that actually exist.
 
 ```text
-engine/agent-plugins/unknown-remover/
+unknown-remover/
 ├── plugin.json                  portable manifest — Agent Plugins 1.0.0
 ├── .claude-plugin/plugin.json   Claude Code adapter
 ├── .codex-plugin/plugin.json    Codex and ChatGPT adapter
@@ -60,7 +58,7 @@ cite, and the whole of `html-effectiveness-main/` — 31 examples, both index pa
 
 ## One part of a bigger system, shared on purpose
 
-This is one of four agent plugins in **the workspace**, where governed agent teams do
+This is one of several agent plugins in this repository, where agent teams do
 the work end to end. It is published on its own because a part that only runs inside the repo
 that grew it is not a part — it is a dependency.
 
@@ -72,10 +70,8 @@ contract check fails the build when the manifests, the entry skill, or the route
 **Dual, and the gap that made it repo-bound is closed.** The method and the whole 31-example
 corpus always shipped inside the package. The one thing that did not was the theme:
 `write-chain-document` sent the writer to a retired document, which lived only
-in the workspace. That file is now bundled at `skills/write-chain-document/references/glass.css`
-and compared to its source on every check run (check 15), so a document written outside the workspace
-gets the same theme as one written inside it. Workspace records like
-`records/DECISION-LOG.md` are still read when present and simply skipped when not — they
+in this repository. That file is now bundled at `skills/write-chain-document/references/glass.css`
+gets the same theme as one written inside it. Repo-side records like
 are provenance, not inputs.
 
 The history is worth keeping: this block said "standalone", was corrected to "repo-bound" on
