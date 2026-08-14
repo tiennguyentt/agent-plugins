@@ -54,7 +54,7 @@ It never pushes without asking. Every time.
 
 *Skills:* `write-scenarios` · `implement-behavior` · `gate-commit`
 
-### unknown-remover `1.3.1`
+### unknown-remover `1.4.0`
 
 **For when you don't know where to start.** It names which kind of unknown you're actually
 holding, picks the document that retires it, and writes exactly one — never a stack of
@@ -64,7 +64,7 @@ good looks like.
 *Skills:* `classify-unknown` · `choose-artifact-form` · `discover-anatomy` ·
 `write-chain-document`
 
-### eval-writer `1.2.0`
+### eval-writer `1.3.0`
 
 **"Is this LLM feature good?" — answered properly.** Turns a vague sense of quality into
 measurable criteria, an evaluation design, real test cases, and a recommendation on how to
@@ -73,7 +73,7 @@ invent a number — it hands you a discovery kit and says so.
 
 *Skills:* `write-success-criteria`
 
-### agent-builder `2.5.0`
+### agent-builder `2.6.0`
 
 **Capabilities that stay governed.** Checks whether your request needs an agent at all —
 most don't — then writes the specs, the skill files, and an evaluation skeleton. It builds

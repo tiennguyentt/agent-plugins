@@ -10,11 +10,11 @@ Six versioned Claude Code plugins, each in its own directory, published as the
 `agent-plugins` marketplace (root: `.agents/plugins/marketplace.json`, remote:
 `github.com/tiennguyentt/agent-plugins`):
 
-- `agent-builder` 2.5.0 — creates agents, skills, workflows
-- `behavior-implementer` 1.2.0 — scenario-first TDD implementation, gated commits
-- `eval-writer` 1.2.0 — success criteria and eval design for LLM output
-- `unknown-remover` 1.3.1 — names the unknown, writes exactly one document
-- `ui-verifier` 1.0.0 — hands-free macOS app UI testing, dual-host
+- `agent-builder` 2.6.0 — creates agents, skills, workflows
+- `behavior-implementer` 1.3.0 — scenario-first TDD implementation, gated commits
+- `eval-writer` 1.3.0 — success criteria and eval design for LLM output
+- `unknown-remover` 1.4.0 — names the unknown, writes exactly one document
+- `ui-verifier` 1.1.0 — hands-free macOS app UI testing, dual-host
 - `claude-code-for-codex` 1.0.1 — Claude Code delegation from Codex
 
 ## Rules specific to this repo

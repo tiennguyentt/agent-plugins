@@ -1,7 +1,7 @@
 # Define success criteria and build evaluations
 
 > **Provenance.** Anthropic's published documentation page *"Define success criteria and build
-> evaluations"*, supplied by Tiên on 2026-07-31. Reproduced here with the prose intact and the
+> evaluations"*, supplied by the user on 2026-07-31. Reproduced here with the prose intact and the
 > multi-language code samples reduced to Python only — the source page repeats each of six eval
 > recipes across Python, TypeScript, C#, Go, Java, PHP and Ruby. Nothing else was cut, reworded, or
 > added. This is reference material, never binding: `CORE/GUARDRAILS.md` §9 rule 3.

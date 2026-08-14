@@ -153,8 +153,7 @@ decision — *"Whisper is a language model that happens to be conditioned on aud
 
 ### 3 · SPEC
 
-**Job:** commit. Twelve sections, ending *"End of spec."* A build is licensed the moment the spec
-exists and is cited — there is no confirmation step to wait for (Tien removed the signing ceremony
+**Job:** commit. Twelve sections, ending *"End of spec."*
 2026-08-12).
 
 **This is where a structure is finally allowed to exist.** It is banned in every earlier document;

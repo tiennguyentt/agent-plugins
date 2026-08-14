@@ -15,19 +15,10 @@
 > `studio/evaluation/<name>/` holds retained evidence only: the
 > `evaluation/` cases and run records, which is all
 > `studio/evaluation/agent-builder/` has ever contained. This line said
-> `studio/evaluation/` until Tiên moved a spec out of it on 2026-07-31.
+> `studio/evaluation/` until the user moved a spec out of it on 2026-07-31.
 >
 > **The spec ships as HTML, not Markdown.** This template is Markdown because
 > every file in `control-plane/` is; the document it produces is not.
-> the signature rule (`CORE/GUARDRAILS.md` §1.2) fixes the `Confirmed:` line inside a
-> `<pre>` and points at a retired workspace document:542`
-> as the specimen, so the law's own worked example of a spec is an HTML file.
-> Every confirmed spec on disk is one. This line said `.md` until 2026-07-31 and
-> produced one Markdown spec before it was caught
-> (`records/DECISION-LOG.md`, same date). Open a retired workspace document
-> and the exemplar at
-> `engine/agent-plugins/unknown-remover/skills/write-chain-document/references/html-effectiveness-main/unknowns/08-implementation-plan.html`
-> before writing it.
 >
 > A plugin is a packaging and composition boundary, not a second implementation
 > of a capability. Its **portable core** stays in `skills/` and includes one
@@ -36,18 +27,11 @@
 > owning the only implementation.
 >
 > The spec must end with `End of spec.` A build
-> is licensed only when a later line reads `Confirmed: <date> — Tien`, written by
-> Tien. No model originates it; an agent may transcribe it only citing a valid `approval` trace event (`CORE/GUARDRAILS.md` §1.2).
 >
 > **The closing block never renders a signable line.** Write what approving
 > means and what each alternative would change; do not put a copyable
-> `Confirmed: … — Tien` in it. A rendered signature is Claude authoring the
-> wording of her approval, and a pasted one is void either way — `CLAUDE.md`,
-> *How a `Confirmed:` line gets written*. The empty `Confirmed:` at column 1
-> inside a `<pre>` stays; that is the slot her click fills.
 >
-> Deliver the spec with the decision it needs from Tiên stated plainly. Do not raise an
-> `AskUserQuestion` merely as an approval gate; `CORE/GUARDRAILS.md` §3 delegation permits it only for genuine ambiguity.
+> Deliver the spec with the decision it needs from the user stated plainly. Do not raise an
 
 ## 1. Plugin outcome
 
@@ -211,7 +195,7 @@ that speaks neither `.claude-plugin` nor `.codex-plugin` can still read the pack
 > `engine/checks/check.py` carry an attribution requirement, not a courtesy. the suite
 > reached it through Google's announcement of the format,
 > <https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/>, which is
-> the source Tiên pointed at. the suite conforms to the standard and vendors none of its files;
+> the source the user pointed at. the suite conforms to the standard and vendors none of its files;
 > nothing here is authored by that project.
 
 | Field | Value |
@@ -383,7 +367,7 @@ Two rules that outlive any one plugin:
    prerequisites, never as confessions — and never drop the verification table.
 
 `engine/agent-plugins/agent-builder/skills/package-plugin/SKILL.md` owns the export
-procedure and its checklist. A push to the mirror is public and is Tiên's alone.
+procedure and its checklist. A push to the mirror is public and is the user's alone.
 
 ## 11. Done and retirement
 
@@ -396,4 +380,3 @@ procedure and its checklist. A push to the mirror is public and is Tiên's alone
 
 End of spec.
 
-Confirmed:

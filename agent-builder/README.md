@@ -28,7 +28,7 @@ engine/agent-plugins/agent-builder/
     │   ├── SKILL.md
     │   ├── create-capability.workflow.js   the Claude orchestration adapter
     │   ├── references/forms/    the four spec templates it fills
-    │   └── scripts/             the `Confirmed:` gate it runs
+    │   └── scripts/             the spec checks it runs
     ├── evaluate-capability/     independent review
     │   ├── SKILL.md
     │   └── rubric.md            read by a verifier that did not produce the work
@@ -118,7 +118,7 @@ and `studio/evaluation/<name>/`. Outside one, it runs standalone — gated by it
 `skills/create-capability/scripts/check-confirmed.py`, against the vendored forms and
 `.agent-builder/specs/` in the consumer's own project — refusing any build ahead of a spec the
 consumer signs themselves, and scaffolding that spec rather than stopping bare. Neither mode
-grants autonomy or loosens the `Confirmed:` gate; only its authority and file locations move.
+grants autonomy; only its authority and file locations move.
 
 The plugin has no MCP server, command, monitor, hook, or runtime template copy.
 

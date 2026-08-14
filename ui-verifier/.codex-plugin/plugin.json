@@ -1,7 +1,7 @@
 {
   "name": "ui-verifier",
-  "version": "1.0.0",
-  "description": "Tests a macOS app's UI hands-free: off-screen launch, Accessibility-tree gates, screenshot capture with vision review, and golden AX-tree snapshot regression — every number measured, nothing advertised it cannot deliver.",
+  "version": "1.1.0",
+  "description": "Tests a macOS app's UI hands-free: off-screen launch, Accessibility-tree gates, screenshot capture with vision review, and golden AX-tree snapshot regression \u2014 every number measured, nothing advertised it cannot deliver.",
   "author": {
     "name": "Tien Nguyen"
   },

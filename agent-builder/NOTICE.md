@@ -1,6 +1,6 @@
 # Third-party material in this plugin
 
-`agent-builder` bundles one skill that is **not Tiên's work**:
+`agent-builder` bundles one skill that is **not the user's work**:
 
 | Path | Author | Licence |
 |---|---|---|
@@ -13,6 +13,6 @@ having to walk into a skill.
 
 Everything else in this plugin — the other three `SKILL.md` files, the `evaluate-capability`
 rubric, the `create-capability` workflow adapter, its forms and scripts, the agent adapter,
-`README.md`, and all three manifests — is Tiên's work under the repository `LICENSE`
-(MIT, © 2026 Tien Nguyen). The `author` field in the manifests names her as author of
+`README.md`, and all three manifests — is the user's work under the repository `LICENSE`
+(MIT, © 2026 the user Nguyen). The `author` field in the manifests names her as author of
 `agent-builder`; **that claim does not extend to `skills/no-ai-slop/`.**

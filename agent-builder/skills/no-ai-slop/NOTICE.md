@@ -1,32 +1,32 @@
 # Third-party skill
 
-`no-ai-slop` is **not Tiên's work.** It was written by **Peter G Yang** and published at
+`no-ai-slop` is **not the user's work.** It was written by **Peter G Yang** and published at
 <https://github.com/petergyang/no-ai-slop> under the **MIT licence**, stated in this folder's
 `README.md`.
 
 It is redistributed inside this package because `CLAUDE.md` "Before you act" rule 5 requires running
-it over anything Tiên will read, and the skill previously lived only at `~/.claude/skills/`, outside
+it over anything the user will read, and the skill previously lived only at `~/.claude/skills/`, outside
 this repo and outside git. A wipe of the host would have left that rule pointing at nothing.
 
 **What that means for anyone reading the package:**
 
-- The repository `LICENSE` (MIT, © 2026 Tien Nguyen) covers Tiên's work. **It does not cover this
+- The repository `LICENSE` (MIT, © 2026 the user Nguyen) covers the user's work. **It does not cover this
   folder.** This folder is MIT under its original author's copyright.
-- The plugin manifests name Tien Nguyen as author of `agent-builder`. That authorship claim does
+- The plugin manifests name the user Nguyen as author of `agent-builder`. That authorship claim does
   **not** extend to this skill.
 - `README.md` in this folder is the upstream author's, kept intact as the attribution. Its line
   *"Install this skill globally"* describes the upstream install route and does not apply here,
   because the skill now ships inside this package.
 
 **What the suite changed, and when.** MIT permits modification; this list exists so a reader can tell
-the upstream author's work from Tiên's.
+the upstream author's work from the user's.
 
 1. **2026-07-30 — the `description:` line in `SKILL.md`**, to carry the ` prefix every
    installed skill in this package uses so it is identifiable in the selector.
 2. **2026-07-31 — a "Sentence and paragraph length" section in `SKILL.md`**, five matching checks in
-   `references/eval.md`, and `references/prose-metrics.py`. Tiên asked for a length standard after
+   `references/eval.md`, and `references/prose-metrics.py`. the user asked for a length standard after
    reading drafts whose sentences ran long. The numbers were set by measuring this repo, not
-   imported from upstream. The script is Tiên's work, MIT under the repository `LICENSE`.
+   imported from upstream. The script is the user's work, MIT under the repository `LICENSE`.
 
 Every other rule, word list and pattern in `SKILL.md` is the upstream author's, unchanged.
 

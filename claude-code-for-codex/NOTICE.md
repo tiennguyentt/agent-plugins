@@ -37,4 +37,4 @@ Code — the same architecture with the direction of delegation reversed.
 - Session transfer is inverted: upstream reads a Claude Code transcript to hand to Codex; this
   reads a Codex session to hand to Claude Code.
 
-Modifications are Copyright 2026 Tien Nguyen, released under the same Apache-2.0 terms.
+Modifications are Copyright 2026 the user Nguyen, released under the same Apache-2.0 terms.

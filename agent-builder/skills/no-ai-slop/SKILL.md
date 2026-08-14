@@ -72,7 +72,7 @@ draft can pass every number here and still read like a machine wrote it. The res
 what catches that.
 
 *The numbers came from measuring the suite on 2026-07-31, not from a style guide.* This skill scored
-median 13 and p90 23, and it reads fine. `CLAUDE.md` scored median 24 and p90 53. The two files Tiên
+median 13 and p90 23, and it reads fine. `CLAUDE.md` scored median 24 and p90 53. The two files the user
 opens most often were the two worst.
 
 ## Words to cut

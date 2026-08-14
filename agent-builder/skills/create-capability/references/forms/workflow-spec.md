@@ -2,9 +2,6 @@
 
 > **How to use this.** Copy into the capability's own chain folder as
 > `studio/evaluation/<name>/<YYYY-MM-DD>-spec-<name>.md` — date first, per the v1 naming rules (retired 2026-08-05; date-first kept by convention) naming rule 1.
-> **Card §12·2 closed 2026-07-26** on Tiên's signature: one folder per capability at
-> `studio/evaluation/<name>/`, because *"a folder boundary is checkable; a filename convention is a habit."*
-> The folder does not exist yet — the first capability to need it makes it.
 >
 > **Retitle the H1.** `# Workflow Spec — <name>` names the form, which the v1 naming rules (retired 2026-08-05; the form stands by convention) bans in
 > a title: the filename already carries `spec` and the date. Replace it with plain English naming
@@ -36,12 +33,10 @@
 > deleted) is about the **composed** sense: **keep the steps fixed.** It is not an instruction to
 > author a file.
 >
-> **Ends with `End of spec.`** A build is licensed the moment this spec exists and is cited; the signing ceremony was removed 2026-08-12 and Tien removed the wait again the same day ("gỡ việc chờ tiên ra > tiên cấp full quyền cho agent till done"). A `Confirmed:` line records when she said so, and no model ever writes it — but its absence blocks nothing. Formerly licensed only by
-> `Confirmed: <date> — Tien`, written by her. **No model originates it; transcription requires a cited `approval` trace event (`CORE/GUARDRAILS.md` §1.2).**
 
 ## 1. What this workflow produces
 
-- **The valuable outcome**, in one sentence Tien would recognise:
+- **The valuable outcome**, in one sentence the user would recognise:
 - **Non-goals:** what it must not drift into.
 - **Why fixed steps beat one agent here:** which parts genuinely need judgment, and which are
   mechanical. If an agent shell is still needed, say which steps it orchestrates
@@ -57,7 +52,7 @@
   retains its separate noun-role identity.
 - **Sensitivity:** `CORE/GUARDRAILS.md` §4's tiers are **RATIFIED** as of 2026-07-26 — give the tier letter
   (S / C / P) plus plain words for what it touches.
-- **Owner:** Tien.
+- **Owner:** the repo owner.
 
 ## 3. The blocks it is made of
 
@@ -71,7 +66,7 @@ One row per artifact this workflow actually writes. In this order, top to bottom
 > **The last column is the one that matters, and it is the reason this template exists.** Fill it
 > honestly for every row. Only three things hold a step by themselves: a permission rule, a hook,
 > and a frontmatter field the harness reads (`tools:` on an agent bounds a whole session;
-> `disable-model-invocation: true` means only Tien can fire it; a `skills:` array loads
+> `disable-model-invocation: true` means the model does not fire it unprompted; a `skills:` array loads
 > deterministically where a description match only might). **Numbered steps and shouted warnings in
 > prose hold nothing** — there is no markdown construct that makes step 4 unable to run before
 > step 3.
@@ -82,7 +77,7 @@ One row per artifact this workflow actually writes. In this order, top to bottom
 > can make them modify the repo.
 >
 > **So: a step that must not be skippable cannot be held by prose.** Give it a tool restriction, a
-> permission rule, or Tien firing it by hand — or write plainly in this table that it is a
+> permission rule, or the user firing it by hand — or write plainly in this table that it is a
 > convention only, and add a golden-set case that tests for it. Never leave the column blank.
 
 - **Permission rule** — a tool must be blocked or surfaced every time, in every session. The only
@@ -165,7 +160,7 @@ a step must read — use `ask`. A skill's `allowed-tools` pre-approves and does 
 `ref-formats.md` or those records is written as *tested at build time*.
 
 **State coverage:** empty / malformed / ambiguous / duplicate / no-bucket → always "surface to
-Tien with context." **Idempotency:** re-run behavior, and what makes duplicate side effects
+the user with context." **Idempotency:** re-run behavior, and what makes duplicate side effects
 impossible.
 
 ## 8. Injection posture, trifecta, evals
@@ -190,7 +185,7 @@ is written, and whether it is gitignored.
 
 ## 10. Build order
 
-Numbered, independently checkable, **step 1 a declared throwaway**. Mark the steps only Tien can
+Numbered, independently checkable, **step 1 a declared throwaway**. Mark the steps only the user can
 do. Every step asserting harness behavior carries its own verification and a pre-written fallback.
 
 ## 11. Done-criteria and retirement
@@ -202,4 +197,3 @@ standing mandate and failure path are tested. **Retirement condition:** what mak
 
 End of spec.
 
-Confirmed:

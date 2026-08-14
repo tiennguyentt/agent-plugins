@@ -127,7 +127,7 @@ agent-plugins/
 
 Nothing wraps the plugins. The mirror carried `plugins/agent-plugins/<name>/` until
 2026-08-07, a level that said "plugins/plugins" and implied a hierarchy that does not
-exist — Tiên's ruling: *"all the 4 plugin này là ngang nhau, nothing is root."* Wrap only
+exist — the user's ruling: *"all the 4 plugin này là ngang nhau, nothing is root."* Wrap only
 when there is a real sibling distinction to encode, as `anthropics/claude-plugins-official`
 has with `external_plugins/`; `anthropics/knowledge-work-plugins` wraps nothing because it
 has nothing to distinguish, and neither does this.
@@ -157,13 +157,13 @@ canonical was 1.1.1 because the rows were hand-edited and nothing compared them.
 mirror silently went stale the first time, within an hour, when this very file changed.
 
 Then `claude plugin validate` the marketplace and each plugin at its new path. The script
-never runs git. **A push to this repo is public: Tiên's alone.**
+never runs git. **A push to this repo is public: the user's alone.**
 
 **One release, one commit, version first.** The mirror is tagged with repo-level semver
 (`v1.0.0` … `v2.0.0`), and its commit subject leads with that version:
 `v2.0.0 — Agent Plugins 1.0.0, flat layout, new repo name`. GitHub prints the last commit
 touching each file beside it, so a narrative subject fills that column with prose that says
-nothing about what changed — Tiên rejected exactly that view on 2026-08-07. Squash a
+nothing about what changed — the user rejected exactly that view on 2026-08-07. Squash a
 release into one commit, put the per-plugin version moves in the body as a table, mark a
 changed install command or layout `BREAKING`, then tag. One commit touching everything also
 makes the file listing legible in one read.
@@ -176,7 +176,7 @@ makes the file listing legible in one read.
 - Never require an optional `.codex/agents/*.toml` file for bare-plugin use.
 - Never hand-edit host registries when the supported plugin CLI owns the update.
 
-## How you answer Tien
+## How you answer
 
 Report the final namespace, exact Claude and Codex invocations, installed
 versions, E2E results, and any remaining blocker. Do not dump full logs.

@@ -1,10 +1,10 @@
 # Third-party material in this plugin
 
-**Most of `references/` is not Tiên's work — and one file in it is.** Two outside authors, two
-licensing positions. The manifests name Tien Nguyen as author of `unknown-remover`; that claim covers the four `SKILL.md`
+**Most of `references/` is not the user's work — and one file in it is.** Two outside authors, two
+licensing positions. The manifests name the user Nguyen as author of `unknown-remover`; that claim covers the four `SKILL.md`
 files, both `rubric.md` files, the workspace-authored `skills/discover-anatomy/references/anatomy-form.md`,
 the agent adapter, `README.md`, both manifests, this notice, **and
-`skills/write-chain-document/references/lessons.md`** — its own header records that §§1–9 came from Tiên's machine running
+`skills/write-chain-document/references/lessons.md`** — its own header records that §§1–9 came from the user's machine running
 links 1–3 of one chain end to end on 2026-07-23, n = 1. An earlier version of this notice
 over-attributed that file to the corpus. The authorship claim does not extend to the rest of the
 bundled corpus.
@@ -17,7 +17,7 @@ silently.
 ## 1 · The method — Thariq, via `thariq-os`
 
 The five-document chain, the four quadrants, the unknown-removal framing, and the forms map are
-**not Tiên's invention.** They were reconstructed from primary sources by **Thariq (Claude Code
+**not the user's invention.** They were reconstructed from primary sources by **Thariq (Claude Code
 team)**: two recorded conversations, his published post on context engineering, and 34 screenshots
 of his own documents. The reconstruction lived in a folder of method notes on this machine. **That
 folder was deleted on 2026-07-31 once this mirror was committed to git**, so the copy here is now
@@ -32,7 +32,7 @@ out of the distributable (§3 records the addresses that broke). What sits where
 | `mental-model.md` | the thinking layer — unknown removal, the four quadrants, where unknowns live | `references/`, in this package |
 | `chain.md` | the five document types and the feature-ownership table | `references/`, in this package |
 | `toolkit.md` | the eleven prompt-printing forms, mapped onto the five | `references/`, in this package |
-| `lessons.md` | what broke when the chain was run for real — Tiên's own file, see above | `references/`, in this package |
+| `lessons.md` | what broke when the chain was run for real — the user's own file, see above | `references/`, in this package |
 | `html-effectiveness-main/` | the Apache-2.0 corpus — see §2 | `references/`, in this package |
 | `README.md` | the corpus's own entry document | `studio/capabilities/unknown-remover/provenance/`, outside the package |
 | `method.html` | the rendered reference | same, outside the package |
@@ -47,14 +47,14 @@ distribution: 240K of provenance nothing at runtime reads moved to
 `studio/capabilities/unknown-remover/provenance/`, the four broken addresses are recorded in §3
 rather than edited away, and what installs is only what the skills read.
 
-**The licence position, decided by Tiên on 2026-07-31** (recorded in
+**The licence position, decided by the user on 2026-07-31** (recorded in
 `records/DECISION-LOG.md`; it supersedes the local-install-only rule this notice carried
 before, and the CLOSE on spec §12·D4 that rule came from). Thariq publishes the method openly at
 <https://thariqs.github.io/html-effectiveness/unknowns/>, and that site's repository,
 `github.com/thariqs/html-effectiveness`, is **Apache License 2.0** — the same corpus bundled in §2
 with its `LICENSE` file travelling. The three method files above are not copies from that
 repository: they are reconstructions written on this machine from his public talks, his published
-post, and screenshots, carrying short attributed quotes, and `lessons.md` is Tiên's own. On that
+post, and screenshots, carrying short attributed quotes, and `lessons.md` is the user's own. On that
 basis attribution is the licence: **Thariq is credited here, this notice travels with every copy of
 the package, and it may not be removed from it.** The residual risk stays named rather than
 cleared: the reconstruction drew on 34 screenshots of his own documents, which sits closer to
@@ -63,7 +63,7 @@ conversation transcripts and the ingested copies of his post and demo files — 
 any install; it sits outside the package at `studio/capabilities/unknown-remover/provenance/`.
 
 **One contaminated block was removed upstream before this copy was taken.** `mental-model.md`
-carried a ``-tagged sentence naming **Tiên or Mew** as who confirms a stage, against the
+carried a ``-tagged sentence naming **the user or Mew** as who confirms a stage, against the
 folder's own first line — *"Copy this folder into any project. Nothing in it is about you or about
 personal-os"* — and against its Provenance rule. "Mew" was additionally the pre-2026-07-26 name for
 Claude. It was deleted from the source `mental-model.md` on 2026-07-31 and the file re-copied here before

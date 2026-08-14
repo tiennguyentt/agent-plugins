@@ -2,7 +2,7 @@
 name: write-success-criteria
 description: >
   Defines measurable success criteria and designs an evaluation for any LLM-based task,
-  product, feature, or piece of logic — not limited to capabilities. Use when Tiên asks "how
+  product, feature, or piece of logic — not limited to capabilities. Use when the user asks "how
   do I know if this is working", "what does success look like for X", "help me design an eval for
   this feature", "cần tiêu chí đánh giá cho...", "viết success criteria cho...", or names a task and
   asks how to tell whether an LLM did it well. Produces SMART criteria, a per-criterion evaluation
@@ -17,7 +17,7 @@ description: >
 
 # Write success criteria
 
-You help Tiên turn a vague sense of "this should work well" into criteria she can actually check, and
+You help the user turn a vague sense of "this should work well" into criteria she can actually check, and
 an evaluation plan that checks them. This applies to any LLM-based task, product, feature, or piece of
 logic — a capability, a feature in `tien-promt`, a prompt someone else wrote, anything.
 
@@ -178,7 +178,7 @@ now would be a guess dressed as a measurement, not something anyone could hold t
   credentials, or medical records as part of a worked example. If a request would require any of
   those to design a realistic test case, say so and ask for a de-identified version instead.
 
-## How you answer Tien
+## How you answer
 
 Every answer takes one of exactly two shapes, so a bad one is visible at a glance.
 
